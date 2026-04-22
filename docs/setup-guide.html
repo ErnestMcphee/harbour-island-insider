@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harbour Island Insider — Complete Launch Guide</title>
+  <style>
+    /* ============================================================
+       Design Tokens
+       ============================================================ */
+    :root {
+      --ocean:      #023E8A;
+      --ocean-mid:  #0466C8;
+      --ocean-light:#E8F1FB;
+      --coral:      #E07B54;
+      --coral-light:#FDF0EA;
+      --sand:       #F5E6C8;
+      --sand-dark:  #E8D5A3;
+      --white:      #FFFFFF;
+      --ink:        #1A1A2E;
+      --ink-mid:    #3D3D5C;
+      --ink-light:  #6B7280;
+      --success:    #0F7B55;
+      --success-bg: #ECFDF5;
+      --code-bg:    #0F1629;
+      --code-text:  #A8D8EA;
+      --radius:     10px;
+      --radius-sm:  6px;
+      --shadow:     0 2px 12px rgba(2,62,138,0.10);
+      --shadow-lg:  0 8px 32px rgba(2,62,138,0.15);
+      --nav-width:  260px;
+    }
+
+    /* ============================================================
+       Reset & Base
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #F7F9FC;
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ============================================================
+       Site Header
+       ============================================================ */
+    .site-header {
+      background: var(--ocean);
+      color: var(--white);
+      padding: 48px 40px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(224,123,84,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .site-header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: 30%;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(4,102,200,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .blog-name {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 12px;
+    }
+
+    .site-header h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .site-header .subtitle {
+      font-size: 17px;
+      color: rgba(255,255,255,0.75);
+      max-width: 540px;
+      line-height: 1.5;
+    }
+
+    .header-meta {
+      margin-top: 28px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .header-badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* ============================================================
+       Layout
+       ============================================================ */
+    .layout {
+      display: flex;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    /* ============================================================
+       Sticky Nav
+       ============================================================ */
+    .progress-nav {
+      width: var(--nav-width);
+      flex-shrink: 0;
+      position: sticky;
+      top: 24px;
+    }
+
+    .progress-nav h2 {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 14px;
+      padding-left: 4px;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: var(--ink-mid);
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+      border-left: 3px solid transparent;
+    }
+
+    .nav-list a:hover {
+      background: var(--ocean-light);
+      color: var(--ocean);
+      border-left-color: var(--ocean-mid);
+    }
+
+    .nav-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--sand);
+      color: var(--ocean);
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .nav-list a:hover .nav-num {
+      background: var(--ocean);
+      color: var(--white);
+    }
+
+    .nav-footer {
+      margin-top: 20px;
+      padding: 14px;
+      background: var(--sand);
+      border-radius: var(--radius);
+      font-size: 12px;
+      color: var(--ink-mid);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       Main Content
+       ============================================================ */
+    .main-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* ============================================================
+       Phase Sections
+       ============================================================ */
+    .phase {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 36px;
+      overflow: hidden;
+    }
+
+    .phase-header {
+      background: var(--ocean);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .phase-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.35);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .phase-title-group h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .phase-title-group p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      margin-top: 3px;
+    }
+
+    .phase-body {
+      padding: 32px;
+    }
+
+    /* ============================================================
+       Steps
+       ============================================================ */
+    .step {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .step:last-child { margin-bottom: 0; }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: var(--ocean-light);
+      color: var(--ocean);
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-content h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .step-content p {
+      color: var(--ink-mid);
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .step-content p:last-child { margin-bottom: 0; }
+
+    /* ============================================================
+       Badges
+       ============================================================ */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-action {
+      background: var(--coral-light);
+      color: #B84E28;
+      border: 1px solid #F0BDA9;
+    }
+
+    .badge-done {
+      background: var(--success-bg);
+      color: var(--success);
+      border: 1px solid #A7F3D0;
+    }
+
+    .badge-info {
+      background: var(--ocean-light);
+      color: var(--ocean);
+      border: 1px solid #BAD5F7;
+    }
+
+    /* ============================================================
+       Code blocks
+       ============================================================ */
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 18px 20px;
+      border-radius: var(--radius-sm);
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+      font-size: 13.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 12px 0;
+      border-left: 3px solid var(--ocean-mid);
+    }
+
+    code {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+      font-size: 13px;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: inherit;
+    }
+
+    .code-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 4px;
+    }
+
+    /* ============================================================
+       Callout boxes
+       ============================================================ */
+    .callout {
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      margin: 14px 0;
+      font-size: 14.5px;
+    }
+
+    .callout-tip {
+      background: var(--ocean-light);
+      border-left: 4px solid var(--ocean-mid);
+      color: var(--ocean);
+    }
+
+    .callout-warn {
+      background: #FFF8EC;
+      border-left: 4px solid #F59E0B;
+      color: #92400E;
+    }
+
+    .callout-important {
+      background: var(--coral-light);
+      border-left: 4px solid var(--coral);
+      color: #7C3A20;
+    }
+
+    .callout strong {
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       Tables
+       ============================================================ */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    thead th {
+      background: var(--ocean);
+      color: var(--white);
+      font-weight: 600;
+      padding: 12px 16px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+    thead th:last-child  { border-radius: 0 var(--radius-sm) 0 0; }
+
+    tbody tr:nth-child(even) { background: var(--ocean-light); }
+
+    tbody td {
+      padding: 11px 16px;
+      border-bottom: 1px solid #E5EAF2;
+      vertical-align: top;
+      color: var(--ink-mid);
+      line-height: 1.5;
+    }
+
+    tbody td:first-child {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .plugin-name {
+      font-weight: 700;
+      color: var(--ocean);
+    }
+
+    .plugin-free  { color: var(--success); font-size: 12px; font-weight: 600; }
+    .plugin-paid  { color: var(--coral);   font-size: 12px; font-weight: 600; }
+
+    /* ============================================================
+       Checklist
+       ============================================================ */
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--ink-mid);
+    }
+
+    .checklist li input[type="checkbox"] {
+      width: 18px; height: 18px;
+      border-radius: 4px;
+      accent-color: var(--ocean);
+      flex-shrink: 0;
+      margin-top: 3px;
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       Dividers
+       ============================================================ */
+    .section-divider {
+      border: none;
+      border-top: 2px dashed var(--sand-dark);
+      margin: 28px 0;
+    }
+
+    /* ============================================================
+       Highlight rows (for key settings)
+       ============================================================ */
+    .setting-row {
+      display: flex;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--sand);
+      border-radius: var(--radius-sm);
+      margin: 8px 0;
+      font-size: 14.5px;
+      align-items: baseline;
+    }
+
+    .setting-label {
+      font-weight: 700;
+      color: var(--ocean);
+      white-space: nowrap;
+      min-width: 160px;
+    }
+
+    .setting-value {
+      color: var(--ink-mid);
+    }
+
+    /* ============================================================
+       Phase 7 special launch checklist
+       ============================================================ */
+    .launch-checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .launch-checklist { grid-template-columns: 1fr; }
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--ocean-light);
+      border-radius: var(--radius-sm);
+      border: 1px solid #BAD5F7;
+      font-size: 14px;
+      color: var(--ink-mid);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .check-item:hover { background: #D6E9F8; }
+
+    .check-item input[type="checkbox"] {
+      width: 18px; height: 18px;
+      accent-color: var(--ocean);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 820px) {
+      .layout { flex-direction: column; padding: 24px 16px 60px; }
+      .progress-nav { width: 100%; position: static; }
+      .nav-list { flex-direction: row; flex-wrap: wrap; }
+      .nav-list a { font-size: 12px; padding: 8px 12px; }
+      .phase-body { padding: 22px; }
+      .site-header { padding: 36px 22px 32px; }
+      .launch-checklist { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================
+     SITE HEADER
+     ================================================================ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="blog-name">Harbour Island Insider</div>
+    <h1>Complete Launch Guide</h1>
+    <p class="subtitle">Your step-by-step guide from finished project files to a live WordPress website — no developer required.</p>
+    <div class="header-meta">
+      <span class="header-badge">6 Phases</span>
+      <span class="header-badge">Updated April 2026</span>
+      <span class="header-badge">WordPress 6.x</span>
+      <span class="header-badge">harbourislandinsider.com</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================================================================
+     LAYOUT
+     ================================================================ -->
+<div class="layout">
+
+  <!-- ============================================================
+       STICKY PROGRESS NAV
+       ============================================================ -->
+  <nav class="progress-nav" aria-label="Page sections">
+    <h2>Jump to Phase</h2>
+    <ul class="nav-list">
+      <li>
+        <a href="#phase-1">
+          <span class="nav-num">1</span>
+          Domain &amp; Hosting
+        </a>
+      </li>
+      <li>
+        <a href="#phase-2">
+          <span class="nav-num">2</span>
+          WordPress Config
+        </a>
+      </li>
+      <li>
+        <a href="#phase-3">
+          <span class="nav-num">3</span>
+          Essential Plugins
+        </a>
+      </li>
+      <li>
+        <a href="#phase-4">
+          <span class="nav-num">4</span>
+          Import Content
+        </a>
+      </li>
+      <li>
+        <a href="#phase-5">
+          <span class="nav-num">5</span>
+          SEO Setup
+        </a>
+      </li>
+      <li>
+        <a href="#phase-6">
+          <span class="nav-num">6</span>
+          Email / Mailchimp
+        </a>
+      </li>
+      <li>
+        <a href="#phase-7">
+          <span class="nav-num">&#10003;</span>
+          Launch Checklist
+        </a>
+      </li>
+    </ul>
+    <div class="nav-footer">
+      <strong>Estimated total time:</strong><br/>
+      3–5 hours across 2–3 sessions. DNS propagation takes up to 48 hours — plan accordingly.
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main class="main-content">
+
+    <!-- ============================================================
+         PHASE 1: Domain & Hosting
+         ============================================================ -->
+    <section class="phase" id="phase-1">
+      <div class="phase-header">
+        <div class="phase-number">1</div>
+        <div class="phase-title-group">
+          <h2>Domain &amp; Hosting</h2>
+          <p>Register your domain, buy hosting, and install WordPress</p>
+        </div>
+      </div>
+      <div class="phase-body">
+
+        <!-- Step 1.1 -->
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>
+              Register your domain
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <p>Your recommended domain is <code>harbourislandinsider.com</code>. Register it at one of these registrars:</p>
+            <div class="setting-row">
+              <span class="setting-label">Namecheap</span>
+              <span class="setting-value">namecheap.com — approx. $12–14/year. Includes free WhoisGuard privacy. Excellent control panel.</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Google Domains</span>
+              <span class="setting-value">domains.google — approx. $12/year. Simple, clean UI, free privacy included. Integrates with Google Search Console.</span>
+            </div>
+            <div class="callout callout-tip">
+              <strong>Tip:</strong> Check for first-year coupon codes before checkout — Namecheap often offers domains for $7–9 in the first year.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 1.2 -->
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>
+              Buy WordPress hosting
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <p>Choose managed WordPress hosting — it handles server security, updates, and caching automatically, which directly improves your Google rankings.</p>
+            <div class="setting-row">
+              <span class="setting-label">WP Engine Starter</span>
+              <span class="setting-value">~$20/month. Best performance and support. Built-in CDN (Global Edge Security). Ideal if you plan to grow the blog seriously. <strong>wpengine.com</strong></span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">SiteGround GrowBig</span>
+              <span class="setting-value">~$15/month (first year often $3–6 on sale). Excellent speed, free daily backups, free CDN, and great customer support. <strong>siteground.com</strong></span>
+            </div>
+            <div class="callout callout-tip">
+              <strong>Recommendation:</strong> Start with <strong>SiteGround GrowBig</strong> — the first-year discount is significant, and it handles everything a travel blog needs. Upgrade to WP Engine later if traffic grows.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 1.3 -->
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>
+              Point your domain DNS to hosting
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <p>After purchasing hosting, your host will give you nameserver addresses (e.g. <code>ns1.siteground.net</code> and <code>ns2.siteground.net</code>). You need to update these at your domain registrar.</p>
+            <p><strong>At Namecheap:</strong></p>
+            <pre>1. Log in to namecheap.com
+2. Click "Domain List" in the left sidebar
+3. Click "Manage" next to your domain
+4. Under Nameservers, choose "Custom DNS"
+5. Enter the nameservers your host provided:
+      ns1.yourhostingprovider.net
+      ns2.yourhostingprovider.net
+6. Click the green tick to save</pre>
+            <div class="callout callout-warn">
+              <strong>Important:</strong> DNS propagation takes <strong>24–48 hours</strong> to complete worldwide. Your site may not resolve immediately — this is normal. You can check progress at <code>whatsmydns.net</code>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 1.4 -->
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>
+              Install WordPress
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <p>Both SiteGround and WP Engine offer a one-click WordPress installer in their control panels:</p>
+            <pre>SiteGround:  cPanel → Softaculous Apps Installer → WordPress → Install
+WP Engine:   Dashboard → Sites → Add Site → Install WordPress</pre>
+            <p>During installation, set:</p>
+            <div class="setting-row">
+              <span class="setting-label">Site Title</span>
+              <span class="setting-value">Harbour Island Insider</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Admin Username</span>
+              <span class="setting-value">Choose something other than "admin" (a security risk)</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Admin Email</span>
+              <span class="setting-value">Your email address — keep this safe, used for password resets</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         PHASE 2: WordPress Configuration
+         ============================================================ -->
+    <section class="phase" id="phase-2">
+      <div class="phase-header">
+        <div class="phase-number">2</div>
+        <div class="phase-title-group">
+          <h2>WordPress Configuration</h2>
+          <p>Configure core settings, install the theme and plugin</p>
+        </div>
+      </div>
+      <div class="phase-body">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Log in to WordPress Admin
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <p>Navigate to your WordPress dashboard by visiting:</p>
+            <pre>https://harbourislandinsider.com/wp-admin/</pre>
+            <p>Enter the username and password you set during installation.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Settings &#8594; General
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <div class="setting-row">
+              <span class="setting-label">Site Title</span>
+              <span class="setting-value">Harbour Island Insider</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Tagline</span>
+              <span class="setting-value">Your Independent Guide to Harbour Island, Bahamas</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">WordPress Address</span>
+              <span class="setting-value">https://harbourislandinsider.com</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Site Address</span>
+              <span class="setting-value">https://harbourislandinsider.com</span>
+            </div>
+            <p>Click <strong>Save Changes</strong>.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Settings &#8594; Reading
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <p>First, create two pages: <strong>Pages &#8594; Add New</strong> — create one titled "Home" and one titled "Journal". Then return here:</p>
+            <div class="setting-row">
+              <span class="setting-label">Your homepage displays</span>
+              <span class="setting-value">A static page</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Homepage</span>
+              <span class="setting-value">Home</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Posts page</span>
+              <span class="setting-value">Journal</span>
+            </div>
+            <p>Click <strong>Save Changes</strong>.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Settings &#8594; Permalinks
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <div class="callout callout-important">
+              <strong>Critical for SEO:</strong> This setting controls your URL structure. Choose it now — changing it later will break existing URLs and require redirects.
+            </div>
+            <p>Select <strong>"Post name"</strong> — this gives you clean URLs like <code>/journal/pink-sand-beach-complete-guide/</code> instead of <code>/?p=123</code>.</p>
+            <p>Click <strong>Save Changes</strong>.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h3>Settings &#8594; Discussion
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <p>For a new blog, we recommend requiring comment moderation to prevent spam:</p>
+            <div class="setting-row">
+              <span class="setting-label">Comment must be manually approved</span>
+              <span class="setting-value">Check this box &#10003;</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Comment author must have a previously approved comment</span>
+              <span class="setting-value">Check this box &#10003;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <h3>Install the Child Theme
+              <span class="badge badge-done">&#10003; Already Built</span>
+              <span class="badge badge-action">&#128100; Upload Required</span>
+            </h3>
+            <p>Your child theme files are already built in the <code>/wordpress/</code> folder of this project. To install:</p>
+            <pre>1. Zip the child-theme folder (right-click → Compress)
+2. WordPress Admin → Appearance → Themes → Add New
+3. Click "Upload Theme"
+4. Choose your zip file → Install Now
+5. Click "Activate"</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">7</div>
+          <div class="step-content">
+            <h3>Install the Custom Plugin
+              <span class="badge badge-done">&#10003; Already Built</span>
+              <span class="badge badge-action">&#128100; Upload Required</span>
+            </h3>
+            <p>The plugin file is at <code>/wordpress/valentines-plugin.php</code> in this project. WordPress requires plugins to be zipped inside a folder.</p>
+            <pre>1. Create a folder called "valentines-marina-plugin"
+2. Place valentines-plugin.php inside it
+3. Zip that folder
+4. WordPress Admin → Plugins → Add New → Upload Plugin
+5. Choose your zip file → Install Now
+6. Activate Plugin</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">8</div>
+          <div class="step-content">
+            <h3>Configure Plugin Settings
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <p>After activation, go to <strong>Settings &#8594; Harbour Island Insider</strong> and fill in:</p>
+            <div class="setting-row">
+              <span class="setting-label">GA4 Measurement ID</span>
+              <span class="setting-value">Your Google Analytics 4 ID (format: G-XXXXXXXXXX) — see Phase 5</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Mailchimp API Key</span>
+              <span class="setting-value">Your Mailchimp API key — see Phase 6</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Mailchimp List ID</span>
+              <span class="setting-value">Your Audience/List ID — see Phase 6</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Valentine's Booking URL</span>
+              <span class="setting-value">The URL for marina reservation enquiries</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Phone Number</span>
+              <span class="setting-value">Marina contact phone number</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         PHASE 3: Essential Plugins
+         ============================================================ -->
+    <section class="phase" id="phase-3">
+      <div class="phase-header">
+        <div class="phase-number">3</div>
+        <div class="phase-title-group">
+          <h2>Essential Plugins to Install</h2>
+          <p>Seven plugins every serious WordPress blog needs</p>
+        </div>
+      </div>
+      <div class="phase-body">
+
+        <p style="color:var(--ink-mid);margin-bottom:20px;">Install each via <strong>Plugins &#8594; Add New</strong> and search by name. Activate after installing. Configure the key setting noted below.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Plugin</th>
+                <th>Why You Need It</th>
+                <th>Cost</th>
+                <th>Key Setting After Install</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>
+                  <div class="plugin-name">Yoast SEO</div>
+                  <div style="font-size:12px;color:var(--ink-light);">Yoast BV</div>
+                </td>
+                <td>Sets SEO page titles and meta descriptions, generates XML sitemaps, adds schema markup, and gives you a content analysis traffic-light for every post. Essential.</td>
+                <td><span class="plugin-free">Free</span></td>
+                <td>SEO &#8594; Search Appearance: set the separator, homepage title &amp; description. Disable Yoast sitemap if using your own sitemap.xml.</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>
+                  <div class="plugin-name">WP Rocket</div>
+                  <div style="font-size:12px;color:var(--ink-light);">OR W3 Total Cache (free)</div>
+                </td>
+                <td>Page speed is a Google ranking factor. Caching plugins serve pre-built HTML to visitors instead of rebuilding each page — dramatically faster load times.</td>
+                <td><span class="plugin-paid">WP Rocket $49/yr</span><br/><span class="plugin-free">W3TC Free</span></td>
+                <td>Enable page caching, browser caching, and GZIP compression. If on SiteGround, use their built-in SG Optimizer plugin instead — already optimised for their servers.</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>
+                  <div class="plugin-name">Imagify</div>
+                  <div style="font-size:12px;color:var(--ink-light);">WP Media</div>
+                </td>
+                <td>Automatically compresses and converts your uploaded images to WebP format. Unoptimised images are the #1 cause of slow travel blogs. Free tier handles ~200 images/month.</td>
+                <td><span class="plugin-free">Free tier</span></td>
+                <td>Settings: set compression level to "Aggressive", enable WebP conversion, enable Bulk Optimization to compress existing library.</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>
+                  <div class="plugin-name">UpdraftPlus</div>
+                  <div style="font-size:12px;color:var(--ink-light);">Team Updraft</div>
+                </td>
+                <td>Automatic backups saved to Google Drive (or Dropbox/S3). If anything goes wrong — a bad plugin update, a hack — you can restore to yesterday's working version in minutes.</td>
+                <td><span class="plugin-free">Free</span></td>
+                <td>Settings &#8594; UpdraftPlus: set backup schedule (files weekly, database daily), connect Google Drive, run a manual backup immediately to confirm it works.</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>
+                  <div class="plugin-name">Akismet Anti-Spam</div>
+                  <div style="font-size:12px;color:var(--ink-light);">Automattic</div>
+                </td>
+                <td>Without Akismet, your comment section will fill with spam within days of launch. Akismet filters comments automatically. Free for personal/non-commercial use.</td>
+                <td><span class="plugin-free">Free</span></td>
+                <td>You need a WordPress.com account to get a free API key. Go to akismet.com, sign up, copy your API key into the Akismet settings page.</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>
+                  <div class="plugin-name">Wordfence Security</div>
+                  <div style="font-size:12px;color:var(--ink-light);">Defiant Inc.</div>
+                </td>
+                <td>Adds a firewall, malware scanner, and login protection (blocks brute-force password attacks). WordPress sites are a common target for automated bots.</td>
+                <td><span class="plugin-free">Free</span></td>
+                <td>After activation, run the Setup Wizard. Enable "Login Security" and set up 2-Factor Authentication for your admin account. Run an initial full scan.</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>
+                  <div class="plugin-name">MonsterInsights</div>
+                  <div style="font-size:12px;color:var(--ink-light);">Awesome Motive</div>
+                </td>
+                <td>Shows your Google Analytics data directly inside WP Admin — no need to tab to analytics.google.com constantly. See top pages, traffic sources, and referrers at a glance.</td>
+                <td><span class="plugin-free">Free</span></td>
+                <td>Connect your Google account when prompted, select your GA4 property. Then Insights &#8594; Reports to verify data is flowing.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         PHASE 4: Import Content
+         ============================================================ -->
+    <section class="phase" id="phase-4">
+      <div class="phase-header">
+        <div class="phase-number">4</div>
+        <div class="phase-title-group">
+          <h2>Import Content</h2>
+          <p>Create your 6 articles and 4 static pages in WordPress</p>
+        </div>
+      </div>
+      <div class="phase-body">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Understand Posts vs Pages</h3>
+            <p><strong>Posts</strong> are your journal articles — they appear in the blog archive, can have categories and tags, and are time-stamped. <strong>Pages</strong> are static content that doesn't change often (Home, About, Where to Stay).</p>
+            <div class="callout callout-tip">
+              Your 6 articles = <strong>Posts</strong>. Your Home, Journal, Where to Stay, and About = <strong>Pages</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Create the 6 Journal Articles (Posts)
+              <span class="badge badge-done">&#10003; Content Already Written</span>
+              <span class="badge badge-action">&#128100; Upload Required</span>
+            </h3>
+            <p>For each article, go to <strong>Posts &#8594; Add New</strong> and follow this checklist:</p>
+            <ul class="checklist">
+              <li><input type="checkbox" /> Paste the article title into the Title field</li>
+              <li><input type="checkbox" /> Paste the article body into the content editor (use the Text/Code tab if copying formatted HTML)</li>
+              <li><input type="checkbox" /> Set Featured Image (right sidebar): search Unsplash.com for "Harbour Island Bahamas" — download a high-res image and upload it here</li>
+              <li><input type="checkbox" /> Categories (right sidebar): assign to <code>journal_category</code></li>
+              <li><input type="checkbox" /> Tags: add 3–5 relevant tags (e.g. "pink sand beach", "Eleuthera", "Bahamas travel")</li>
+              <li><input type="checkbox" /> Yoast SEO panel (scroll below editor): enter a unique meta description (150–160 characters summarising the article)</li>
+              <li><input type="checkbox" /> Set the URL slug to match the planned URL (e.g. <code>pink-sand-beach-complete-guide</code>)</li>
+              <li><input type="checkbox" /> Click <strong>Publish</strong></li>
+            </ul>
+
+            <hr class="section-divider" />
+            <p><strong>Your 6 articles and their URL slugs:</strong></p>
+            <div class="setting-row">
+              <span class="setting-label">Article 1</span>
+              <span class="setting-value">Ultimate Cruiser's Guide to Valentine's Marina — <code>ultimate-cruisers-guide-valentines-marina</code></span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Article 2</span>
+              <span class="setting-value">Pink Sand Beach Complete Guide — <code>pink-sand-beach-complete-guide</code></span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Article 3</span>
+              <span class="setting-value">Top 7 Dive Sites at Harbour Island — <code>top-7-dive-sites-harbour-island</code></span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Article 4</span>
+              <span class="setting-value">Best Restaurants Harbour Island 2026 — <code>best-restaurants-harbour-island-2026</code></span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Article 5</span>
+              <span class="setting-value">Getting to Harbour Island — <code>getting-to-harbour-island</code></span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Article 6</span>
+              <span class="setting-value">25 Things to Do in Harbour Island — <code>25-things-to-do-harbour-island</code></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Create the Static Pages
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <p>Go to <strong>Pages &#8594; Add New</strong> and create these four pages:</p>
+            <div class="setting-row">
+              <span class="setting-label">Home</span>
+              <span class="setting-value">Title: "Home" — leave content blank for now; the theme template will handle the homepage layout</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Journal</span>
+              <span class="setting-value">Title: "Journal" — this becomes the blog archive automatically once set in Settings &#8594; Reading</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Where to Stay</span>
+              <span class="setting-value">Title: "Where to Stay" — add hotel and resort content from your content files</span>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">About</span>
+              <span class="setting-value">Title: "About" — introduce yourself and the blog's mission</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Set Up Navigation Menu
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <p>Go to <strong>Appearance &#8594; Menus &#8594; Create a new menu</strong>. Name it "Primary Menu".</p>
+            <p>Add these items in order:</p>
+            <div class="setting-row">
+              <span class="setting-label">Menu items</span>
+              <span class="setting-value">Home &nbsp;|&nbsp; Where to Stay &nbsp;|&nbsp; Journal &nbsp;|&nbsp; Food &amp; Drink &nbsp;|&nbsp; Marina Life &nbsp;|&nbsp; About &nbsp;|&nbsp; Newsletter</span>
+            </div>
+            <p>Under <strong>Menu Settings</strong>, check "Primary Menu" and click <strong>Save Menu</strong>.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         PHASE 5: SEO Setup
+         ============================================================ -->
+    <section class="phase" id="phase-5">
+      <div class="phase-header">
+        <div class="phase-number">5</div>
+        <div class="phase-title-group">
+          <h2>SEO Setup</h2>
+          <p>Submit your site to search engines and configure analytics</p>
+        </div>
+      </div>
+      <div class="phase-body">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Upload sitemap.xml and robots.txt
+              <span class="badge badge-done">&#10003; Files Already Built</span>
+              <span class="badge badge-action">&#128100; Upload Required</span>
+            </h3>
+            <p>Both files are in the <code>/seo/</code> folder of this project. They need to live in the root of your website so they're accessible at:</p>
+            <pre>https://harbourislandinsider.com/sitemap.xml
+https://harbourislandinsider.com/robots.txt</pre>
+            <p>Upload them via your hosting file manager or FTP to the <code>public_html/</code> directory (or <code>www/</code> — whichever is your web root).</p>
+            <div class="callout callout-tip">
+              <strong>SiteGround:</strong> cPanel &#8594; File Manager &#8594; public_html &#8594; Upload<br/>
+              <strong>WP Engine:</strong> SFTP to <code>/sites/your-site/public/</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Submit to Google Search Console
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <pre>1. Go to search.google.com/search-console
+2. Click "Add Property" → enter: https://harbourislandinsider.com
+3. Choose "URL prefix" verification method
+4. Select "HTML tag" option
+5. Copy the meta tag Google provides, e.g.:
+      &lt;meta name="google-site-verification" content="XXXXXXXXXXXX" /&gt;
+6. In WordPress: Yoast SEO → Settings → Webmaster Tools
+7. Paste the content value (just the alphanumeric code) into "Google"
+8. Save, then click "Verify" in Search Console
+9. Once verified: Sitemaps → enter "sitemap.xml" → Submit</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Submit to Bing Webmaster Tools
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <pre>1. Go to bing.com/webmasters
+2. Sign in with a Microsoft account
+3. Add your site: https://harbourislandinsider.com
+4. Verify via the XML file method or auto-import from Google Search Console
+5. Sitemaps → Submit → enter: https://harbourislandinsider.com/sitemap.xml</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Set Up Google Analytics 4
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <pre>1. Go to analytics.google.com
+2. Click Admin (gear icon, bottom left)
+3. Create Account → Account Name: "Harbour Island Insider"
+4. Create Property → Property Name: "harbourislandinsider.com"
+5. Select: Web → enter your URL → create Web Stream
+6. Copy your Measurement ID (format: G-XXXXXXXXXX)
+7. In WordPress: Settings → Harbour Island Insider → GA4 ID
+8. Paste your Measurement ID → Save</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h3>Verify GA4 Is Tracking</h3>
+            <p>After saving your GA4 ID, open a new browser tab and visit your website. Then go back to Google Analytics and check:</p>
+            <div class="setting-row">
+              <span class="setting-label">Path</span>
+              <span class="setting-value">Reports &#8594; Realtime &#8594; you should see "1 user in last 30 minutes"</span>
+            </div>
+            <div class="callout callout-tip">
+              If you don't see yourself in Realtime, clear your browser cache and try again. Ad blockers can block GA4 — try an incognito window without extensions.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         PHASE 6: Mailchimp Setup
+         ============================================================ -->
+    <section class="phase" id="phase-6">
+      <div class="phase-header">
+        <div class="phase-number">6</div>
+        <div class="phase-title-group">
+          <h2>Email / Mailchimp Setup</h2>
+          <p>Build your subscriber list and configure automated welcome emails</p>
+        </div>
+      </div>
+      <div class="phase-body">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Create Your Mailchimp Account
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <p>Go to <strong>mailchimp.com</strong> and sign up for a free account. The free plan supports up to 500 subscribers and 1,000 emails/month — plenty to start.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Create Your Audience
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <pre>Audience → Manage Audience → Create Audience
+
+Name:        Island Dispatch
+From name:   Harbour Island Insider
+From email:  your@email.com (or hello@harbourislandinsider.com
+             if you've set up a custom domain email)
+Reminder:    "You're receiving this because you subscribed
+             at Harbour Island Insider."</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Get Your API Key
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <pre>Mailchimp → Click your profile icon (top right)
+→ Account &amp; Billing
+→ Extras → API Keys
+→ Create A Key
+→ Copy the key (it looks like: abc123def456...&lt;datacenter&gt;)</pre>
+            <div class="callout callout-warn">
+              <strong>Keep this key private.</strong> Never share it or commit it to a public code repository. Store it in a password manager.
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>Get Your Audience ID (List ID)
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <pre>Audience → Manage Audience → Settings
+→ Audience name and defaults
+→ Scroll to "Audience ID" — copy this value
+(It looks like: a1b2c3d4e5)</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h3>Enter Credentials in WordPress
+              <span class="badge badge-action">&#128100; User Action Required</span>
+            </h3>
+            <pre>WordPress Admin → Settings → Harbour Island Insider
+→ Mailchimp API Key: [paste your key]
+→ Mailchimp List ID: [paste your audience ID]
+→ Save Settings</pre>
+            <p>Your newsletter sign-up form will now capture subscribers directly into your "Island Dispatch" Mailchimp audience.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <h3>Create Welcome Automation
+              <span class="badge badge-done">&#10003; Template Already Built</span>
+              <span class="badge badge-action">&#128100; Configure Required</span>
+            </h3>
+            <p>Your welcome email template is in <code>/email/email-templates.html</code>. To set up the automation:</p>
+            <pre>Mailchimp → Automations → Classic Automations
+→ Welcome new subscribers → Begin
+→ Single email welcome → Start Building
+→ Design Email → Copy/paste content from Template 1
+   in email-templates.html
+→ Set Send Immediately after signup
+→ Activate</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">7</div>
+          <div class="step-content">
+            <h3>Enable Double Opt-In (Recommended)
+              <span class="badge badge-info">&#128274; GDPR Best Practice</span>
+            </h3>
+            <p>Double opt-in sends a confirmation email before subscribing someone. This improves list quality and protects you under GDPR.</p>
+            <pre>Audience → Manage Audience → Settings
+→ Audience name and defaults
+→ Enable double opt-in: Yes</pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         PHASE 7: Launch Checklist
+         ============================================================ -->
+    <section class="phase" id="phase-7">
+      <div class="phase-header">
+        <div class="phase-number" style="background:rgba(224,123,84,0.25);border-color:rgba(224,123,84,0.6);">&#10003;</div>
+        <div class="phase-title-group">
+          <h2>Launch Checklist</h2>
+          <p>Final go-live checks — tick each one before you announce</p>
+        </div>
+      </div>
+      <div class="phase-body">
+
+        <p style="color:var(--ink-mid);margin-bottom:20px;">Work through this list methodically. Don't skip items — each one has caught a real launch problem on a real site.</p>
+
+        <div class="launch-checklist">
+
+          <label class="check-item">
+            <input type="checkbox" />
+            Domain resolving correctly (visit the URL — no "page not found")
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            SSL certificate active — padlock shows in browser, URL starts with <code>https://</code>
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            All 6 articles published and loading without errors
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            Homepage loads and displays correctly on mobile
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            Where to Stay page loading correctly
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            About page loading correctly
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            Navigation menu appears and all links work
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            Newsletter sign-up form submits and user is added to Mailchimp
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            Welcome email arrives after subscribing (check spam folder too)
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            Booking enquiry form sends email notification
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            GA4 showing live visitors in Realtime report
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            Sitemap submitted to Google Search Console
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            Sitemap submitted to Bing Webmaster Tools
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            robots.txt accessible at <code>/robots.txt</code>
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            sitemap.xml accessible at <code>/sitemap.xml</code>
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            UpdraftPlus backup completed successfully to Google Drive
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            Wordfence security scan run — no critical issues
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            Page speed test run at pagespeed.web.dev — mobile score above 70
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            All article images optimised (check Imagify dashboard)
+          </label>
+
+          <label class="check-item">
+            <input type="checkbox" />
+            Social media profiles created and linked in footer / About page
+          </label>
+
+        </div>
+
+        <div class="callout callout-tip" style="margin-top:28px;">
+          <strong>You're live!</strong> Once all boxes are ticked, share your site link. Post on Instagram, Facebook, and in any Bahamas travel groups. Your first readers are your most valuable — they'll tell you what they want more of. Good luck with Harbour Island Insider.
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

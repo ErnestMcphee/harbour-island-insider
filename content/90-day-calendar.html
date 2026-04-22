@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harbour Island Insider — 90-Day Editorial Calendar (Apr 19 – Jul 19, 2026)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: #f0f4f8;
+    color: #1a2a3a;
+    line-height: 1.5;
+  }
+
+  /* ── HEADER ─────────────────────────────────────────────── */
+  .page-header {
+    background: linear-gradient(135deg, #023E8A 0%, #0077B6 60%, #0096C7 100%);
+    color: #fff;
+    padding: 48px 40px 40px;
+    text-align: center;
+  }
+  .page-header .blog-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 10px;
+  }
+  .page-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .page-header .subtitle {
+    font-size: 16px;
+    opacity: 0.85;
+    margin-bottom: 32px;
+  }
+
+  /* ── STAT STRIP ──────────────────────────────────────────── */
+  .stats-strip {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 12px;
+    padding: 16px 24px;
+    text-align: center;
+    min-width: 140px;
+    backdrop-filter: blur(4px);
+  }
+  .stat-card .num {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1;
+    color: #E07B54;
+  }
+  .stat-card .lbl {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-top: 4px;
+  }
+
+  /* ── MAIN WRAPPER ────────────────────────────────────────── */
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── SECTION TITLES ──────────────────────────────────────── */
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #023E8A;
+    border-left: 4px solid #E07B54;
+    padding-left: 14px;
+    margin: 48px 0 20px;
+  }
+
+  /* ── CALENDAR GRIDS ──────────────────────────────────────── */
+  .calendar-block {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(2,62,138,0.08);
+    padding: 28px;
+    margin-bottom: 28px;
+  }
+  .cal-month-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #023E8A;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cal-month-title span.yr {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+  .cal-day-name {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+    padding: 6px 0;
+  }
+  .cal-cell {
+    min-height: 74px;
+    border-radius: 8px;
+    padding: 6px 8px;
+    background: #f8fafc;
+    border: 1px solid #e5e9f0;
+    position: relative;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  .cal-cell.empty {
+    background: transparent;
+    border-color: transparent;
+  }
+  .cal-cell.other-month {
+    background: #f0f2f5;
+    border-color: #e0e3ea;
+    opacity: 0.5;
+  }
+  .cal-cell .day-num {
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .cal-cell.has-article {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+  }
+  .cal-cell.has-article .day-num {
+    color: #023E8A;
+  }
+  .cal-cell.today-start {
+    background: #fef3c7;
+    border-color: #fcd34d;
+  }
+  .article-dot {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 2px 5px;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 2px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: default;
+  }
+  .dot-travel    { background: #dbeafe; color: #1d4ed8; }
+  .dot-fishing   { background: #d1fae5; color: #065f46; }
+  .dot-marina    { background: #e0f2fe; color: #0369a1; }
+  .dot-diving    { background: #ede9fe; color: #5b21b6; }
+  .dot-island    { background: #fce7f3; color: #9d174d; }
+  .dot-beach     { background: #fff7ed; color: #c2410c; }
+  .dot-events    { background: #fef9c3; color: #854d0e; }
+
+  /* ── LEGEND ──────────────────────────────────────────────── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+  }
+  .legend-dot {
+    width: 12px; height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* ── ARTICLE LIST ────────────────────────────────────────── */
+  .article-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(2,62,138,0.07);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 20px;
+    border-left: 4px solid #E07B54;
+    transition: box-shadow 0.2s;
+  }
+  .article-card:hover {
+    box-shadow: 0 4px 20px rgba(2,62,138,0.13);
+  }
+  .art-num {
+    font-size: 36px;
+    font-weight: 900;
+    color: #e5e7eb;
+    line-height: 1;
+    text-align: center;
+    padding-top: 4px;
+  }
+  .art-body {}
+  .art-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .art-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #023E8A;
+    flex: 1;
+    min-width: 200px;
+  }
+  .cat-pill {
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .status-pill {
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    background: #f3f4f6;
+    color: #6b7280;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .art-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+    margin-bottom: 12px;
+  }
+  .meta-item {}
+  .meta-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9ca3af;
+    margin-bottom: 2px;
+  }
+  .meta-value {
+    font-size: 13px;
+    color: #374151;
+  }
+  .meta-value strong {
+    color: #023E8A;
+  }
+  .art-valentines {
+    background: linear-gradient(135deg, #fff7ed, #fef3c7);
+    border: 1px solid #fed7aa;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: #78350f;
+  }
+  .art-valentines .v-label {
+    font-weight: 700;
+    color: #c2410c;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .pub-date {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .pub-date span {
+    color: #023E8A;
+  }
+  .secondary-kws {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 4px;
+  }
+  .kw-tag {
+    background: #f0f4f8;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 11px;
+    color: #4b5563;
+  }
+
+  /* ── TIMELINE BAR ────────────────────────────────────────── */
+  .timeline-section {
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 10px rgba(2,62,138,0.07);
+  }
+  .timeline-bar {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 32px;
+    margin-bottom: 10px;
+  }
+  .tl-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+  .tl-may  { background: #0096C7; flex: 31; }
+  .tl-jun  { background: #0077B6; flex: 30; }
+  .tl-jul  { background: #023E8A; flex: 19; }
+  .tl-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #6b7280;
+  }
+
+  /* ── FREQUENCY GUIDE ─────────────────────────────────────── */
+  .freq-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 0;
+  }
+  .freq-card {
+    border-radius: 10px;
+    padding: 16px 18px;
+    text-align: center;
+  }
+  .freq-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .freq-card p  { font-size: 12px; opacity: 0.85; }
+  .fc-may { background: #e0f2fe; color: #0369a1; }
+  .fc-jun { background: #ede9fe; color: #5b21b6; }
+  .fc-jul { background: #d1fae5; color: #065f46; }
+
+  /* ── FOOTER ──────────────────────────────────────────────── */
+  .page-footer {
+    text-align: center;
+    padding: 32px;
+    background: #023E8A;
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+  }
+  .page-footer strong { color: #E07B54; }
+
+  @media (max-width: 700px) {
+    .article-card { grid-template-columns: 1fr; }
+    .art-num { font-size: 22px; text-align: left; }
+    .art-meta { grid-template-columns: 1fr; }
+    .freq-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════════════════════ -->
+<header class="page-header">
+  <div class="blog-label">Harbour Island Insider</div>
+  <h1>90-Day Editorial Content Calendar</h1>
+  <div class="subtitle">April 19 – July 19, 2026 &nbsp;·&nbsp; Content Strategy &amp; Publishing Schedule</div>
+
+  <div class="stats-strip">
+    <div class="stat-card">
+      <div class="num">12</div>
+      <div class="lbl">Articles Planned</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">6</div>
+      <div class="lbl">Existing Articles</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">18</div>
+      <div class="lbl">Total at Maturity</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" style="font-size:22px;">8–12K</div>
+      <div class="lbl">Est. Monthly Visitors</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">90</div>
+      <div class="lbl">Day Sprint</div>
+    </div>
+  </div>
+</header>
+
+<div class="main">
+
+  <!-- ── TIMELINE ─────────────────────────────────────────── -->
+  <div class="section-title">Publishing Timeline Overview</div>
+  <div class="timeline-section">
+    <div class="timeline-bar">
+      <div class="tl-seg tl-may">May · 8 articles</div>
+      <div class="tl-seg tl-jun">June · 4 articles</div>
+      <div class="tl-seg tl-jul">July · 2 articles (partial)</div>
+    </div>
+    <div class="tl-labels">
+      <span>Apr 19 (start)</span>
+      <span>May 1</span>
+      <span>June 1</span>
+      <span>July 1</span>
+      <span>July 19 (end)</span>
+    </div>
+    <br>
+    <div class="freq-grid">
+      <div class="freq-card fc-may">
+        <h4>May 2026 — Launch Month</h4>
+        <p>2 articles per week (high-intent, SEO foundation). 8 articles total.</p>
+      </div>
+      <div class="freq-card fc-jun">
+        <h4>June 2026 — Cruise Month</h4>
+        <p>1 article per week (sustained cadence, audience building). 4 articles total.</p>
+      </div>
+      <div class="freq-card fc-jul">
+        <h4>July 2026 — Partial Month</h4>
+        <p>1 article per week through July 19. 2 articles in window. Events + PADI.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── LEGEND ────────────────────────────────────────────── -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#dbeafe;"></div> Travel Tips</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#d1fae5;"></div> Fishing</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#e0f2fe;"></div> Marina Life</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ede9fe;"></div> Diving</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#fce7f3;"></div> Island Guide</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#fff7ed;"></div> Beach</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#fef9c3;"></div> Events</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#fef3c7; border:1px solid #fcd34d;"></div> Calendar Start (Apr 19)</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAY 2026 CALENDAR
+  ════════════════════════════════════════════════════════ -->
+  <div class="section-title">May 2026</div>
+  <div class="calendar-block">
+    <div class="cal-month-title">May <span class="yr">2026 · 8 articles this month</span></div>
+    <div class="cal-grid">
+      <!-- Day names -->
+      <div class="cal-day-name">Sun</div>
+      <div class="cal-day-name">Mon</div>
+      <div class="cal-day-name">Tue</div>
+      <div class="cal-day-name">Wed</div>
+      <div class="cal-day-name">Thu</div>
+      <div class="cal-day-name">Fri</div>
+      <div class="cal-day-name">Sat</div>
+
+      <!-- May 2026: starts on Friday -->
+      <div class="cal-cell empty"></div>
+      <div class="cal-cell empty"></div>
+      <div class="cal-cell empty"></div>
+      <div class="cal-cell empty"></div>
+      <div class="cal-cell empty"></div>
+      <!-- May 1 = Friday -->
+      <div class="cal-cell has-article">
+        <span class="day-num">1</span>
+        <span class="article-dot dot-travel" title="Article 1: Harbour Island Weather by Month">🌤 Weather Guide</span>
+      </div>
+      <div class="cal-cell"><span class="day-num">2</span></div>
+
+      <!-- Week 2 -->
+      <div class="cal-cell"><span class="day-num">3</span></div>
+      <div class="cal-cell"><span class="day-num">4</span></div>
+      <div class="cal-cell"><span class="day-num">5</span></div>
+      <div class="cal-cell has-article">
+        <span class="day-num">6</span>
+        <span class="article-dot dot-fishing" title="Article 2: Eleuthera Bonefish Guide">🎣 Bonefishing</span>
+      </div>
+      <div class="cal-cell"><span class="day-num">7</span></div>
+      <div class="cal-cell"><span class="day-num">8</span></div>
+      <div class="cal-cell"><span class="day-num">9</span></div>
+
+      <!-- Week 3 -->
+      <div class="cal-cell"><span class="day-num">10</span></div>
+      <div class="cal-cell"><span class="day-num">11</span></div>
+      <div class="cal-cell"><span class="day-num">12</span></div>
+      <div class="cal-cell has-article">
+        <span class="day-num">13</span>
+        <span class="article-dot dot-marina" title="Article 3: Bahamas Customs for Boaters">⚓ Customs Guide</span>
+      </div>
+      <div class="cal-cell"><span class="day-num">14</span></div>
+      <div class="cal-cell has-article">
+        <span class="day-num">15</span>
+        <span class="article-dot dot-diving" title="Article 4: Current Cut Drift Dive">🤿 Current Cut</span>
+      </div>
+      <div class="cal-cell"><span class="day-num">16</span></div>
+
+      <!-- Week 4 -->
+      <div class="cal-cell"><span class="day-num">17</span></div>
+      <div class="cal-cell"><span class="day-num">18</span></div>
+      <div class="cal-cell"><span class="day-num">19</span></div>
+      <div class="cal-cell has-article">
+        <span class="day-num">20</span>
+        <span class="article-dot dot-diving" title="Article 5: Best Snorkel Spots">🐠 Snorkelling</span>
+      </div>
+      <div class="cal-cell"><span class="day-num">21</span></div>
+      <div class="cal-cell"><span class="day-num">22</span></div>
+      <div class="cal-cell"><span class="day-num">23</span></div>
+
+      <!-- Week 5 -->
+      <div class="cal-cell"><span class="day-num">24</span></div>
+      <div class="cal-cell"><span class="day-num">25</span></div>
+      <div class="cal-cell"><span class="day-num">26</span></div>
+      <div class="cal-cell has-article">
+        <span class="day-num">27</span>
+        <span class="article-dot dot-island" title="Article 6: Guide to Dunmore Town">🏘 Dunmore Town</span>
+      </div>
+      <div class="cal-cell"><span class="day-num">28</span></div>
+      <div class="cal-cell"><span class="day-num">29</span></div>
+      <div class="cal-cell has-article">
+        <span class="day-num">30</span>
+        <span class="article-dot dot-marina" title="Article 7: Sailing Florida to Bahamas — bonus early pub">⛵ FL→Bahamas</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       JUNE 2026 CALENDAR
+  ════════════════════════════════════════════════════════ -->
+  <div class="section-title">June 2026</div>
+  <div class="calendar-block">
+    <div class="cal-month-title">June <span class="yr">2026 · 4 articles this month</span></div>
+    <div class="cal-grid">
+      <div class="cal-day-name">Sun</div>
+      <div class="cal-day-name">Mon</div>
+      <div class="cal-day-name">Tue</div>
+      <div class="cal-day-name">Wed</div>
+      <div class="cal-day-name">Thu</div>
+      <div class="cal-day-name">Fri</div>
+      <div class="cal-day-name">Sat</div>
+
+      <!-- June 2026 starts on Monday -->
+      <div class="cal-cell empty"></div>
+      <div class="cal-cell"><span class="day-num">1</span></div>
+      <div class="cal-cell"><span class="day-num">2</span></div>
+      <div class="cal-cell"><span class="day-num">3</span></div>
+      <div class="cal-cell"><span class="day-num">4</span></div>
+      <div class="cal-cell"><span class="day-num">5</span></div>
+      <div class="cal-cell"><span class="day-num">6</span></div>
+
+      <!-- Week 2 -->
+      <div class="cal-cell"><span class="day-num">7</span></div>
+      <div class="cal-cell"><span class="day-num">8</span></div>
+      <div class="cal-cell"><span class="day-num">9</span></div>
+      <div class="cal-cell has-article">
+        <span class="day-num">10</span>
+        <span class="article-dot dot-travel" title="Article 8: Harbour Island Honeymoon Guide">💍 Honeymoon</span>
+      </div>
+      <div class="cal-cell"><span class="day-num">11</span></div>
+      <div class="cal-cell"><span class="day-num">12</span></div>
+      <div class="cal-cell"><span class="day-num">13</span></div>
+
+      <!-- Week 3 -->
+      <div class="cal-cell"><span class="day-num">14</span></div>
+      <div class="cal-cell"><span class="day-num">15</span></div>
+      <div class="cal-cell"><span class="day-num">16</span></div>
+      <div class="cal-cell has-article">
+        <span class="day-num">17</span>
+        <span class="article-dot dot-island" title="Article 9: Day Trip to Eleuthera">🗺 Eleuthera Trip</span>
+      </div>
+      <div class="cal-cell"><span class="day-num">18</span></div>
+      <div class="cal-cell"><span class="day-num">19</span></div>
+      <div class="cal-cell"><span class="day-num">20</span></div>
+
+      <!-- Week 4 -->
+      <div class="cal-cell"><span class="day-num">21</span></div>
+      <div class="cal-cell"><span class="day-num">22</span></div>
+      <div class="cal-cell"><span class="day-num">23</span></div>
+      <div class="cal-cell has-article">
+        <span class="day-num">24</span>
+        <span class="article-dot dot-beach" title="Article 10: Why Pink Sand Beach Is the Best Beach in the Bahamas">🌊 Pink Sand #1</span>
+      </div>
+      <div class="cal-cell"><span class="day-num">25</span></div>
+      <div class="cal-cell"><span class="day-num">26</span></div>
+      <div class="cal-cell"><span class="day-num">27</span></div>
+
+      <!-- Week 5 -->
+      <div class="cal-cell"><span class="day-num">28</span></div>
+      <div class="cal-cell"><span class="day-num">29</span></div>
+      <div class="cal-cell"><span class="day-num">30</span></div>
+      <div class="cal-cell empty"></div>
+      <div class="cal-cell empty"></div>
+      <div class="cal-cell empty"></div>
+      <div class="cal-cell empty"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       JULY 2026 CALENDAR (partial — through Jul 19)
+  ════════════════════════════════════════════════════════ -->
+  <div class="section-title">July 2026 <span style="font-size:13px; font-weight:400; color:#9ca3af;">(partial — through Jul 19)</span></div>
+  <div class="calendar-block">
+    <div class="cal-month-title">July <span class="yr">2026 · 2 articles in window</span></div>
+    <div class="cal-grid">
+      <div class="cal-day-name">Sun</div>
+      <div class="cal-day-name">Mon</div>
+      <div class="cal-day-name">Tue</div>
+      <div class="cal-day-name">Wed</div>
+      <div class="cal-day-name">Thu</div>
+      <div class="cal-day-name">Fri</div>
+      <div class="cal-day-name">Sat</div>
+
+      <!-- July 2026 starts on Wednesday -->
+      <div class="cal-cell empty"></div>
+      <div class="cal-cell empty"></div>
+      <div class="cal-cell empty"></div>
+      <div class="cal-cell"><span class="day-num">1</span></div>
+      <div class="cal-cell"><span class="day-num">2</span></div>
+      <div class="cal-cell"><span class="day-num">3</span></div>
+      <div class="cal-cell"><span class="day-num">4</span></div>
+
+      <!-- Week 2 -->
+      <div class="cal-cell"><span class="day-num">5</span></div>
+      <div class="cal-cell"><span class="day-num">6</span></div>
+      <div class="cal-cell"><span class="day-num">7</span></div>
+      <div class="cal-cell"><span class="day-num">8</span></div>
+      <div class="cal-cell has-article">
+        <span class="day-num">9</span>
+        <span class="article-dot dot-diving" title="Article 11: PADI Certification in the Bahamas">🤿 PADI Guide</span>
+      </div>
+      <div class="cal-cell"><span class="day-num">10</span></div>
+      <div class="cal-cell"><span class="day-num">11</span></div>
+
+      <!-- Week 3 (through Jul 19) -->
+      <div class="cal-cell"><span class="day-num">12</span></div>
+      <div class="cal-cell"><span class="day-num">13</span></div>
+      <div class="cal-cell"><span class="day-num">14</span></div>
+      <div class="cal-cell has-article">
+        <span class="day-num">15</span>
+        <span class="article-dot dot-events" title="Article 12: Fishing Tournaments & Regattas">🏆 Tournaments</span>
+      </div>
+      <div class="cal-cell"><span class="day-num">16</span></div>
+      <div class="cal-cell"><span class="day-num">17</span></div>
+      <div class="cal-cell"><span class="day-num">18</span></div>
+
+      <!-- Jul 19 = sprint end -->
+      <div class="cal-cell" style="background:#fef9c3; border-color:#fcd34d;">
+        <span class="day-num">19</span>
+        <span class="article-dot" style="background:#fcd34d; color:#78350f; font-size:9px;">Sprint End</span>
+      </div>
+      <div class="cal-cell other-month"><span class="day-num">20</span></div>
+      <div class="cal-cell other-month"><span class="day-num">21</span></div>
+      <div class="cal-cell other-month"><span class="day-num">22</span></div>
+      <div class="cal-cell other-month"><span class="day-num">23</span></div>
+      <div class="cal-cell other-month"><span class="day-num">24</span></div>
+      <div class="cal-cell other-month"><span class="day-num">25</span></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ARTICLE DETAIL LIST
+  ════════════════════════════════════════════════════════ -->
+  <div class="section-title">Planned Articles — Full Detail</div>
+
+  <!-- ARTICLE 1 -->
+  <div class="article-card">
+    <div class="art-num">01</div>
+    <div class="art-body">
+      <div class="art-header">
+        <div class="art-title">Harbour Island Weather by Month: When to Visit for Perfect Conditions</div>
+        <span class="cat-pill dot-travel">Travel Tips</span>
+        <span class="status-pill">Planned</span>
+      </div>
+      <div class="pub-date">Publish: <span>Friday, May 1, 2026</span> &nbsp;·&nbsp; Week 1 of May</div>
+      <div class="art-meta">
+        <div class="meta-item">
+          <div class="meta-label">Primary Keyword</div>
+          <div class="meta-value"><strong>Harbour Island Bahamas weather</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Est. Monthly Search Volume</div>
+          <div class="meta-value"><strong>1,600</strong> / month</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Secondary Keywords</div>
+          <div class="meta-value">
+            <div class="secondary-kws">
+              <span class="kw-tag">best time to visit Harbour Island</span>
+              <span class="kw-tag">Bahamas weather by month</span>
+              <span class="kw-tag">Harbour Island rainy season</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Word Count Target</div>
+          <div class="meta-value"><strong>2,200</strong> words</div>
+        </div>
+      </div>
+      <div class="art-valentines">
+        <div class="v-label">Valentines Resort &amp; Marina — Promotion Angle</div>
+        Article highlights peak season (November–April) as ideal for marina arrivals and optimal diving visibility, with a natural mention that Valentines Marina is the premier destination for liveaboards and seasonal sailors timing their Bahamas cruise. Dive conditions section references Valentines Dive Centre's seasonal highlights.
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 2 -->
+  <div class="article-card">
+    <div class="art-num">02</div>
+    <div class="art-body">
+      <div class="art-header">
+        <div class="art-title">The Complete Bonefish Guide to Eleuthera: Flats, Guides &amp; What to Expect</div>
+        <span class="cat-pill dot-fishing">Fishing</span>
+        <span class="status-pill">Planned</span>
+      </div>
+      <div class="pub-date">Publish: <span>Wednesday, May 6, 2026</span> &nbsp;·&nbsp; Week 1 of May</div>
+      <div class="art-meta">
+        <div class="meta-item">
+          <div class="meta-label">Primary Keyword</div>
+          <div class="meta-value"><strong>Eleuthera bone fishing</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Est. Monthly Search Volume</div>
+          <div class="meta-value"><strong>720</strong> / month</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Secondary Keywords</div>
+          <div class="meta-value">
+            <div class="secondary-kws">
+              <span class="kw-tag">bonefishing Bahamas</span>
+              <span class="kw-tag">Harbour Island fishing charters</span>
+              <span class="kw-tag">fly fishing Bahamas</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Word Count Target</div>
+          <div class="meta-value"><strong>2,400</strong> words</div>
+        </div>
+      </div>
+      <div class="art-valentines">
+        <div class="v-label">Valentines Resort &amp; Marina — Promotion Angle</div>
+        Article explains that Valentines Marina concierge is the easiest way to arrange certified bonefish guides — boats launch directly from the marina docks. Includes a callout box: "Staying at Valentines? Ask the marina team to book your flats guide before you arrive."
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 3 -->
+  <div class="article-card">
+    <div class="art-num">03</div>
+    <div class="art-body">
+      <div class="art-header">
+        <div class="art-title">Bahamas Customs Clearance for Boaters: The Complete Step-by-Step Guide</div>
+        <span class="cat-pill dot-marina">Marina Life</span>
+        <span class="status-pill">Planned</span>
+      </div>
+      <div class="pub-date">Publish: <span>Wednesday, May 13, 2026</span> &nbsp;·&nbsp; Week 2 of May</div>
+      <div class="art-meta">
+        <div class="meta-item">
+          <div class="meta-label">Primary Keyword</div>
+          <div class="meta-value"><strong>Bahamas customs for boaters</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Est. Monthly Search Volume</div>
+          <div class="meta-value"><strong>1,300</strong> / month</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Secondary Keywords</div>
+          <div class="meta-value">
+            <div class="secondary-kws">
+              <span class="kw-tag">Bahamas boat entry requirements</span>
+              <span class="kw-tag">clearing customs Bahamas sailboat</span>
+              <span class="kw-tag">BahaMar customs forms</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Word Count Target</div>
+          <div class="meta-value"><strong>2,600</strong> words</div>
+        </div>
+      </div>
+      <div class="art-valentines">
+        <div class="v-label">Valentines Resort &amp; Marina — Promotion Angle</div>
+        Valentines Marina is positioned as a first port of entry with a dedicated dockmaster who coordinates directly with customs officials — making it the lowest-friction clearance experience on the island. Article recommends calling the marina ahead so staff can prepare paperwork assistance.
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 4 -->
+  <div class="article-card">
+    <div class="art-num">04</div>
+    <div class="art-body">
+      <div class="art-header">
+        <div class="art-title">Current Cut Drift Dive: The Ultimate Guide to Harbour Island's Most Thrilling Dive</div>
+        <span class="cat-pill dot-diving">Diving</span>
+        <span class="status-pill">Planned</span>
+      </div>
+      <div class="pub-date">Publish: <span>Friday, May 15, 2026</span> &nbsp;·&nbsp; Week 2 of May</div>
+      <div class="art-meta">
+        <div class="meta-item">
+          <div class="meta-label">Primary Keyword</div>
+          <div class="meta-value"><strong>Current Cut drift dive</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Est. Monthly Search Volume</div>
+          <div class="meta-value"><strong>590</strong> / month</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Secondary Keywords</div>
+          <div class="meta-value">
+            <div class="secondary-kws">
+              <span class="kw-tag">best dive sites Eleuthera</span>
+              <span class="kw-tag">drift diving Bahamas</span>
+              <span class="kw-tag">Harbour Island diving</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Word Count Target</div>
+          <div class="meta-value"><strong>2,100</strong> words</div>
+        </div>
+      </div>
+      <div class="art-valentines">
+        <div class="v-label">Valentines Resort &amp; Marina — Promotion Angle</div>
+        Valentines Dive Centre runs two daily Current Cut departures timed to the tidal window — article explains this is the only safe way to do the dive and positions Valentines as the go-to operator. Includes booking tip and a note that guests staying at Valentines get priority on the morning boat.
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 5 -->
+  <div class="article-card">
+    <div class="art-num">05</div>
+    <div class="art-body">
+      <div class="art-header">
+        <div class="art-title">Best Snorkelling Spots Around Harbour Island: A Complete Guide for All Levels</div>
+        <span class="cat-pill dot-diving">Diving</span>
+        <span class="status-pill">Planned</span>
+      </div>
+      <div class="pub-date">Publish: <span>Wednesday, May 20, 2026</span> &nbsp;·&nbsp; Week 3 of May</div>
+      <div class="art-meta">
+        <div class="meta-item">
+          <div class="meta-label">Primary Keyword</div>
+          <div class="meta-value"><strong>Harbour Island snorkelling</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Est. Monthly Search Volume</div>
+          <div class="meta-value"><strong>880</strong> / month</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Secondary Keywords</div>
+          <div class="meta-value">
+            <div class="secondary-kws">
+              <span class="kw-tag">snorkelling Bahamas family</span>
+              <span class="kw-tag">best snorkel reefs Eleuthera</span>
+              <span class="kw-tag">snorkel gear rental Harbour Island</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Word Count Target</div>
+          <div class="meta-value"><strong>2,000</strong> words</div>
+        </div>
+      </div>
+      <div class="art-valentines">
+        <div class="v-label">Valentines Resort &amp; Marina — Promotion Angle</div>
+        Article features Valentines Dive Centre as the top spot for snorkel gear rental and guided snorkel tours — particularly for families who want a safe, supervised experience at the shallow reef sites. Includes a "Gear up at Valentines" sidebar with what's available to rent.
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 6 -->
+  <div class="article-card">
+    <div class="art-num">06</div>
+    <div class="art-body">
+      <div class="art-header">
+        <div class="art-title">Dunmore Town: The Complete Guide to Harbour Island's Historic Capital</div>
+        <span class="cat-pill dot-island">Island Guide</span>
+        <span class="status-pill">Planned</span>
+      </div>
+      <div class="pub-date">Publish: <span>Wednesday, May 27, 2026</span> &nbsp;·&nbsp; Week 4 of May</div>
+      <div class="art-meta">
+        <div class="meta-item">
+          <div class="meta-label">Primary Keyword</div>
+          <div class="meta-value"><strong>Dunmore Town Harbour Island</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Est. Monthly Search Volume</div>
+          <div class="meta-value"><strong>1,200</strong> / month</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Secondary Keywords</div>
+          <div class="meta-value">
+            <div class="secondary-kws">
+              <span class="kw-tag">Dunmore Town restaurants</span>
+              <span class="kw-tag">Harbour Island historic town</span>
+              <span class="kw-tag">things to do Harbour Island Bahamas</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Word Count Target</div>
+          <div class="meta-value"><strong>2,300</strong> words</div>
+        </div>
+      </div>
+      <div class="art-valentines">
+        <div class="v-label">Valentines Resort &amp; Marina — Promotion Angle</div>
+        Article positions Valentines Resort as the ideal base for exploring Dunmore Town — just a 5-minute golf cart ride away. Includes a tip that Valentines guests can borrow resort golf carts for town trips, making it the most convenient accommodation for exploring on foot or by cart.
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 7 -->
+  <div class="article-card">
+    <div class="art-num">07</div>
+    <div class="art-body">
+      <div class="art-header">
+        <div class="art-title">Sailing from Florida to the Bahamas: The Complete Crossing Guide for Cruisers</div>
+        <span class="cat-pill dot-marina">Marina Life</span>
+        <span class="status-pill">Planned</span>
+      </div>
+      <div class="pub-date">Publish: <span>Saturday, May 30, 2026</span> &nbsp;·&nbsp; End of May / Week 1 of June</div>
+      <div class="art-meta">
+        <div class="meta-item">
+          <div class="meta-label">Primary Keyword</div>
+          <div class="meta-value"><strong>sailing to Bahamas from Florida</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Est. Monthly Search Volume</div>
+          <div class="meta-value"><strong>2,100</strong> / month</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Secondary Keywords</div>
+          <div class="meta-value">
+            <div class="secondary-kws">
+              <span class="kw-tag">crossing Gulf Stream Bahamas</span>
+              <span class="kw-tag">Florida Bahamas passage planning</span>
+              <span class="kw-tag">Bahamas destination marina</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Word Count Target</div>
+          <div class="meta-value"><strong>3,000</strong> words</div>
+        </div>
+      </div>
+      <div class="art-valentines">
+        <div class="v-label">Valentines Resort &amp; Marina — Promotion Angle</div>
+        Valentines Marina is recommended as the premier first-stop destination after crossing — full-service marina with fuel, water, pump-out, and wifi. Article positions it as the smartest choice for sailors who want to recover from the crossing in comfort before continuing their Bahamas cruise.
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 8 -->
+  <div class="article-card">
+    <div class="art-num">08</div>
+    <div class="art-body">
+      <div class="art-header">
+        <div class="art-title">Harbour Island Honeymoon Guide: The Most Romantic Escape in the Bahamas</div>
+        <span class="cat-pill dot-travel">Travel Tips</span>
+        <span class="status-pill">Planned</span>
+      </div>
+      <div class="pub-date">Publish: <span>Wednesday, June 10, 2026</span> &nbsp;·&nbsp; Week 2 of June</div>
+      <div class="art-meta">
+        <div class="meta-item">
+          <div class="meta-label">Primary Keyword</div>
+          <div class="meta-value"><strong>Harbour Island honeymoon</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Est. Monthly Search Volume</div>
+          <div class="meta-value"><strong>1,400</strong> / month</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Secondary Keywords</div>
+          <div class="meta-value">
+            <div class="secondary-kws">
+              <span class="kw-tag">romantic Bahamas resorts</span>
+              <span class="kw-tag">Bahamas honeymoon packages</span>
+              <span class="kw-tag">Harbour Island couples retreat</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Word Count Target</div>
+          <div class="meta-value"><strong>2,500</strong> words</div>
+        </div>
+      </div>
+      <div class="art-valentines">
+        <div class="v-label">Valentines Resort &amp; Marina — Promotion Angle</div>
+        Valentines Resort villa stays are featured as the top honeymoon accommodation — private, waterfront, and with bespoke anniversary packages available on request. Article includes a "Plan the Perfect Valentines Honeymoon" section with sunset sail recommendations departing from the marina.
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 9 -->
+  <div class="article-card">
+    <div class="art-num">09</div>
+    <div class="art-body">
+      <div class="art-header">
+        <div class="art-title">Glass Window Bridge &amp; Beyond: The Perfect Day Trip from Harbour Island to Eleuthera</div>
+        <span class="cat-pill dot-island">Island Guide</span>
+        <span class="status-pill">Planned</span>
+      </div>
+      <div class="pub-date">Publish: <span>Wednesday, June 17, 2026</span> &nbsp;·&nbsp; Week 3 of June</div>
+      <div class="art-meta">
+        <div class="meta-item">
+          <div class="meta-label">Primary Keyword</div>
+          <div class="meta-value"><strong>Eleuthera Glass Window Bridge</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Est. Monthly Search Volume</div>
+          <div class="meta-value"><strong>1,900</strong> / month</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Secondary Keywords</div>
+          <div class="meta-value">
+            <div class="secondary-kws">
+              <span class="kw-tag">day trip Eleuthera from Harbour Island</span>
+              <span class="kw-tag">Glass Window Bridge Bahamas</span>
+              <span class="kw-tag">Eleuthera sightseeing</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Word Count Target</div>
+          <div class="meta-value"><strong>2,200</strong> words</div>
+        </div>
+      </div>
+      <div class="art-valentines">
+        <div class="v-label">Valentines Resort &amp; Marina — Promotion Angle</div>
+        Article features Valentines concierge as the easiest way to arrange a car rental or private driver for the Glass Window Bridge day trip — staff know the best routes, lunch stops, and return timing. Positions Valentines as the full-service base that takes care of all logistics.
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 10 -->
+  <div class="article-card">
+    <div class="art-num">10</div>
+    <div class="art-body">
+      <div class="art-header">
+        <div class="art-title">Why Pink Sand Beach Is the Most Beautiful Beach in the Bahamas (and How to Make the Most of It)</div>
+        <span class="cat-pill dot-beach">Beach</span>
+        <span class="status-pill">Planned</span>
+      </div>
+      <div class="pub-date">Publish: <span>Wednesday, June 24, 2026</span> &nbsp;·&nbsp; Week 4 of June</div>
+      <div class="art-meta">
+        <div class="meta-item">
+          <div class="meta-label">Primary Keyword</div>
+          <div class="meta-value"><strong>best beaches Bahamas</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Est. Monthly Search Volume</div>
+          <div class="meta-value"><strong>4,400</strong> / month</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Secondary Keywords</div>
+          <div class="meta-value">
+            <div class="secondary-kws">
+              <span class="kw-tag">pink sand beach Bahamas</span>
+              <span class="kw-tag">most beautiful beach Caribbean</span>
+              <span class="kw-tag">pink beach Harbour Island</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Word Count Target</div>
+          <div class="meta-value"><strong>2,800</strong> words</div>
+        </div>
+      </div>
+      <div class="art-valentines">
+        <div class="v-label">Valentines Resort &amp; Marina — Promotion Angle</div>
+        Article describes the Valentines beach shuttle as the most comfortable and convenient way to reach Pink Sand Beach — no golf cart navigation required. Also mentions that Valentines guests get complimentary beach chairs and shade on the resort's dedicated beach section.
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 11 -->
+  <div class="article-card">
+    <div class="art-num">11</div>
+    <div class="art-body">
+      <div class="art-header">
+        <div class="art-title">Getting PADI Certified in the Bahamas: Everything You Need to Know Before You Dive</div>
+        <span class="cat-pill dot-diving">Diving</span>
+        <span class="status-pill">Planned</span>
+      </div>
+      <div class="pub-date">Publish: <span>Thursday, July 9, 2026</span> &nbsp;·&nbsp; Week 2 of July</div>
+      <div class="art-meta">
+        <div class="meta-item">
+          <div class="meta-label">Primary Keyword</div>
+          <div class="meta-value"><strong>PADI certification Bahamas</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Est. Monthly Search Volume</div>
+          <div class="meta-value"><strong>1,100</strong> / month</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Secondary Keywords</div>
+          <div class="meta-value">
+            <div class="secondary-kws">
+              <span class="kw-tag">learn to dive Bahamas</span>
+              <span class="kw-tag">PADI open water Bahamas</span>
+              <span class="kw-tag">dive certification Caribbean</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Word Count Target</div>
+          <div class="meta-value"><strong>2,400</strong> words</div>
+        </div>
+      </div>
+      <div class="art-valentines">
+        <div class="v-label">Valentines Resort &amp; Marina — Promotion Angle</div>
+        Valentines Dive Centre is featured as the only PADI-certified operator on Harbour Island, offering Open Water and Advanced courses in crystal-clear, warm water ideal for beginners. Article explains the full course structure and recommends combining a week's stay at Valentines with certification.
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 12 -->
+  <div class="article-card">
+    <div class="art-num">12</div>
+    <div class="art-body">
+      <div class="art-header">
+        <div class="art-title">Harbour Island Fishing Tournaments &amp; Regattas: The Annual Events Calendar</div>
+        <span class="cat-pill dot-events">Events</span>
+        <span class="status-pill">Planned</span>
+      </div>
+      <div class="pub-date">Publish: <span>Wednesday, July 15, 2026</span> &nbsp;·&nbsp; Week 3 of July</div>
+      <div class="art-meta">
+        <div class="meta-item">
+          <div class="meta-label">Primary Keyword</div>
+          <div class="meta-value"><strong>Harbour Island fishing tournament</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Est. Monthly Search Volume</div>
+          <div class="meta-value"><strong>480</strong> / month</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Secondary Keywords</div>
+          <div class="meta-value">
+            <div class="secondary-kws">
+              <span class="kw-tag">Bahamas sailing regatta</span>
+              <span class="kw-tag">Harbour Island events calendar</span>
+              <span class="kw-tag">Eleuthera sportfishing tournament</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Word Count Target</div>
+          <div class="meta-value"><strong>2,000</strong> words</div>
+        </div>
+      </div>
+      <div class="art-valentines">
+        <div class="v-label">Valentines Resort &amp; Marina — Promotion Angle</div>
+        Valentines Marina is featured as the official host and sponsor venue for key annual events — weigh-ins, prize ceremonies, and social gatherings happen dockside at Valentines. Article recommends booking a marina slip or resort room well in advance for tournament weeks.
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.main -->
+
+<footer class="page-footer">
+  <strong>Harbour Island Insider</strong> &nbsp;·&nbsp; 90-Day Editorial Calendar &nbsp;·&nbsp; April 19 – July 19, 2026<br>
+  Commercial Partner: Valentines Resort &amp; Marina, Harbour Island, Bahamas &nbsp;·&nbsp; Confidential — Internal Use Only
+</footer>
+
+</body>
+</html>

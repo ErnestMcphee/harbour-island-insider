@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "harbour-island-blog",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "3456", "/Users/ernestantonemcphee/Desktop/Claud Code/frontend"],
+      "port": 3456
+    }
+  ]
+}

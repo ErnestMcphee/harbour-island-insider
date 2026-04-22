@@ -1,0 +1,2708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harbour Island Insider — Social Media Launch Kit</title>
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ocean:    #0077B6;
+      --dark:     #023E8A;
+      --coral:    #E07B54;
+      --sand:     #F5E6C8;
+      --offwhite: #FAFAF8;
+      --text:     #1A1A2E;
+      --gold:     #F59E0B;
+      --sidebar:  240px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--offwhite);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── SIDEBAR ── */
+    #sidebar {
+      width: var(--sidebar);
+      min-width: var(--sidebar);
+      background: var(--dark);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 2rem;
+      flex-shrink: 0;
+    }
+    #sidebar .logo {
+      padding: 1.5rem 1.2rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    #sidebar .logo span.flag { font-size: 1.4rem; }
+    #sidebar .logo h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 0.95rem;
+      color: var(--sand);
+      line-height: 1.35;
+      margin-top: 0.4rem;
+    }
+    #sidebar .logo p {
+      font-size: 0.65rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+    }
+    #sidebar nav { padding: 1rem 0; }
+    #sidebar nav a {
+      display: block;
+      padding: 0.6rem 1.2rem;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    #sidebar nav a:hover,
+    #sidebar nav a.active {
+      color: #fff;
+      border-left-color: var(--coral);
+      background: rgba(255,255,255,0.06);
+    }
+    #sidebar nav .nav-section {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      padding: 1rem 1.2rem 0.3rem;
+      font-weight: 700;
+    }
+    #sidebar .partner-badge {
+      margin: 1rem 1.2rem 0;
+      background: rgba(224,123,84,0.2);
+      border: 1px solid var(--coral);
+      border-radius: 6px;
+      padding: 0.7rem 0.8rem;
+      font-size: 0.68rem;
+      color: var(--sand);
+      line-height: 1.5;
+    }
+    #sidebar .partner-badge strong { color: var(--coral); display: block; margin-bottom: 0.2rem; }
+
+    /* ── MAIN CONTENT ── */
+    #main {
+      flex: 1;
+      overflow-x: hidden;
+    }
+
+    /* ── PAGE HEADER ── */
+    #page-header {
+      background: linear-gradient(135deg, var(--dark) 0%, #034a9c 60%, var(--ocean) 100%);
+      padding: 3rem 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #page-header::before {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(0,119,182,0.3);
+    }
+    #page-header::after {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: 120px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(245,230,200,0.08);
+    }
+    #page-header .header-tag {
+      display: inline-block;
+      background: var(--coral);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    #page-header h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 2.4rem;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 640px;
+      position: relative;
+      z-index: 1;
+    }
+    #page-header h1 em { color: var(--sand); font-style: normal; }
+    #page-header .subtitle {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.95rem;
+      margin-top: 0.9rem;
+      max-width: 540px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    .header-meta {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1.8rem;
+      position: relative;
+      z-index: 1;
+    }
+    .header-meta-item { text-align: left; }
+    .header-meta-item .val {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .header-meta-item .lbl {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── CONTENT WRAPPER ── */
+    .content-wrap {
+      padding: 2.5rem 3rem;
+      max-width: 1100px;
+    }
+
+    /* ── SECTION STYLES ── */
+    .kit-section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 1.5rem;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ocean);
+      margin-bottom: 0.5rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 2px;
+      background: var(--coral);
+      border-radius: 2px;
+    }
+    .section-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-bottom: 0.4rem;
+    }
+    .section-desc {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin-bottom: 1.8rem;
+      max-width: 680px;
+    }
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, var(--sand), transparent);
+      margin: 3.5rem 0;
+    }
+
+    /* ── TABLES ── */
+    .kit-table-wrap {
+      overflow-x: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 16px rgba(2,62,138,0.08);
+    }
+    .kit-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 0.84rem;
+    }
+    .kit-table thead tr {
+      background: var(--dark);
+    }
+    .kit-table thead th {
+      color: var(--sand);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .kit-table tbody tr { border-bottom: 1px solid #f0ede8; }
+    .kit-table tbody tr:last-child { border-bottom: none; }
+    .kit-table tbody tr:nth-child(even) { background: #fafbff; }
+    .kit-table tbody td {
+      padding: 0.9rem 1rem;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .kit-table tbody td:first-child { font-weight: 700; color: var(--dark); }
+    .kit-table .platform-pill {
+      display: inline-block;
+      background: var(--ocean);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
+    .kit-table .handle {
+      font-family: 'Courier New', monospace;
+      color: var(--ocean);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    /* ── PHONE PREVIEW ── */
+    .phone-preview-wrap {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .phone-frame {
+      width: 300px;
+      min-width: 300px;
+      background: #111;
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35), inset 0 0 0 2px #333;
+      position: relative;
+    }
+    .phone-frame::before {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 6px;
+      background: #333;
+      border-radius: 3px;
+      margin: 0 auto 10px;
+    }
+    .phone-screen {
+      background: #fff;
+      border-radius: 28px;
+      overflow: hidden;
+      min-height: 420px;
+    }
+    .phone-ig-header {
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      padding: 0.7rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .phone-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ocean), var(--coral));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.1rem;
+      border: 2px solid #fff;
+      flex-shrink: 0;
+    }
+    .phone-handle {
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+    .phone-bio-area {
+      padding: 0.9rem 1rem 1rem;
+    }
+    .phone-name {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #111;
+      margin-bottom: 0.4rem;
+    }
+    .phone-bio-text {
+      font-size: 0.75rem;
+      color: #333;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+    .phone-bio-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #00376b;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .phone-stats {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 1rem;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+      margin-top: 0.3rem;
+    }
+    .phone-stat { text-align: center; }
+    .phone-stat .n { font-weight: 700; font-size: 0.8rem; color: #111; }
+    .phone-stat .l { font-size: 0.65rem; color: #888; }
+    .phone-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1px;
+      margin-top: 1px;
+    }
+    .phone-grid-cell {
+      aspect-ratio: 1;
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .phone-grid-cell:nth-child(1) { background: #a8d8ea; }
+    .phone-grid-cell:nth-child(2) { background: #f7cac9; }
+    .phone-grid-cell:nth-child(3) { background: #d4e09b; }
+    .phone-grid-cell:nth-child(4) { background: #ffd700; }
+    .phone-grid-cell:nth-child(5) { background: #b5d5c5; }
+    .phone-grid-cell:nth-child(6) { background: #f8b195; }
+
+    /* bio copy box */
+    .bio-copy-box {
+      flex: 1;
+      min-width: 280px;
+    }
+    .bio-copy-box h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--dark);
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+    .bio-raw {
+      background: var(--dark);
+      color: var(--sand);
+      border-radius: 10px;
+      padding: 1.3rem 1.5rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      line-height: 1.8;
+      white-space: pre-line;
+      margin-bottom: 1.2rem;
+      position: relative;
+    }
+    .bio-raw .bio-line { display: block; }
+    .copy-note {
+      background: var(--sand);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 0.8rem 1rem;
+      font-size: 0.8rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .bio-field-list { list-style: none; }
+    .bio-field-list li {
+      display: flex;
+      gap: 0.7rem;
+      font-size: 0.83rem;
+      margin-bottom: 0.5rem;
+      align-items: flex-start;
+    }
+    .bio-field-list li strong {
+      color: var(--dark);
+      min-width: 120px;
+      flex-shrink: 0;
+    }
+
+    /* ── HASHTAG CHIPS ── */
+    .hashtag-set {
+      margin-bottom: 2rem;
+    }
+    .hashtag-set-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+    .hashtag-set-header h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--dark);
+      font-size: 1.05rem;
+    }
+    .set-pill {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+    }
+    .set-pill.set-1 { background: #e0f0ff; color: var(--dark); }
+    .set-pill.set-2 { background: #fff0e8; color: #a0410c; }
+    .set-pill.set-3 { background: #e8f5e9; color: #1b5e20; }
+    .chip-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .chip {
+      display: inline-block;
+      background: #e8f4ff;
+      color: var(--ocean);
+      border: 1px solid #b3d9f5;
+      border-radius: 20px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: default;
+      transition: background 0.15s;
+    }
+    .chip:hover { background: #cce8ff; }
+    .chip.coral { background: #fff0ea; color: #b5441a; border-color: #f5c4ad; }
+    .chip.green { background: #eaf5eb; color: #2d6a4f; border-color: #b7dfbb; }
+    .chip-count {
+      font-size: 0.72rem;
+      color: #888;
+      margin-top: 0.6rem;
+    }
+
+    /* ── DAY CARDS ── */
+    .post-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.4rem;
+    }
+    .post-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 14px rgba(2,62,138,0.07);
+      overflow: hidden;
+      border: 1px solid #eeeef5;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .post-card:hover {
+      box-shadow: 0 6px 28px rgba(2,62,138,0.13);
+      transform: translateY(-2px);
+    }
+    .post-card-header {
+      padding: 0.9rem 1.1rem 0.7rem;
+      background: linear-gradient(135deg, var(--dark), #045bb0);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+    .day-badge {
+      background: var(--coral);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .day-theme {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.75rem;
+      font-style: italic;
+      line-height: 1.3;
+      text-align: right;
+    }
+    .post-card-meta {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.65rem 1.1rem;
+      border-bottom: 1px solid #f0ede8;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .platform-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+    }
+    .platform-tag.ig { background: #f0e6ff; color: #7b2fff; }
+    .platform-tag.fb { background: #e7efff; color: #1251aa; }
+    .platform-tag.both { background: #fff0e8; color: #b5441a; }
+    .time-tag {
+      font-size: 0.68rem;
+      color: #888;
+      margin-left: auto;
+    }
+    .valentines-badge {
+      font-size: 0.62rem;
+      background: #fff5cc;
+      color: #8a6000;
+      border: 1px solid #f5d66a;
+      padding: 0.15rem 0.55rem;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .post-card-body {
+      padding: 1rem 1.1rem;
+    }
+    .caption-text {
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: #333;
+      white-space: pre-line;
+      border-left: 3px solid var(--sand);
+      padding-left: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+    .post-card-footer {
+      padding: 0.7rem 1.1rem 1rem;
+      background: #fafbff;
+      border-top: 1px solid #f0ede8;
+    }
+    .footer-row {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 0.3rem;
+      align-items: flex-start;
+    }
+    .footer-row strong { color: var(--dark); min-width: 80px; flex-shrink: 0; }
+    .week-divider {
+      grid-column: 1 / -1;
+      background: linear-gradient(to right, var(--dark), var(--ocean));
+      color: var(--sand);
+      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── PINTEREST BOARDS ── */
+    .boards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.4rem;
+    }
+    .board-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 14px rgba(2,62,138,0.07);
+      overflow: hidden;
+      border: 1px solid #eeeef5;
+    }
+    .board-header {
+      height: 6px;
+    }
+    .board-header.b1 { background: linear-gradient(to right, var(--ocean), var(--dark)); }
+    .board-header.b2 { background: linear-gradient(to right, #f7a8a8, var(--coral)); }
+    .board-header.b3 { background: linear-gradient(to right, var(--gold), #e07b54); }
+    .board-header.b4 { background: linear-gradient(to right, #1565c0, var(--ocean)); }
+    .board-header.b5 { background: linear-gradient(to right, #00897b, #26a69a); }
+    .board-header.b6 { background: linear-gradient(to right, var(--sand), var(--gold)); }
+    .board-header.b7 { background: linear-gradient(to right, #ce93d8, #ab47bc); }
+    .board-header.b8 { background: linear-gradient(to right, #81c784, #388e3c); }
+    .board-body { padding: 1.2rem 1.3rem; }
+    .board-num {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--coral);
+      margin-bottom: 0.25rem;
+    }
+    .board-name {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.05rem;
+      color: var(--dark);
+      margin-bottom: 0.6rem;
+    }
+    .board-desc {
+      font-size: 0.8rem;
+      color: #555;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .pin-ideas-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ocean);
+      margin-bottom: 0.5rem;
+    }
+    .pin-ideas { list-style: none; }
+    .pin-ideas li {
+      font-size: 0.79rem;
+      color: #444;
+      padding: 0.3rem 0;
+      border-bottom: 1px dashed #eee;
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+    .pin-ideas li:last-child { border-bottom: none; }
+    .pin-bullet {
+      width: 18px;
+      height: 18px;
+      background: var(--coral);
+      border-radius: 3px;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.6rem;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    /* ── SCHEDULE TABLE ── */
+    .schedule-table-wrap {
+      overflow-x: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 16px rgba(2,62,138,0.08);
+    }
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 0.83rem;
+      min-width: 700px;
+    }
+    .schedule-table thead tr { background: var(--dark); }
+    .schedule-table thead th {
+      color: var(--sand);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.9rem 1rem;
+      text-align: left;
+    }
+    .schedule-table tbody tr { border-bottom: 1px solid #f0ede8; }
+    .schedule-table tbody tr:last-child { border-bottom: none; }
+    .schedule-table tbody td { padding: 0.85rem 1rem; vertical-align: top; line-height: 1.55; }
+    .schedule-table .day-cell {
+      font-weight: 700;
+      color: #fff;
+      background: var(--ocean);
+      text-align: center;
+      padding: 0 0.8rem;
+      white-space: nowrap;
+      border-radius: 0;
+    }
+    .schedule-table tbody tr:nth-child(odd) { background: #fafbff; }
+    .note-chip {
+      display: inline-block;
+      background: var(--sand);
+      color: #7a5c00;
+      font-size: 0.68rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-top: 0.3rem;
+    }
+    .valentines-note {
+      background: #fff5cc;
+      color: #8a6000;
+      border: 1px solid #f0ce4e;
+    }
+
+    /* ── TIPS BOX ── */
+    .tips-box {
+      background: var(--dark);
+      color: var(--sand);
+      border-radius: 12px;
+      padding: 1.5rem 1.8rem;
+      margin-top: 2.5rem;
+    }
+    .tips-box h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .tip-item { font-size: 0.8rem; line-height: 1.6; }
+    .tip-item strong { color: var(--coral); display: block; margin-bottom: 0.2rem; font-size: 0.78rem; }
+
+    /* ── FOOTER ── */
+    #page-footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 1.5rem 2rem;
+      font-size: 0.75rem;
+      line-height: 1.7;
+    }
+    #page-footer strong { color: var(--sand); }
+
+    /* ── PRINT ── */
+    @media print {
+      #sidebar { display: none; }
+      #main { margin: 0; }
+      .post-card, .board-card { break-inside: avoid; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      body { flex-direction: column; }
+      #sidebar { width: 100%; height: auto; position: relative; flex-direction: row; flex-wrap: wrap; }
+      #sidebar nav { display: flex; flex-wrap: wrap; padding: 0.5rem; }
+      #sidebar nav a { padding: 0.4rem 0.8rem; border-left: none; border-bottom: 2px solid transparent; }
+      .content-wrap { padding: 1.5rem; }
+      #page-header { padding: 1.8rem 1.5rem; }
+      #page-header h1 { font-size: 1.7rem; }
+      .post-cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ SIDEBAR ═══ -->
+<aside id="sidebar">
+  <div class="logo">
+    <span class="flag">🇧🇸</span>
+    <h2>Harbour Island<br>Insider</h2>
+    <p>Social Media Launch Kit</p>
+  </div>
+  <nav>
+    <div class="nav-section">Sections</div>
+    <a href="#section-a">A — Account Setup</a>
+    <a href="#section-b">B — Instagram Bio</a>
+    <a href="#section-c">C — Hashtag Sets</a>
+    <a href="#section-d">D — 30-Day Captions</a>
+    <a href="#section-e">E — Pinterest Boards</a>
+    <a href="#section-f">F — Weekly Schedule</a>
+    <div class="nav-section">Quick Links</div>
+    <a href="#section-d-week1">Week 1: Launch</a>
+    <a href="#section-d-week2">Week 2: Articles</a>
+    <a href="#section-d-week3">Week 3: Engage</a>
+    <a href="#section-d-week4">Week 4: Community</a>
+  </nav>
+  <div class="partner-badge">
+    <strong>Featured Partner</strong>
+    Valentines Resort &amp; Marina<br>
+    Harbour Island, Bahamas<br>
+    <em style="color:var(--gold);font-size:0.65rem;">Mention every 3rd post</em>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════════════════ MAIN ═══════ -->
+<div id="main">
+
+  <!-- PAGE HEADER -->
+  <header id="page-header">
+    <div class="header-tag">2026 Launch Kit — Ready to Use</div>
+    <h1>Harbour Island Insider<br><em>Social Media Launch Kit</em></h1>
+    <p class="subtitle">A complete, production-ready social media playbook for the independent Harbour Island travel blog. Every caption, hashtag, and posting schedule you need — starting today.</p>
+    <div class="header-meta">
+      <div class="header-meta-item">
+        <div class="val">4</div>
+        <div class="lbl">Platforms</div>
+      </div>
+      <div class="header-meta-item">
+        <div class="val">30</div>
+        <div class="lbl">Launch Captions</div>
+      </div>
+      <div class="header-meta-item">
+        <div class="val">90</div>
+        <div class="lbl">Hashtags</div>
+      </div>
+      <div class="header-meta-item">
+        <div class="val">8</div>
+        <div class="lbl">Pinterest Boards</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content-wrap">
+
+    <!-- ═══════════ SECTION A ═══════════ -->
+    <section class="kit-section" id="section-a">
+      <div class="section-label">Section A</div>
+      <h2 class="section-title">Account Setup Table</h2>
+      <p class="section-desc">Use this table to set up every platform consistently. All handles, bios, and image concepts are ready to copy. Keep branding uniform across networks — the same profile photo concept and colour palette reinforce recognition.</p>
+
+      <div class="kit-table-wrap">
+        <table class="kit-table">
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Handle / Name</th>
+              <th>Bio Copy</th>
+              <th>Link in Bio</th>
+              <th>Profile Image Concept</th>
+              <th>Cover Image Concept</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="platform-pill">Instagram</span></td>
+              <td><span class="handle">@harbourislandinsider</span></td>
+              <td>Your independent guide to Harbour Island 🇧🇸 Pink sand. Clear water. Honest advice. 🌴 #HarbourIsland | Our top pick: 👇</td>
+              <td>Linktree or Beacons page linking to: Blog homepage, Valentines Resort booking link, latest article, newsletter signup</td>
+              <td>Overhead aerial shot of pink sand beach with coral-coloured circle crop overlay; or illustrative wave-and-palm logo mark on ocean-blue background (#0077B6)</td>
+              <td>Wide panoramic shot of the famous pink sand beach at golden hour — warm coral sky, turquoise water, empty shoreline. Overlay subtle "Harbour Island Insider" wordmark in Georgia font, bottom-left, sand colour (#F5E6C8)</td>
+            </tr>
+            <tr>
+              <td><span class="platform-pill" style="background:var(--dark);">Facebook</span></td>
+              <td>Harbour Island Insider <em style="font-size:0.75rem;color:#888;">(Page)</em></td>
+              <td>The independent traveller's guide to Harbour Island, Bahamas. We share honest, first-hand advice on the island's best beaches, restaurants, dive sites, and hidden gems — with no resort spin. Our featured partner, Valentines Resort &amp; Marina, offers world-class docking and island accommodation right in the heart of it all. Follow for weekly guides, trip tips, and community stories from one of the Caribbean's most magical destinations. 🇧🇸🌊🌴</td>
+              <td>Blog homepage URL (primary); Valentines Resort booking page pinned in a featured post</td>
+              <td>Same profile concept as Instagram — the branded ocean-blue circle with palm silhouette. Consistency builds instant recognition across platforms.</td>
+              <td>Full-width collage of four Harbour Island scenes: pink sand beach, Valentines Marina dock at sunset, colourful clapboard houses on Dunmore Town main street, and a diver exploring a coral reef. Text overlay: "Harbour Island Insider — Your Independent Guide"</td>
+            </tr>
+            <tr>
+              <td><span class="platform-pill" style="background:#e60023;">Pinterest</span></td>
+              <td>Harbour Island Insider</td>
+              <td>Dreaming of Harbour Island, Bahamas? 🌺 We pin the best of the island: pink sand beaches, crystal-clear diving, fresh seafood, marina life, and travel tips for the Caribbean's most charming destination. Independent advice. Beautiful inspiration. Start planning your trip. 🇧🇸✨</td>
+              <td>Blog homepage URL in profile; each pin links directly to the relevant article on the blog</td>
+              <td>Logo mark — stylised "HII" monogram in Georgia serif on ocean-blue square background, with a tiny pink sand texture at the bottom edge. Clean and editorial.</td>
+              <td>Not applicable for Pinterest (no cover image in the same way) — instead, create a branded board cover template: dark navy background (#023E8A), board name in Georgia white text, small wave icon in coral (#E07B54)</td>
+            </tr>
+            <tr>
+              <td><span class="platform-pill" style="background:#000;">X / Twitter</span></td>
+              <td><span class="handle">@HIInsider</span></td>
+              <td>Independent Harbour Island guide 🇧🇸 Pink sand. Real advice. Zero spin. Bahamas travel tips, dive spots &amp; island news. #HarbourIsland #Bahamas</td>
+              <td>Blog homepage URL — update to latest article link during launch week for click-throughs</td>
+              <td>Same branded circle avatar as Instagram &amp; Facebook — maintains cross-platform recognition; profile image is your most-seen asset on X so keep it bold and clear</td>
+              <td>Wide landscape shot of the turquoise water viewed from the dock at Valentines Marina — boat masts, clear sky, pastel-coloured buildings visible. Clean and aspirational.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="copy-note" style="margin-top:1.2rem;">
+        <strong>Profile Image Sizing Guide:</strong> Instagram &amp; Facebook: 320×320px minimum (displays at 110px, stored at 320px). Pinterest: 165×165px. X/Twitter: 400×400px. Always export as JPG at 90% quality or PNG. Keep the same image across all four platforms for brand consistency.
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════ SECTION B ═══════════ -->
+    <section class="kit-section" id="section-b">
+      <div class="section-label">Section B</div>
+      <h2 class="section-title">Instagram Bio Block</h2>
+      <p class="section-desc">Instagram bios are limited to 150 characters in the bio field itself, but the name field and category add extra lines. Below is the exact copy to paste into each field, plus a phone-screen preview of how it will look to visitors landing on your profile.</p>
+
+      <div class="phone-preview-wrap">
+        <!-- Phone frame -->
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-ig-header">
+              <div class="phone-avatar">🌴</div>
+              <div>
+                <div class="phone-handle">harbourislandinsider</div>
+                <div style="font-size:0.65rem;color:rgba(255,255,255,0.8);">Travel Blog</div>
+              </div>
+            </div>
+            <div class="phone-bio-area">
+              <div class="phone-name">Harbour Island Insider 🇧🇸</div>
+              <div class="phone-bio-text">Your independent guide to Harbour Island 🇧🇸
+Pink sand. Clear water. Honest advice. 🌴
+#HarbourIsland
+Our top pick: 👇</div>
+              <a class="phone-bio-link" href="#">🔗 linktr.ee/harbourislandinsider</a>
+            </div>
+            <div class="phone-stats">
+              <div class="phone-stat"><div class="n">0</div><div class="l">Posts</div></div>
+              <div class="phone-stat"><div class="n">0</div><div class="l">Followers</div></div>
+              <div class="phone-stat"><div class="n">0</div><div class="l">Following</div></div>
+            </div>
+            <div class="phone-grid">
+              <div class="phone-grid-cell">🏖️</div>
+              <div class="phone-grid-cell">🐚</div>
+              <div class="phone-grid-cell">⛵</div>
+              <div class="phone-grid-cell">🤿</div>
+              <div class="phone-grid-cell">🦞</div>
+              <div class="phone-grid-cell">🌅</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio copy box -->
+        <div class="bio-copy-box">
+          <h3>Copy-Paste Ready Bio Fields</h3>
+
+          <div class="bio-raw">&#x2003;<span class="bio-line"><strong style="color:var(--gold);">NAME FIELD (30 chars max):</strong></span>
+<span class="bio-line">Harbour Island Insider 🇧🇸</span>
+
+<span class="bio-line"><strong style="color:var(--gold);">CATEGORY:</strong></span>
+<span class="bio-line">Travel Blog</span>
+
+<span class="bio-line"><strong style="color:var(--gold);">BIO FIELD (150 chars max):</strong></span>
+<span class="bio-line">Your independent guide to Harbour Island 🇧🇸</span>
+<span class="bio-line">Pink sand. Clear water. Honest advice. 🌴</span>
+<span class="bio-line">#HarbourIsland</span>
+<span class="bio-line">Our top pick: 👇</span>
+
+<span class="bio-line"><strong style="color:var(--gold);">WEBSITE / LINK IN BIO:</strong></span>
+<span class="bio-line">linktr.ee/harbourislandinsider</span>
+
+<span class="bio-line"><strong style="color:var(--gold);">LINKTREE LINKS (in order):</strong></span>
+<span class="bio-line">📖 Read the Blog → harbourislandinsider.com</span>
+<span class="bio-line">⚓ Book Valentines Resort → valentinesresort.com</span>
+<span class="bio-line">📰 Latest Article → [article URL]</span>
+<span class="bio-line">📬 Join the Newsletter → [signup URL]</span></div>
+
+          <div class="copy-note">
+            <strong>Formatting tip:</strong> To create line breaks in an Instagram bio, type the bio in your phone's Notes app first, copy and paste into Instagram. Line breaks entered in a desktop browser are sometimes stripped — using the mobile app guarantees the formatting is preserved exactly as shown.
+          </div>
+
+          <ul class="bio-field-list">
+            <li><strong>Character count:</strong> Bio field uses ~118 of 150 characters available — leaves room for a seasonal update (e.g., "Summer specials below 👇")</li>
+            <li><strong>The 👇 emoji:</strong> Points visitors directly to your link-in-bio — a proven conversion tactic. Always keep this on the last line of the bio.</li>
+            <li><strong>Hashtag in bio:</strong> #HarbourIsland in the bio is clickable and helps discoverability — anyone who taps it will see your profile in results.</li>
+            <li><strong>Valentines Resort:</strong> The link-in-bio page positions Valentines as the top booking recommendation, immediately converting discovery traffic.</li>
+            <li><strong>Update cadence:</strong> Refresh the "Latest Article" Linktree link each time you publish a new post. Keep all other links permanent.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════ SECTION C ═══════════ -->
+    <section class="kit-section" id="section-c">
+      <div class="section-label">Section C</div>
+      <h2 class="section-title">Hashtag Sets</h2>
+      <p class="section-desc">Three curated sets of 30 hashtags each, themed by content type. Rotate between sets to avoid repetition flags from Instagram's algorithm. Copy an entire set and paste it into the first comment of your post to keep captions clean, or include directly in the caption. Each set is benchmarked to include a mix of high-volume (#bahamas), mid-range (#harbourislandbahamas), and niche tags (#pinksandbeach) for maximum reach at every follower level.</p>
+
+      <!-- SET 1 -->
+      <div class="hashtag-set">
+        <div class="hashtag-set-header">
+          <h3>Set 1 — Marina &amp; Sailing Focused</h3>
+          <span class="set-pill set-1">30 Tags</span>
+        </div>
+        <div class="chip-cloud">
+          <span class="chip">#harbourisland</span>
+          <span class="chip">#harbourislandbahamas</span>
+          <span class="chip">#bahamasmarina</span>
+          <span class="chip">#sailingbahamas</span>
+          <span class="chip">#cruisinglife</span>
+          <span class="chip">#marinalife</span>
+          <span class="chip">#boatlife</span>
+          <span class="chip">#sailingcaribbean</span>
+          <span class="chip">#yachtlife</span>
+          <span class="chip">#bahamasboating</span>
+          <span class="chip">#valentinesresort</span>
+          <span class="chip">#valentinesmarina</span>
+          <span class="chip">#harbourislandmarina</span>
+          <span class="chip">#sailinglife</span>
+          <span class="chip">#anchoragebahamas</span>
+          <span class="chip">#caribbeancruising</span>
+          <span class="chip">#liveaboardlife</span>
+          <span class="chip">#bluewatercruising</span>
+          <span class="chip">#eleuthera</span>
+          <span class="chip">#eleutherabahamas</span>
+          <span class="chip">#bahamas</span>
+          <span class="chip">#bahamaslife</span>
+          <span class="chip">#islandlife</span>
+          <span class="chip">#tropicaldestination</span>
+          <span class="chip">#sunsetbahamas</span>
+          <span class="chip">#bahamassunset</span>
+          <span class="chip">#caribbeantravel</span>
+          <span class="chip">#tropicaltravel</span>
+          <span class="chip">#wanderlust</span>
+          <span class="chip">#travelgram</span>
+        </div>
+        <div class="chip-count">30 hashtags — best used with marina arrival shots, dock scenes, sunset boat photos, Valentines Resort posts</div>
+      </div>
+
+      <!-- SET 2 -->
+      <div class="hashtag-set">
+        <div class="hashtag-set-header">
+          <h3>Set 2 — Beach &amp; Travel Focused</h3>
+          <span class="set-pill set-2">30 Tags</span>
+        </div>
+        <div class="chip-cloud">
+          <span class="chip coral">#pinksandbeach</span>
+          <span class="chip coral">#pinksand</span>
+          <span class="chip coral">#bahamastravel</span>
+          <span class="chip coral">#caribbeanbeach</span>
+          <span class="chip coral">#harbourisland</span>
+          <span class="chip coral">#tropicalbeach</span>
+          <span class="chip coral">#beachlife</span>
+          <span class="chip coral">#islandtravel</span>
+          <span class="chip coral">#bahamasbeach</span>
+          <span class="chip coral">#travelbahamas</span>
+          <span class="chip coral">#caribbeanisland</span>
+          <span class="chip coral">#luxurytravel</span>
+          <span class="chip coral">#travelcouple</span>
+          <span class="chip coral">#solotravel</span>
+          <span class="chip coral">#bucketlisttravel</span>
+          <span class="chip coral">#beachvacation</span>
+          <span class="chip coral">#tropicalisland</span>
+          <span class="chip coral">#islandhopping</span>
+          <span class="chip coral">#caribbeansunset</span>
+          <span class="chip coral">#turquoisewater</span>
+          <span class="chip coral">#crystalclearwater</span>
+          <span class="chip coral">#paradiseisland</span>
+          <span class="chip coral">#travelinspiration</span>
+          <span class="chip coral">#traveltheworld</span>
+          <span class="chip coral">#exploremore</span>
+          <span class="chip coral">#discoverearth</span>
+          <span class="chip coral">#beautifuldestinations</span>
+          <span class="chip coral">#instatravel</span>
+          <span class="chip coral">#travelphotography</span>
+          <span class="chip coral">#bahamasbound</span>
+        </div>
+        <div class="chip-count">30 hashtags — best used with beach shots, aerial views, travel inspiration posts, lifestyle content</div>
+      </div>
+
+      <!-- SET 3 -->
+      <div class="hashtag-set">
+        <div class="hashtag-set-header">
+          <h3>Set 3 — Diving &amp; Marine Life Focused</h3>
+          <span class="set-pill set-3">30 Tags</span>
+        </div>
+        <div class="chip-cloud">
+          <span class="chip green">#bahamasdiving</span>
+          <span class="chip green">#underwaterbahamas</span>
+          <span class="chip green">#eleuthera</span>
+          <span class="chip green">#eleutheradiving</span>
+          <span class="chip green">#divingcaribbean</span>
+          <span class="chip green">#scubadiving</span>
+          <span class="chip green">#scubabahamas</span>
+          <span class="chip green">#coralreef</span>
+          <span class="chip green">#reeflife</span>
+          <span class="chip green">#marinelife</span>
+          <span class="chip green">#underwaterphotography</span>
+          <span class="chip green">#oceanlover</span>
+          <span class="chip green">#oceanlife</span>
+          <span class="chip green">#snorkeling</span>
+          <span class="chip green">#snorkelingbahamas</span>
+          <span class="chip green">#seahorse</span>
+          <span class="chip green">#turtlediving</span>
+          <span class="chip green">#sharkdiving</span>
+          <span class="chip green">#bahamas</span>
+          <span class="chip green">#conservationdiving</span>
+          <span class="chip green">#savetheocean</span>
+          <span class="chip green">#marineconservation</span>
+          <span class="chip green">#blueocean</span>
+          <span class="chip green">#divinglife</span>
+          <span class="chip green">#freediving</span>
+          <span class="chip green">#underwaterworld</span>
+          <span class="chip green">#sealife</span>
+          <span class="chip green">#divingcommunity</span>
+          <span class="chip green">#caribbean</span>
+          <span class="chip green">#tropicaldiving</span>
+        </div>
+        <div class="chip-count">30 hashtags — best used with underwater photos, dive site guides, snorkelling content, marine conservation posts</div>
+      </div>
+
+      <div class="copy-note">
+        <strong>Algorithm tip:</strong> Instagram recommends using 3–5 highly relevant hashtags rather than 30 generic ones since the 2022 algorithm update. However, for a brand-new account, using all 30 in the first comment (not the caption) helps with initial discoverability. As your follower count grows past 1,000, test reducing to 10–15 targeted tags and monitor reach in Insights. Never reuse the exact same 30 hashtags on every post — rotate between these three sets.
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════ SECTION D ═══════════ -->
+    <section class="kit-section" id="section-d">
+      <div class="section-label">Section D</div>
+      <h2 class="section-title">30-Day Launch Post Captions</h2>
+      <p class="section-desc">A full month of ready-to-post captions, one per day, covering launch week, article promotions, engagement content, and community-building. Every third post naturally features Valentines Resort &amp; Marina. Hashtag set references are indicated in the Notes field — paste the full set in the first comment after posting.</p>
+
+      <div class="post-cards-grid">
+
+        <!-- WEEK 1 DIVIDER -->
+        <div class="week-divider" id="section-d-week1">Week 1 — Launch Week: Introducing Harbour Island Insider</div>
+
+        <!-- DAY 1 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 1</span>
+            <span class="day-theme">Pink Sand Intro<br>Grand Opening</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="time-tag">⏰ 8:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">We're here. And we brought the pink sand. 🏖️🇧🇸
+
+Harbour Island, Bahamas — one of the world's most extraordinary islands, and officially one of the internet's best-kept secrets. Until now.
+
+Welcome to Harbour Island Insider — your independent, no-fluff guide to this magical 3-mile island off the coast of Eleuthera. We cover the beaches, the restaurants, the dive sites, the ferry crossings, the golf cart rentals, and everything in between. Honest. First-hand. No resort spin.
+
+Whether you're planning your first trip or your fifteenth, we're here to help you get the most out of every moment on the island.
+
+Save this post. Follow along. The adventure starts today. 🌴✨
+
+#harbourisland #harbourislandbahamas #pinksandbeach #bahamastravel #caribbeanbeach #islandlife #bahamas</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Wide-angle golden hour shot of the pink sand beach with turquoise water — the quintessential Harbour Island image. Ideally shot from knee height looking along the shoreline.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 8:00 AM EST Tuesday or Thursday for maximum reach on a new account</div>
+            <div class="footer-row"><strong>Notes:</strong> Add Set 2 hashtags in first comment. Pin this post to the top of your Facebook page. On Instagram, add to Story and save to "Welcome" highlight.</div>
+          </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 2</span>
+            <span class="day-theme">Blog Mission<br>Who We Are</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag ig">Instagram</span>
+            <span class="time-tag">⏰ 6:00 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Why another travel blog? Fair question. 🤔
+
+Here's the honest answer: most Harbour Island content online is either years old, written by someone who spent 48 hours at a luxury resort, or buried under affiliate links.
+
+We're different.
+
+Harbour Island Insider is built on real visits, real research, and real conversations with the people who actually live and work on the island. We talk to local fishermen. We eat at the lunch counters. We ask the ferry captain which crossing time to avoid.
+
+Here's what you'll find on this blog:
+🌊 Honest beach guides
+🍽️ Restaurant reviews (including the places tourists miss)
+🤿 Dive site breakdowns
+⛵ Marina and boating info
+🏡 Accommodation reviews — all price ranges
+📅 Event calendars and seasonal tips
+
+No gatekeeping. No generic fluff. Just Harbour Island, as it really is.
+
+Follow to come along for the ride. 🌴
+
+#harbourislandinsider #harbourisland #travelblog #bahamastravel #caribbeantravel #travelinspiration #honesttravel</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Collage of 4–6 island images: beach, local restaurant exterior, colourful houses, snorkeller in clear water. Use Instagram's carousel feature.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 6:00 PM EST — evening scroll time for a new account</div>
+            <div class="footer-row"><strong>Notes:</strong> Use Set 2 hashtags in first comment. Encourage people to follow in the caption — direct calls to action increase follow rates.</div>
+          </div>
+        </div>
+
+        <!-- DAY 3 - Valentines -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 3</span>
+            <span class="day-theme">Valentines Resort<br>Featured Partner</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="valentines-badge">⚓ Valentines Feature</span>
+            <span class="time-tag">⏰ 9:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">If you're arriving by boat — or wishing you were — this is the post for you. ⚓🌅
+
+Valentines Resort &amp; Marina is our top pick for Harbour Island, and here's why: it's not just a marina. It's the beating heart of the island's waterfront scene.
+
+With 50 full-service slips, easy ferry access to North Eleuthera, and a beachside setting that makes every arrival feel like you've arrived somewhere special, Valentines ticks every box for the discerning Caribbean traveller.
+
+✅ Full-service marina with diesel, water, power
+✅ Resort rooms steps from the dock
+✅ Pool, restaurant, bar — all on-site
+✅ Walking distance to pink sand beach
+✅ Golf cart rental available
+
+Whether you're pulling in on a 40-foot ketch or flying in via North Eleuthera Airport and taking the water taxi, Valentines makes Harbour Island easy.
+
+Link in bio to book or learn more. 👇
+
+#valentinesresort #valentinesmarina #harbourislandmarina #bahamasmarina #sailingbahamas #harbourisland #caribbeansailing #yachtlife</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Marina dock at golden hour — boats moored, the resort visible in the background, warm orange light on the water. Request a media pack from Valentines if available.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 9:00 AM EST — morning browsing peak</div>
+            <div class="footer-row"><strong>Notes:</strong> Use Set 1 (Marina) hashtags. Tag @valentinesresort if they have a social account. This is your monetisation post — track link clicks carefully.</div>
+          </div>
+        </div>
+
+        <!-- DAY 4 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 4</span>
+            <span class="day-theme">Top Dive Sites<br>Marine Preview</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag ig">Instagram</span>
+            <span class="time-tag">⏰ 7:00 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Harbour Island has some of the clearest water in the entire Caribbean. 🤿💙
+
+And the diving? Absolutely world-class.
+
+Here are our Top 5 dive sites around Harbour Island &amp; North Eleuthera that belong on every diver's list:
+
+1. 🦈 Current Cut — One of the world's great drift dives. Ripping tidal current, sharks, eagle rays, sea turtles. For experienced divers only. Worth every second.
+
+2. 🐠 The Train Wreck — A deliberately sunk locomotive sits on the sandy bottom. Encrusted with coral and alive with reef fish. Surreal and photogenic.
+
+3. 🐡 Devils Backbone — A labyrinth of shallow reefs, perfect for snorkellers and beginner divers. Multiple historic shipwrecks along this notorious stretch.
+
+4. 🌊 The Plateau — Deep walls dropping into the Eleuthera abyss. Visibility often exceeds 100 feet. Pelagic encounters are common.
+
+5. 🐢 Coral Gardens — Shallow, calm, and absolutely teeming with life. The perfect morning dive or snorkel trip. Sea turtles are regulars here.
+
+Full dive site guide coming to the blog this week. 🔗 Link in bio.
+
+#bahamasdiving #eleutheradiving #harbourisland #scubadiving #coralreef #divingcaribbean #underwaterbahamas #marinelife</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Underwater shot — ideally a diver silhouette against a coral wall with light rays penetrating from the surface. Alternatively use a sea turtle close-up.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 7:00 PM EST — peak engagement time for travel content</div>
+            <div class="footer-row"><strong>Notes:</strong> Use Set 3 (Diving) hashtags in first comment. Save to a "Diving" Story highlight. This content performs extremely well with the dive community.</div>
+          </div>
+        </div>
+
+        <!-- DAY 5 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 5</span>
+            <span class="day-theme">Marina Arrival<br>Morning Vibes</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag ig">Instagram</span>
+            <span class="time-tag">⏰ 8:30 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">The moment you cross the harbour and the island comes into view. 🌅⚓
+
+There's something about arriving at Harbour Island by boat that no amount of description quite captures. The water shifts from deep blue to impossible turquoise. The pastel-painted buildings of Dunmore Town emerge above the dock. Pelicans cruise past at eye level.
+
+And then you're there.
+
+For sailors and powerboaters cruising the Bahamas, Harbour Island is more than a stop — it's a destination. The kind of place you plan to spend three days and end up staying three weeks.
+
+Today's post is for everyone who's ever stood at the helm watching an island approach and thought: yes. This is exactly where I'm meant to be. 🌴
+
+Drop a ⚓ below if you've made this crossing, or a 🗺️ if it's on your bucket list.
+
+#marinalife #sailingbahamas #harbourisland #cruisinglife #bahamasboating #bahamassunset #boatlife #caribbeancruising</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Shot from a boat bow looking toward Harbour Island — ideally approaching the dock at sunrise or golden hour. The pastel buildings should be visible on the horizon.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 8:30 AM EST — morning commuters on phones</div>
+            <div class="footer-row"><strong>Notes:</strong> Use Set 1 (Marina) hashtags. The engagement question (⚓ or 🗺️) drives comments — respond to every one in the first hour to boost the algorithm.</div>
+          </div>
+        </div>
+
+        <!-- DAY 6 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 6</span>
+            <span class="day-theme">Best Restaurants<br>Food Teaser</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="time-tag">⏰ 12:00 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">The food on Harbour Island is wildly underrated. Let's fix that. 🦞🍋
+
+Here's our completely subjective, vigorously debated, definitely-going-to-cause-an-argument list of the best places to eat on the island right now:
+
+🐟 The Landing — Beachside dining at its most elegant. The conch chowder will make you question every soup you've ever eaten.
+
+🦞 Sip Sip — Lobster salad on the beach. Yes, that's a real thing that exists. You're welcome.
+
+🍳 Ma Ruby's — The island institution. Full Bahamian breakfast. Get there early, it fills up fast.
+
+🥗 Gusty's — Casual, local, honest. This is where the island eats. Order whatever they say is fresh that day.
+
+🍹 Rock House Hotel bar — For a sundowner on the terrace with views that Instagram doesn't do justice.
+
+Full guide with hours, prices, and booking tips dropping on the blog this week. 🔗 Link in bio.
+
+What do you want to know about dining on Harbour Island? Drop your questions below 👇
+
+#harbourisland #bahamasfood #caribbeanfood #bahamasrestaurants #conch #bahamas #tropicaldining #islandlifestyle</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Flat-lay of a beautiful plate of Bahamian food — cracked conch, fresh fish, peas and rice. Alternatively, a beachside restaurant table setting at golden hour.</div>
+            <div class="footer-row"><strong>Best Time:</strong> Noon — when people are thinking about food</div>
+            <div class="footer-row"><strong>Notes:</strong> Use Set 2 hashtags. Food content drives high save rates — saves tell the algorithm the post has long-term value and boost future reach.</div>
+          </div>
+        </div>
+
+        <!-- DAY 7 - Valentines -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 7</span>
+            <span class="day-theme">First Article Promo<br>Blog Launch</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="valentines-badge">⚓ Valentines Feature</span>
+            <span class="time-tag">⏰ 10:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">One week in. First big article is LIVE. 🎉🌴
+
+"The Complete Visitor's Guide to Harbour Island, Bahamas" — everything you need to plan a perfect trip, from ferry logistics to the best time of year to visit. No fluff, no filler.
+
+Here's a taste of what's inside:
+
+📍 How to get to Harbour Island step by step (including from Nassau)
+📅 Best months to visit and what to expect each season
+🏖️ Pink sand beach — where to go, when, and what to bring
+⚓ Where to stay: our breakdown from budget to luxury — including our top recommendation, Valentines Resort &amp; Marina, which combines full marina facilities with genuine resort comfort right on the water
+🍽️ Our favourite restaurants for every budget
+🤿 Beginner to advanced dive site guide
+🛵 Golf carts, water taxis, and getting around
+
+This is the article we wish we'd had on our first visit.
+
+🔗 Link in bio → Read it now.
+
+Save this post so you can find the article when you're ready to plan. 📌
+
+#harbourisland #harbourislandbahamas #bahamastravel #travelguide #bahamas #caribbeantravel #valentinesresort #harbourislandguide</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Striking aerial or wide beach shot to accompany the guide — something that immediately makes the viewer want to read more. Ideally landscape orientation.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 10:00 AM EST Saturday — weekend morning travel planning</div>
+            <div class="footer-row"><strong>Notes:</strong> Use Set 2 hashtags. This is a traffic-driving post — monitor link clicks in Linktree analytics. Boost this post on Facebook (even $5) for extra reach on launch week.</div>
+          </div>
+        </div>
+
+        <!-- WEEK 2 DIVIDER -->
+        <div class="week-divider" id="section-d-week2">Week 2 — Article Promotions: Driving Traffic to the Blog</div>
+
+        <!-- DAY 8 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 8</span>
+            <span class="day-theme">How to Get There<br>Logistics Guide</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag fb">Facebook</span>
+            <span class="time-tag">⏰ 9:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">The number one question we get: "How do I actually GET to Harbour Island?" 🗺️✈️
+
+It's easier than you think — and more of an adventure than most Caribbean islands. Here's the quick version:
+
+Option 1 — Fly to North Eleuthera (ELH) via Nassau, Miami, or Fort Lauderdale. Jump on the 10-minute water taxi across to Harbour Island. Done.
+
+Option 2 — Fly to Nassau (NAS). Take a domestic flight or charter to North Eleuthera. Water taxi across.
+
+Option 3 — Sail or motor your boat directly to Valentines Marina. By far the most dramatic arrival.
+
+Option 4 — Ferry from Nassau via Eleuthera Express or mail boat. The slow way, and absolutely worth it for the experience.
+
+The full guide — with airlines, schedules, prices, ferry times, water taxi tips, and the exact steps from landing to beach — is live on the blog now.
+
+🔗 Link in bio → "How to Get to Harbour Island"
+
+#harbourisland #bahamastravel #traveltips #howtogettobahamastravel #eleuthera #caribbeantravel #travelplanning</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Small prop plane on a tiny Caribbean runway, or a water taxi crossing blue water with the island visible in background.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 9:00 AM Monday — start of week trip planning browsing</div>
+            <div class="footer-row"><strong>Notes:</strong> Logistics content gets shared heavily on Facebook travel groups. Add the post to relevant Bahamas travel Facebook groups manually to drive early traffic.</div>
+          </div>
+        </div>
+
+        <!-- DAY 9 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 9</span>
+            <span class="day-theme">Pink Sand Science<br>Interesting Facts</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag ig">Instagram</span>
+            <span class="time-tag">⏰ 7:00 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">The pink sand beach is real. Here's why it's pink. 🌸🔬
+
+We know — you've probably seen the photos and wondered if it's enhanced. It's not. And the science behind it is genuinely fascinating.
+
+The pink colour comes from broken shells and exoskeletons of a tiny organism called Foraminifera (or "Foram" for short). These microscopic creatures live in the coral reef and have bright red or pink shells. When they die, their remains wash up on shore and mix with the white sand. The result? That iconic blush-pink colour that makes Harbour Island famous.
+
+The best pink is visible:
+🌅 Early morning — before footprints disturb the wet sand
+🌧️ After rainfall — water saturates the colour
+🌊 When the tide is low — more sand is exposed
+
+Swipe for our tips on getting the best beach photos ➡️
+
+Full article on the beach — including where the pinkest sand is, and the best time of day — is on the blog now.
+
+🔗 Link in bio.
+
+#pinksandbeach #pinksand #harbourisland #bahamastravel #caribbeanbeach #travelfacts #beachscience #tropicalbeach</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Macro close-up of pink sand in the palm of a hand, or a wide shot of the beach with emphasis on the pink colour — ideally a carousel with 3–4 different beach photos showing the range of pink.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 7:00 PM Tuesday — evening scroll peak</div>
+            <div class="footer-row"><strong>Notes:</strong> Educational content about the pink sand performs exceptionally well — save rates are high. Include 5-6 photos in the carousel. Use Set 2 hashtags.</div>
+          </div>
+        </div>
+
+        <!-- DAY 10 - Valentines -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 10</span>
+            <span class="day-theme">Where to Stay<br>Valentines Feature</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="valentines-badge">⚓ Valentines Feature</span>
+            <span class="time-tag">⏰ 10:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Where to stay on Harbour Island — our honest breakdown. 🏨🌴
+
+We've reviewed the accommodation options on the island at every price point. Today, we're focusing on our top overall recommendation: Valentines Resort &amp; Marina.
+
+Here's what makes it stand out from the crowd:
+
+🌊 Location — Right on the water, steps from the ferry dock. If you arrive by boat, you literally sail to your hotel.
+
+🛏️ Rooms — Comfortable, well-maintained resort rooms with that Caribbean-casual feel. Not overly corporate. Actual character.
+
+🍹 Bar &amp; Restaurant — The marina bar is genuinely one of the best sundowner spots on the island. Order the rum punch. Trust us.
+
+🔧 Marina services — If you're arriving by boat, the facilities are excellent. Full-service, friendly staff, good provisioning nearby.
+
+🏖️ Access — 5-minute golf cart ride to the pink sand beach. Golf carts available for rent.
+
+💰 Value — Competitive rates for what you get. We've seen comparable Caribbean resorts charge 40% more for less.
+
+Full review + booking link: 🔗 Link in bio
+
+#valentinesresort #harbourisland #bahamasaccommodation #caribbeanresort #marinahotel #harbourislandstay #bahamashotels</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Pool area or resort exterior with marina visible — ideally at golden hour. Carousel with 3–4 resort images works well here.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 10:00 AM Wednesday — mid-week travel research peak</div>
+            <div class="footer-row"><strong>Notes:</strong> Use Set 1 hashtags. This is a key monetisation post. Monitor Linktree click-throughs for the Valentines booking link specifically.</div>
+          </div>
+        </div>
+
+        <!-- DAY 11 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 11</span>
+            <span class="day-theme">Dive Guide Article<br>Traffic Driver</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag ig">Instagram</span>
+            <span class="time-tag">⏰ 6:30 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">The Complete Harbour Island Dive Guide is live. 🤿💙
+
+We spent serious time in the water researching this one. Every dive site rated, mapped, and described in the kind of detail we couldn't find anywhere online.
+
+What's in the guide:
+
+🦈 Current Cut — full briefing, what to expect, when to go
+🚂 The Train Wreck — history, depth, marine life
+💀 Devils Backbone — the shipwrecks, the snorkel trail, what to watch for
+🌊 Deep wall diving around north Eleuthera
+🐢 Best spots for beginners and snorkellers
+
+Plus: the best dive operators on the island, what to expect to pay, equipment rental info, and our honest verdict on each site.
+
+This is the dive guide Harbour Island deserved.
+
+🔗 Link in bio → Full Dive Guide
+
+Save this one for later. 📌
+
+#bahamasdiving #harbourisland #scubadiving #divingcaribbean #eleutheradiving #coralreef #underwaterbahamas #divinglife</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Underwater shot — sea turtle gliding above a coral reef, or a diver exploring the Train Wreck. Dramatic lighting preferred.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 6:30 PM Thursday</div>
+            <div class="footer-row"><strong>Notes:</strong> Use Set 3 (Diving) hashtags. Dive community is very active on Instagram — expect strong niche engagement. Share to relevant Facebook diving groups.</div>
+          </div>
+        </div>
+
+        <!-- DAY 12 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 12</span>
+            <span class="day-theme">Dunmore Town<br>Cultural Guide</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag fb">Facebook</span>
+            <span class="time-tag">⏰ 11:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Beyond the beach: Dunmore Town, Harbour Island's charming little capital. 🏡🌺
+
+Don't make the mistake of spending your entire trip on the sand (tempting as it is). Dunmore Town, the island's only settlement, is one of the most photogenic and historically interesting villages in the entire Bahamas.
+
+What to look for:
+
+🏠 The colonial architecture — Loyalist-era clapboard houses painted in pastels so vivid they look like a movie set. They're not — this is genuinely how people live here.
+
+⛪ St. John's Anglican Church — One of the oldest in the Bahamas. The graveyard tells remarkable stories.
+
+🎨 The Art Gallery — Local Bahamian art for sale. Original pieces, real provenance, not airport trinkets.
+
+🛒 The Straw Market — Small, friendly, and selling things made on the island rather than imported from China.
+
+🚶 Bay Street — A 15-minute walk along the harbour front covers most of the town. Do it at dusk.
+
+Full Dunmore Town walking guide is on the blog — link in bio. 🔗
+
+#harbourisland #dunmoretown #bahamasculture #bahamashistory #caribbeanvillage #travelbahamas #bahamas #islandtravel</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> A row of colourful clapboard houses on a Dunmore Town street — bright pinks, yellows, greens against a blue sky. The architecture is very photogenic.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 11:00 AM Friday</div>
+            <div class="footer-row"><strong>Notes:</strong> Use Set 2 hashtags. Cultural content performs well on Facebook with older demographics. Good for shares in Bahamas and Caribbean travel groups.</div>
+          </div>
+        </div>
+
+        <!-- DAY 13 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 13</span>
+            <span class="day-theme">Weekend Getaway<br>Itinerary Post</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="time-tag">⏰ 9:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">The perfect 3-day Harbour Island weekend, mapped out. 🗓️🌴
+
+You've got Friday afternoon to Sunday evening. Here's how to spend it:
+
+FRIDAY EVENING
+🛬 Land at North Eleuthera, water taxi across
+⚓ Check in, explore the dock area at dusk
+🍹 Sundowner at the marina bar
+🍽️ Dinner at The Landing — reserve ahead
+
+SATURDAY
+☀️ 6:30 AM: Beat the crowds to the pink sand beach
+🤿 Morning: Snorkel trip — book the night before
+🥗 Lunch: Sip Sip (get the lobster salad — trust us)
+🛵 Afternoon: Golf cart tour of the island end to end
+🌅 Sunset: Anywhere facing west — you'll understand why
+
+SUNDAY
+🥞 Breakfast: Ma Ruby's (get there early)
+🏖️ Late morning at the beach — one more dip
+🛒 Browse Dunmore Town before your water taxi back
+✈️ Catch the afternoon flight home with sand still in your shoes
+
+Full itinerary with tips, alternatives, and recommendations: 🔗 Link in bio.
+
+#harbourisland #bahamasweekend #3dayitinerary #bahamastravel #weekendtrip #caribbeantravel #travelitinerary</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Split-image or carousel: beach morning, snorkel in water, lobster dish at Sip Sip, golf cart on island road, dramatic sunset. 5-frame carousel works perfectly.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 9:00 AM Saturday — peak weekend travel planning</div>
+            <div class="footer-row"><strong>Notes:</strong> Itinerary posts are among the most-saved content type in travel. Use Set 2 hashtags. The save rate on this type of post will be high — track it in Insights.</div>
+          </div>
+        </div>
+
+        <!-- DAY 14 - Valentines -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 14</span>
+            <span class="day-theme">Two-Week Milestone<br>Valentines Sail-In</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag ig">Instagram</span>
+            <span class="valentines-badge">⚓ Valentines Feature</span>
+            <span class="time-tag">⏰ 5:00 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Two weeks of Harbour Island Insider. Two weeks of you finding us. Thank you. 🙏🌴
+
+To celebrate — a post for the sailors, the cruisers, and the dreamers who've always wanted to sail into Harbour Island at sunset.
+
+Arriving by boat at Valentines Resort &amp; Marina is an experience that genuinely lives up to the hype. The approach from the north, past the Devil's Backbone reef (take local advice on the channel — it's navigable with the right guide), and then turning into the calm harbour as the lights of Dunmore Town reflect on the water.
+
+The marina staff are on the dock to catch lines. Someone brings you a rum punch before you've finished tying off. The pelicans watch from the pilings, judging your docking technique.
+
+And then the island just… happens. Exactly as it should.
+
+🔗 Full sailing guide to Harbour Island, including the Devils Backbone passage, in the blog. Link in bio.
+
+If you've made this crossing — what was your boat? Where did you come from? Tell us in the comments. ⚓
+
+#valentinesresort #harbourislandmarina #sailingbahamas #cruisingbahamas #bahamasmarina #harbourisland #sailinglife #cruisinglife</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Sailboat or motor yacht moored at Valentines Marina at dusk — mast lights reflected in calm water, resort lights in background. Very cinematic.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 5:00 PM Sunday — week's end browsing</div>
+            <div class="footer-row"><strong>Notes:</strong> Use Set 1 (Marina) hashtags. The engagement question drives comments from the sailing community — a very engaged and loyal audience on Instagram.</div>
+          </div>
+        </div>
+
+        <!-- WEEK 3 DIVIDER -->
+        <div class="week-divider" id="section-d-week3">Week 3 — Engagement: Polls, Questions, Facts &amp; Trivia</div>
+
+        <!-- DAY 15 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 15</span>
+            <span class="day-theme">Poll Post<br>Engagement</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag ig">Instagram</span>
+            <span class="time-tag">⏰ 7:00 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Hot take incoming. Settle this debate for us. ☀️🌧️
+
+When is the BEST time to visit Harbour Island?
+
+We're genuinely split on this, and we want your opinion:
+
+🌞 HIGH SEASON (December–April)
+— Best weather. Sunny, dry, breezy. Temperatures around 75–80°F.
+— More visitors. Restaurants busier. Prices higher.
+— Pink sand beach at its most photogenic.
+
+🌺 SHOULDER SEASON (May–June + November)
+— Warm water. Fewer crowds. Better prices.
+— Occasional shower but nothing dramatic.
+— Our personal favourite time to visit.
+
+🌊 LOW SEASON (July–October)
+— Hurricane season — though Harbour Island is rarely directly hit.
+— Significantly cheaper. Dramatically quieter.
+— A completely different, more authentic island experience.
+— Some restaurants close. Worth researching before you go.
+
+Which camp are you in? High season or brave the off-season?
+
+🗳️ Use the poll in our Story to vote — and tell us your reasoning in the comments below. Every answer gets a genuine reply from us.
+
+#harbourisland #bahamastravel #travelseason #caribbeantravel #whentovisit #traveltips #bahamaslife</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Split-image of the beach in two conditions — one sunny and clear, one with dramatic stormy sky over turquoise water. Both beautiful.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 7:00 PM Monday — add an Instagram Story poll at the same time for maximum data</div>
+            <div class="footer-row"><strong>Notes:</strong> Polls and opinion posts drive comments faster than any other format. Respond to every comment within 60 minutes to signal algorithm activity. Use Set 2 hashtags.</div>
+          </div>
+        </div>
+
+        <!-- DAY 16 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 16</span>
+            <span class="day-theme">Island Trivia<br>Did You Know</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="time-tag">⏰ 9:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">5 things most people don't know about Harbour Island. How many did you know? 🤔🇧🇸
+
+1. 🗺️ The island is TINY. At just 3 miles long and half a mile wide, Harbour Island is one of the smallest inhabited islands in the Bahamas. The entire beach is accessible end-to-end in about 45 minutes on foot.
+
+2. 🐎 Golf carts are the primary mode of transport. There are almost no cars, and the island's roads are barely wide enough for two carts to pass. It's one of the things that makes it feel like a different era.
+
+3. 🏛️ Dunmore Town was the first capital of the Bahamas. Yes — before Nassau, before everything, Harbour Island's tiny village was the administrative centre of the Bahamas in the 17th century.
+
+4. 🦈 Current Cut is considered one of the world's top drift dives. The tidal rush through the cut between Harbour Island and Eleuthera can reach speeds of 4–6 knots, creating one of the most exhilarating dives in the Caribbean.
+
+5. 🎬 It's been called "the most beautiful island in the world" by multiple major publications. The pink sand beach has appeared in Vogue, Travel + Leisure, and Condé Nast Traveller.
+
+Which of these surprises you most? 👇
+
+#harbourisland #travelfacts #bahamasfacts #harbourislandfacts #caribbeanhistory #bahamas #islandlife</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Golf cart parked on a flower-lined lane in Dunmore Town — iconic island visual, colourful and immediately recognisable.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 9:00 AM Tuesday</div>
+            <div class="footer-row"><strong>Notes:</strong> "Did you know" content performs exceptionally well for shares on Facebook. Use Set 2 hashtags. Carousel format (one fact per slide) can increase time-on-post metric significantly.</div>
+          </div>
+        </div>
+
+        <!-- DAY 17 - Valentines -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 17</span>
+            <span class="day-theme">Valentines Sundowner<br>Lifestyle Post</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag ig">Instagram</span>
+            <span class="valentines-badge">⚓ Valentines Feature</span>
+            <span class="time-tag">⏰ 5:30 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">This is the sundowner they don't tell you about. 🍹🌅
+
+You've spent the day on the pink sand beach. The sun is dropping toward the water. The boat in the marina is rocking gently. And someone — sensibly — suggests: drinks at the Valentines Marina bar.
+
+This is the correct decision every single time.
+
+The marina bar at Valentines Resort is the kind of place that makes you lose track of time in the best possible way. Watch the boats come in on the tide. Order another rum punch. Debate whether to book another night. (You already know how that debate ends.)
+
+It's not a cocktail bar that's been styled for Instagram. It's a proper marina bar — where the sailors are comparing weather windows, the locals are finishing a long day, and the pelicans are doing their magnificent pelican thing on the dock pilings.
+
+Authentic. Unpretentious. Genuinely wonderful.
+
+🔗 Book Valentines in our link in bio 👇
+
+How do you prefer your sundowners: 🏖️ beach or ⚓ marina bar? Comments below!
+
+#valentinesresort #harbourisland #marinabar #bahamassunset #caribbeansunset #sunsetdrinks #sailinglife #harbourislandmarina</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Marina bar at golden hour — rum punch in foreground, boats and water in soft focus behind. Warm, amber tones. Aspirational but real.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 5:30 PM Wednesday — post when the light is doing what the caption describes</div>
+            <div class="footer-row"><strong>Notes:</strong> Use Set 1 (Marina) hashtags. This lifestyle-style caption converts well for Valentines bookings — track the link in bio click.</div>
+          </div>
+        </div>
+
+        <!-- DAY 18 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 18</span>
+            <span class="day-theme">Question Post<br>Community Input</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag fb">Facebook</span>
+            <span class="time-tag">⏰ 12:00 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">We need your help. Genuinely. 🙋
+
+We're putting together the definitive guide to Harbour Island hidden gems — the places, spots, tips, and experiences that don't make it into the guidebooks.
+
+And we're asking YOU.
+
+Whether you've visited once or you've been coming for 20 years — what's your hidden gem on Harbour Island? What do you know that most visitors miss?
+
+It could be:
+🍽️ A restaurant or food stall
+🏖️ A quiet beach spot at a specific time of day
+🤿 A dive or snorkel site that's off the main circuit
+🛵 A golf cart route or viewpoint
+🌺 A local experience, person, or tradition
+🛒 A shop, market, or artisan
+
+Drop it in the comments. We read every single one. The best contributions will feature in our upcoming "Hidden Gems of Harbour Island" article — with full credit to the contributor.
+
+The island's best secrets deserve to be shared. 🌴
+
+#harbourisland #hiddengems #bahamastravel #caribbeansecrets #traveltips #harbourislandinsider #bahamaslife</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> A charming, slightly off-the-beaten-path scene — a colourful alley in Dunmore Town, a tiny local lunch counter, or a secluded beach cove.</div>
+            <div class="footer-row"><strong>Best Time:</strong> Noon Thursday — midday Facebook scroll</div>
+            <div class="footer-row"><strong>Notes:</strong> Community-input posts are gold for engagement AND for content research. Every comment is an idea. Respond to all. Use Set 2 hashtags.</div>
+          </div>
+        </div>
+
+        <!-- DAY 19 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 19</span>
+            <span class="day-theme">Island Wildlife<br>Nature Focus</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag ig">Instagram</span>
+            <span class="time-tag">⏰ 8:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">The wildlife on Harbour Island is absolutely spectacular. And barely anyone talks about it. 🦜🐢
+
+Here's what you might encounter on a single day on the island:
+
+🐢 Sea Turtles — Visible from shore at the pink sand beach, especially early morning. Snorkellers regularly encounter them in the shallows. Never chase, never touch — just float and watch.
+
+🦈 Nurse Sharks — Common around the reef. Harmless, slow-moving, and genuinely beautiful. Juvenile nurse sharks sleep under coral heads. Adults cruise the sandy bottom.
+
+🐬 Dolphins — The harbour sees regular dolphin activity. Atlantic spotted dolphins are common in the channel.
+
+🦜 Pink Flamingos — Yes, really. A flock lives in the wetland area near the airport on North Eleuthera, a short drive from the ferry dock.
+
+🦅 Ospreys &amp; Pelicans — The marina is practically their runway. Pelicans plunge-dive for fish around the dock all day.
+
+🦀 Land Crabs — Come out at night across the island. Enormous and prehistoric-looking. Completely harmless.
+
+What wildlife have YOU spotted on Harbour Island? Drop it below 👇🌴
+
+#bahamaswildlife #seaturtles #harbourisland #marinelife #bahamasnature #caribbeanwildlife #oceanlover #tropicalnature</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Sea turtle swimming in turquoise water — ideally shot from above with sunlight dappling the sand below. Breathtaking and immediately attention-grabbing.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 8:00 AM Friday — morning scrollers before the weekend</div>
+            <div class="footer-row"><strong>Notes:</strong> Wildlife content consistently drives high saves and shares. Use Set 3 (Diving/Marine) hashtags. Nature content also attracts eco-travel and conservation audiences — a valuable niche.</div>
+          </div>
+        </div>
+
+        <!-- DAY 20 - Valentines -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 20</span>
+            <span class="day-theme">Bahamas Trivia<br>Valentines Mention</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="valentines-badge">⚓ Valentines Mention</span>
+            <span class="time-tag">⏰ 7:00 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Bahamas quiz time. Test your knowledge. 🇧🇸🧠
+
+(No Googling — honour system!)
+
+1. How many islands, cays, and rocks make up the Bahamas?
+   A) 200   B) 700   C) 2,400   D) 5,000
+
+2. What colour is the sand on Harbour Island's famous beach?
+   A) White   B) Black   C) Pink   D) Gold
+
+3. What is the name of the capital of the Bahamas?
+   A) Freeport   B) Nassau   C) Dunmore Town   D) Eleuthera
+
+4. Which famous resort and marina on Harbour Island is named after... well, you can guess?
+   A) Valentine's Day   B) A historical figure   C) The founder's daughter   D) A love story
+
+5. What is the approximate population of Harbour Island?
+   A) 500   B) 1,800   C) 5,000   D) 12,000
+
+Answers in the comments! And if you want to experience Harbour Island first-hand — including a stay at Valentines Resort &amp; Marina (answer to Q4 — we'll never confirm the real origin 😄) — the link's in our bio. 👇
+
+#bahamasquiz #harbourisland #bahamastrivia #traveltrivia #bahamasfacts #caribbeantravel #travelbahamas</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Fun, colourful flat-lay — Bahamian flag, seashells, a map, and a rum punch glass. Playful and inviting.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 7:00 PM Saturday — weekend evening engagement peak</div>
+            <div class="footer-row"><strong>Notes:</strong> Quiz posts generate massive comment threads. Pin the answers as a reply after 2 hours. Use Set 2 hashtags. Answers: 1-C, 2-C, 3-B, 4-hint at the love story, 5-B.</div>
+          </div>
+        </div>
+
+        <!-- DAY 21 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 21</span>
+            <span class="day-theme">Three-Week Mark<br>Milestone + Gratitude</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="time-tag">⏰ 10:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Three weeks in. And honestly? We're blown away. 🙏🌴
+
+When we launched Harbour Island Insider three weeks ago, we hoped a handful of island lovers would find us. What's happened since has exceeded every expectation.
+
+A few things that have moved us:
+💬 The comments from people who visited Harbour Island 30 years ago and are planning their return
+💌 The messages from locals telling us we've "got it right"
+🔗 The readers who've already started planning trips using our guides
+⚓ The sailors who've bookmarked the marina guide for their Bahamas passage
+
+This island is special. We already knew that. But the community that's forming around it? Even more so.
+
+What we're working on for you this week:
+📝 The complete Harbour Island packing list (it's different from other Caribbean destinations)
+🦞 The definitive restaurant ranking — all 12 spots, ranked honestly
+⛵ The sailors' guide to Devils Backbone and approaching Harbour Island
+
+If there's something you want us to cover — anything at all — drop it in the comments. We read every single one.
+
+Thank you for being here. 🌊
+
+#harbourislandinsider #harbourisland #travelblog #thankyou #bahamastravel #communitytravel #caribbeanblog</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Aerial or wide beach shot — something beautiful and aspirational. This is a milestone post so make the image count.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 10:00 AM Sunday — end of the third week</div>
+            <div class="footer-row"><strong>Notes:</strong> Milestone posts build community loyalty. Ask for content suggestions — you'll get article ideas from the comments. Use Set 2 hashtags.</div>
+          </div>
+        </div>
+
+        <!-- WEEK 4 DIVIDER -->
+        <div class="week-divider" id="section-d-week4">Week 4 — Community + Valentines Promotion</div>
+
+        <!-- DAY 22 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 22</span>
+            <span class="day-theme">Reader Testimonial<br>Social Proof</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag fb">Facebook</span>
+            <span class="time-tag">⏰ 9:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">We asked. You answered. Here's what you told us about Harbour Island. 💬🇧🇸
+
+We reached out to our growing community this week and asked: "What's your most vivid Harbour Island memory?"
+
+Here's a selection of what you shared:
+
+🗣️ "Waking up at 6am to an empty pink sand beach. Just me, a pelican, and the most extraordinary colour I've ever seen in real sand." — Sarah, New York
+
+🗣️ "My husband and I sailed in to Valentines Marina after 4 days at sea from Fort Lauderdale. The rum punch they handed us when we tied up is the best drink I've ever tasted." — Carolyn, Florida
+
+🗣️ "Eating fresh cracked conch at a roadside spot in Dunmore Town with the local fisherman who caught it that morning. Zero atmosphere. Perfect meal." — James, London
+
+🗣️ "Drifting through Current Cut on a full-moon dive. Sharks, rays, and more fish than I could count. I've dived all over the world. Nothing compares." — Marcus, Toronto
+
+These are real people, real memories, real Harbour Island. Want to add yours? Drop it in the comments. 👇
+
+#harbourisland #traveltestimonial #bahamastravel #pinksandbeach #travelcommunity #caribbeantravel #realtravel</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> A candid, human moment on the island — a couple walking the beach, a local fisherman with his catch, a table of people laughing over food. Authentic over staged.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 9:00 AM Monday — week-start inspiration browsing</div>
+            <div class="footer-row"><strong>Notes:</strong> Source real testimonials from comments on previous posts or from travel communities. Use Set 2 hashtags. Social proof posts convert undecided followers into trip-planners.</div>
+          </div>
+        </div>
+
+        <!-- DAY 23 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 23</span>
+            <span class="day-theme">Packing Guide<br>Practical Tips</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag ig">Instagram</span>
+            <span class="time-tag">⏰ 7:30 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Packing for Harbour Island is NOT the same as packing for a regular Caribbean resort. Here's what they don't tell you. 🧳🌴
+
+Things most guides miss:
+
+🛵 Elastic waist everything. You'll be on a golf cart or a bike every day. Restrictive waistbands are the enemy.
+
+👟 Water shoes. The ferry dock and some beach entries are rocky. Flip-flops aren't enough.
+
+🔦 A small torch/flashlight. Dunmore Town's street lighting is… atmospheric (read: minimal). Essential for evening walks.
+
+🪲 DEET. The sandflies on Harbour Island are small, stealthy, and relentless near the water at dusk. The pink sand beach bites back.
+
+🌞 Reef-safe sunscreen ONLY. The coral reef is protected. Oxybenzone-based sunscreen is damaging and actively discouraged on the island. Zinc oxide only.
+
+💵 Cash (US dollars). Most places accept cards, but a few local spots and the ferry are cash-only. Arrive with US$200–300 in small bills.
+
+📱 Offline maps downloaded. Cell signal can be patchy inland. Download Google Maps or maps.me for the island before you arrive.
+
+Full packing list with product recommendations on the blog. 🔗 Link in bio.
+
+#harbourisland #packinglist #traveltips #bahamastravel #caribbeanpacking #travelprep #islandtravel #travelhacks</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Flat-lay of an open suitcase with island essentials — reef-safe sunscreen, water shoes, a Bahamas travel guide, a sun hat, a snorkel mask. Clean and colourful.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 7:30 PM Tuesday</div>
+            <div class="footer-row"><strong>Notes:</strong> Packing content drives the highest save rate of any travel content type. Use Set 2 hashtags. Affiliate links for recommended products can be added to the blog article.</div>
+          </div>
+        </div>
+
+        <!-- DAY 24 - Valentines -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 24</span>
+            <span class="day-theme">Valentines Offer<br>Partner Promotion</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="valentines-badge">⚓ Valentines Feature</span>
+            <span class="time-tag">⏰ 10:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Planning a Harbour Island trip? Here's what we always tell people first. 🌴⚓
+
+Book early. Especially at Valentines Resort &amp; Marina.
+
+Here's why: Harbour Island has a finite number of hotel rooms and marina slips. In high season (December–April), the island essentially sells out. The best accommodation goes weeks — sometimes months — in advance.
+
+Valentines Resort is our top accommodation pick for Harbour Island for several reasons:
+
+✅ The marina access is genuinely unmatched — full-service slips, friendly dock staff, and one of the most scenic arrivals in the Bahamas
+✅ The resort rooms are comfortable, well-maintained, and right on the water
+✅ The bar and restaurant mean you never HAVE to leave the property (though you absolutely should, because the island is extraordinary)
+✅ The team at Valentines genuinely knows the island — local knowledge comes standard
+✅ Walking distance to the ferry dock for guests arriving by air
+
+What we recommend: When you book Valentines, email them directly and mention you're arriving via boat or via North Eleuthera — they'll give you everything you need to arrive smoothly.
+
+🔗 Book now via the link in our bio. 👇
+
+Any questions about Valentines or Harbour Island accommodation? Ask in the comments — we'll answer every one.
+
+#valentinesresort #valentinesmarina #harbourisland #bahamasaccommodation #harbourislandstay #sailingbahamas #caribbeanresort</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Resort pool with marina and sunset in background — the quintessential Valentines shot. Warm, aspirational, luxury-adjacent but not intimidating.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 10:00 AM Wednesday — mid-week booking research peak</div>
+            <div class="footer-row"><strong>Notes:</strong> Use Set 1 (Marina) hashtags. This is a direct conversion post — track every Valentines link click meticulously. Consider a small Facebook boost ($10) on this post.</div>
+          </div>
+        </div>
+
+        <!-- DAY 25 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 25</span>
+            <span class="day-theme">Bahamas Food Culture<br>Conch Guide</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag ig">Instagram</span>
+            <span class="time-tag">⏰ 12:30 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Conch. The Bahamian national dish, the island's heartbeat, and possibly the most versatile food on the planet. 🐚🇧🇸
+
+If you visit Harbour Island and don't eat conch in at least three different preparations, we will respectfully question your life choices.
+
+Here's your complete conch education:
+
+🥗 CONCH SALAD — Raw, marinated in citrus, tomato, onion, and scotch bonnet. Order it fresh, watch them make it, eat it immediately. Life-changing.
+
+🔨 CRACKED CONCH — Tenderised, battered, and fried. The Bahamian equivalent of fish and chips. Perfect with peas and rice.
+
+🍲 CONCH CHOWDER — A rich, tomato-based soup with onion, potato, and spice. The version at The Landing has won arguments.
+
+🥘 CONCH FRITTERS — Deep-fried dough balls packed with conch and spice. The island's snack of choice.
+
+🍋 CONCH IN BUTTER SAUCE — Less common, absolutely worth seeking out. Sweet, delicate, and revelatory.
+
+Important note: Queen conch is a protected species in the Bahamas. Sustainably caught conch from licensed fishermen is legal and actively supports local livelihoods. Ask your server — the good places will tell you exactly where their conch comes from.
+
+🔗 Full Harbour Island food guide on the blog — link in bio.
+
+#bahamasfood #conch #caribbeanfood #harbourisland #bahamasculture #foodtravel #islandfood #travelfood</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Beautiful overhead shot of a conch salad — bright colours, citrus slices, the pink conch meat visible. Food photography at its freshest.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 12:30 PM Thursday — lunch time food browsing</div>
+            <div class="footer-row"><strong>Notes:</strong> Food cultural content is highly shareable, especially on Facebook. Use Set 2 hashtags. The sustainability note builds trust and authority with eco-conscious readers.</div>
+          </div>
+        </div>
+
+        <!-- DAY 26 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 26</span>
+            <span class="day-theme">Photography Tips<br>Reels / Video</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag ig">Instagram</span>
+            <span class="time-tag">⏰ 6:00 PM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">How to photograph the pink sand beach so it actually looks like the pink sand beach. 📸🌸
+
+The #1 complaint we hear from first-time visitors: "My photos don't look like everyone else's photos of the beach." Here's why — and how to fix it.
+
+The Problem: Phone cameras auto-adjust white balance and exposure, which flattens the pink. The sand looks almost white in most automatic shots.
+
+The Fix — 5 techniques that actually work:
+
+1. 🌅 Shoot in the first or last hour of daylight. The warm orange and red tones in golden hour light amplify the pink dramatically.
+
+2. 💧 Shoot the wet sand, not the dry sand. Where the waves retreat, the sand is saturated with water — the pink is 3x more vivid.
+
+3. 📐 Get low. Knee level or lower. Shoot along the shoreline, not down at your feet.
+
+4. 🎨 Shoot in RAW (if your phone allows it) — then pull up the Magenta and Red sliders in Lightroom Mobile. Free app, transformative results.
+
+5. ☁️ Overcast days are actually better for pink sand photography. Diffused light, no harsh shadows, even colour saturation.
+
+Save this post for when you're packing your camera bag. 📌
+
+What's your go-to beach photography tip? Share it below 👇
+
+#pinksandbeach #travelphotography #bahamasphotography #harbourisland #photographytips #travelphotographer #beachphotography</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo / Reel:</strong> Before-and-after carousel: an unedited phone shot vs. a properly timed and edited photo of the same beach. The contrast will be dramatic and instantly compelling.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 6:00 PM Friday — creative community active</div>
+            <div class="footer-row"><strong>Notes:</strong> Photography tips content performs brilliantly with the travel photography community. High save rates. Use Set 2 hashtags. A Reel version of this (showing the technique) would go viral in the right community.</div>
+          </div>
+        </div>
+
+        <!-- DAY 27 - Valentines -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 27</span>
+            <span class="day-theme">Honeymoon / Romance<br>Valentines Feature</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="valentines-badge">⚓ Valentines Feature</span>
+            <span class="time-tag">⏰ 9:30 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">The most romantic island you've probably never considered for a honeymoon. 💕🌴
+
+Harbour Island consistently appears on "world's most beautiful islands" lists. But it's rarely on honeymoon lists — and that, in our view, is the greatest oversight in Caribbean travel.
+
+Think about what a Harbour Island honeymoon actually looks like:
+
+🏖️ A private stretch of pink sand beach that's never crowded — even in season, you'll find your own space
+🌅 Sunsets that could make a cynic believe in magic
+🍽️ Intimate restaurant tables where dinner goes for three hours because neither of you wants to leave
+⚓ Arriving by boat at Valentines Resort &amp; Marina — staff who greet you by name by day two
+🤿 A private snorkel charter to a reef where you might see sea turtles, nurse sharks, and eagle rays in the same hour
+🌺 An island small enough that it never feels overwhelming — big enough that there's always something new to discover
+
+Valentines Resort offers some of the most beautifully located rooms on the island for a romantic stay. And yes, they do make it feel special when you tell them it's a honeymoon. 💐
+
+🔗 Plan your Harbour Island honeymoon — link in bio.
+
+#harbourislandhoneymoon #bahamashoneymoon #caribbeanhoneymoon #valentinesresort #romantictravel #honeymoon #luxuryhoneymoon #harbourisland</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Romantic beach scene — two champagne glasses in the sand with the turquoise water behind, or a couple silhouetted walking the beach at sunset. Warm, golden, dreamlike.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 9:30 AM Saturday — weekend relationship-content browsing peak</div>
+            <div class="footer-row"><strong>Notes:</strong> Honeymoon content reaches a high-spending, highly motivated audience. Use Pinterest Board 7 (Weddings &amp; Honeymoons) to cross-promote. Use Set 2 hashtags on Instagram.</div>
+          </div>
+        </div>
+
+        <!-- DAY 28 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 28</span>
+            <span class="day-theme">Local Business<br>Community Spotlight</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag fb">Facebook</span>
+            <span class="time-tag">⏰ 11:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Harbour Island's best kept secret is its local businesses. Let's talk about them. 🛒🇧🇸
+
+Tourism to Harbour Island is the lifeblood of the community — but the businesses that really make the island special are often the smallest, least-promoted, most easily missed ones.
+
+Today we want to shine a light on the kind of local businesses that deserve your support when you visit:
+
+🎨 Local Artists — Harbour Island has a genuinely remarkable community of Bahamian artists. Original work is available in several galleries and from artists directly. Buying here means the money stays on the island.
+
+🐟 Local Fishermen — If you see a fisherman selling from a cooler by the dock, buy something. The freshest fish you'll ever eat, at a fair price, supports a generational way of life.
+
+🧵 Straw Work — Traditional Bahamian basket weaving and straw work. Not the imported airport version — the real thing. Ask around Dunmore Town, and you'll find it.
+
+🍞 Local Bakeries — Fresh johnny cake, coconut bread, and sweet bread from local bakers. Often only sold in the morning. Worth the early start.
+
+🌿 Garden Stands — Islanders sell garden produce, hot peppers, and local honey from roadside stands. Stop and buy. You'll be glad you did.
+
+The island's economy is its people. Spend your money with intention. 🌴
+
+#harbourisland #shoplocal #bahamaslocal #supportlocal #caribbeanculture #travelbahamas #responsibletravel #islandlife</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> A local Bahamian artisan at work — weaving, painting, or selling produce at a roadside stand. Authentic and human.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 11:00 AM Sunday</div>
+            <div class="footer-row"><strong>Notes:</strong> Community-spotlight content builds enormous goodwill with both locals and conscious travellers. Likely to be shared by island residents themselves — a valuable organic reach boost. Use Set 2 hashtags.</div>
+          </div>
+        </div>
+
+        <!-- DAY 29 -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 29</span>
+            <span class="day-theme">Article Roundup<br>Month in Review</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="time-tag">⏰ 10:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">One month of Harbour Island Insider. Here's everything we've published. 📚🌴
+
+For anyone who's just found us — welcome. Here's a guide to what's already on the blog:
+
+📖 THE COMPLETE VISITOR'S GUIDE
+Everything you need to plan a perfect trip — from ferry logistics to best beaches.
+
+✈️ HOW TO GET TO HARBOUR ISLAND
+Step-by-step from any major city. Airlines, ferries, water taxis, all of it.
+
+🏖️ THE PINK SAND BEACH — COMPLETE GUIDE
+Where to go, when, photography tips, and the science of why it's pink.
+
+🤿 THE DIVE SITE GUIDE
+Every major dive and snorkel site, rated and described in full.
+
+🏨 WHERE TO STAY — FULL BREAKDOWN
+All accommodation options from budget to luxury. Our top pick: Valentines Resort &amp; Marina.
+
+🍽️ THE RESTAURANT GUIDE
+12 places to eat, ranked honestly, with hours and price guidance.
+
+🏡 DUNMORE TOWN WALKING GUIDE
+The history, the architecture, the art, the hidden corners.
+
+🐢 HARBOUR ISLAND WILDLIFE GUIDE
+Everything you might encounter — in the water and on land.
+
+Everything is linked in our bio. Start with whichever one answers your biggest question.
+
+What article do you want us to write next? 👇
+
+#harbourisland #bahamastravel #travelguide #harbourislandinsider #caribbeantravel #travelresource #bahamasblog</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> Flat-lay of a travel journal, a map of the Bahamas, seashells, and a small Bahamian flag — representing a month of research and writing.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 10:00 AM Monday — start of the fifth week</div>
+            <div class="footer-row"><strong>Notes:</strong> Content roundups are highly shareable as reference posts. Pin this to the top of your Facebook page. Save to an "Articles" Story highlight on Instagram. Use Set 2 hashtags.</div>
+          </div>
+        </div>
+
+        <!-- DAY 30 - Valentines -->
+        <div class="post-card">
+          <div class="post-card-header">
+            <span class="day-badge">Day 30</span>
+            <span class="day-theme">30-Day Finale<br>Big Valentines Push</span>
+          </div>
+          <div class="post-card-meta">
+            <span class="platform-tag both">Instagram + Facebook</span>
+            <span class="valentines-badge">⚓ Valentines Feature</span>
+            <span class="time-tag">⏰ 9:00 AM EST</span>
+          </div>
+          <div class="post-card-body">
+            <div class="caption-text">Day 30. And the only question left is: when are YOU going? 🌴🇧🇸
+
+Thirty days ago, we launched Harbour Island Insider with a single ambition: to create the most honest, most useful, most genuinely beautiful guide to one of the world's most extraordinary small islands.
+
+You've been extraordinary in return. Thank you for following, commenting, sharing, and — best of all — for booking trips. Yes, we've heard from several of you who are already planning visits. That makes every early morning and late night of research completely worth it.
+
+As we close out our launch month, we want to leave you with one parting recommendation — the one we've come back to time and again in our first thirty posts:
+
+Stay at Valentines Resort &amp; Marina. 🌅⚓
+
+It's not the flashiest resort in the Caribbean. It's something better: it's genuine. It's the marina bar where the sailing community gathers at the end of the day. It's the staff who know every guest by name. It's the dock where the water taxi arrives and suddenly Harbour Island is real and you're in it.
+
+It is, in our honest opinion, the best base for experiencing Harbour Island as it should be experienced.
+
+🔗 Book now — link in our bio. And we'll see you on the island.
+
+With sand in our shoes and salt in our hair,
+Harbour Island Insider 🌊
+
+#harbourisland #valentinesresort #bahamastravel #harbourislandinsider #30days #travelblog #caribbeantravel #bahamas #pinksandbeach #bahamasmarina</div>
+          </div>
+          <div class="post-card-footer">
+            <div class="footer-row"><strong>Photo:</strong> The most beautiful image in your collection — the ultimate Harbour Island shot. Aerial pink beach, or a dramatic golden-hour marina scene. Make it count.</div>
+            <div class="footer-row"><strong>Best Time:</strong> 9:00 AM Tuesday — day 30 of launch</div>
+            <div class="footer-row"><strong>Notes:</strong> Use ALL the best hashtags from all three sets for maximum reach on this milestone post. Consider a small paid boost on both platforms. This post should link directly to the Valentines booking page.</div>
+          </div>
+        </div>
+
+      </div><!-- end post-cards-grid -->
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════ SECTION E ═══════════ -->
+    <section class="kit-section" id="section-e">
+      <div class="section-label">Section E</div>
+      <h2 class="section-title">Pinterest Board Structure</h2>
+      <p class="section-desc">Pinterest is a long-game platform — pins compound in value over time and drive consistent blog traffic months and years after posting. Set up these 8 boards immediately, using branded board cover images (dark navy background, board name in Georgia white, coral wave icon). Aim to populate each board with 20–30 initial pins before going public. Link every pin directly to a relevant blog article.</p>
+
+      <div class="boards-grid">
+
+        <!-- BOARD 1 -->
+        <div class="board-card">
+          <div class="board-header b1"></div>
+          <div class="board-body">
+            <div class="board-num">Board 01</div>
+            <div class="board-name">Harbour Island Bahamas</div>
+            <div class="board-desc">The master board for everything Harbour Island. Pinners exploring the Bahamas discover the island here. This board covers the full spectrum of what makes Harbour Island extraordinary — from its famous beach to its colonial village, its marine life to its marina. Updated weekly with new content from the blog and curated content from trusted sources.</div>
+            <div class="pin-ideas-label">5 Pin Ideas</div>
+            <ul class="pin-ideas">
+              <li><span class="pin-bullet">1</span> Aerial photograph of the pink sand beach — the single most repinned Harbour Island image type</li>
+              <li><span class="pin-bullet">2</span> "Complete Harbour Island Visitor's Guide" — infographic-style pin linking to the blog's flagship article</li>
+              <li><span class="pin-bullet">3</span> Colourful clapboard houses of Dunmore Town — instantly recognisable architecture</li>
+              <li><span class="pin-bullet">4</span> Map of Harbour Island showing key attractions, beach access points, and marina location</li>
+              <li><span class="pin-bullet">5</span> "15 Reasons to Visit Harbour Island" — high-text pin with vibrant beach background image</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BOARD 2 -->
+        <div class="board-card">
+          <div class="board-header b2"></div>
+          <div class="board-body">
+            <div class="board-num">Board 02</div>
+            <div class="board-name">Pink Sand Beach</div>
+            <div class="board-desc">Dedicated entirely to the world-famous pink sand beach — one of the most Pinned natural wonders in the Caribbean. This board captures every angle, every light condition, and every experience that makes Harbour Island's three-mile beach one of the most photographed stretches of sand on the planet. From golden-hour photography tips to the science of why it's pink.</div>
+            <div class="pin-ideas-label">5 Pin Ideas</div>
+            <ul class="pin-ideas">
+              <li><span class="pin-bullet">1</span> Close-up macro shot of pink sand in an open palm — the most shareable single image type for this topic</li>
+              <li><span class="pin-bullet">2</span> "Why is the sand pink? The science explained" — educational text-overlay pin</li>
+              <li><span class="pin-bullet">3</span> Before-and-after photography comparison: unedited vs. golden-hour pink sand photography</li>
+              <li><span class="pin-bullet">4</span> Morning beach scene — footprint-free sand, turquoise water, early light. Aspirational and serene.</li>
+              <li><span class="pin-bullet">5</span> "Best time of day to photograph the pink sand" — practical tip pin linking to photography guide</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BOARD 3 -->
+        <div class="board-card">
+          <div class="board-header b3"></div>
+          <div class="board-body">
+            <div class="board-num">Board 03</div>
+            <div class="board-name">Harbour Island Dining</div>
+            <div class="board-desc">Food on Harbour Island is exceptional — and entirely under-documented online. This board covers the full dining spectrum: from upscale beachside restaurants to roadside conch stands, fresh seafood to Bahamian breakfast. Honest, appetite-driven content that makes pinners hungry for the island. Each pin links to detailed restaurant reviews and the food guide on the blog.</div>
+            <div class="pin-ideas-label">5 Pin Ideas</div>
+            <ul class="pin-ideas">
+              <li><span class="pin-bullet">1</span> Beautiful overhead shot of a fresh conch salad — the signature dish of the Bahamas</li>
+              <li><span class="pin-bullet">2</span> "The 10 Best Restaurants on Harbour Island" — list-format pin with a striking food image background</li>
+              <li><span class="pin-bullet">3</span> Beachside dining scene at The Landing — table set at golden hour with water in background</li>
+              <li><span class="pin-bullet">4</span> Cracked conch and peas and rice — the classic Bahamian plate, beautifully lit</li>
+              <li><span class="pin-bullet">5</span> "Where to eat on Harbour Island on any budget" — budget-breakdown text pin linking to restaurant guide</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BOARD 4 -->
+        <div class="board-card">
+          <div class="board-header b4"></div>
+          <div class="board-body">
+            <div class="board-num">Board 04</div>
+            <div class="board-name">Marina Life</div>
+            <div class="board-desc">For sailors, cruisers, and powerboaters planning a Bahamas passage — and for everyone who dreams of arriving somewhere beautiful by water. This board covers marina life at Valentines Resort and beyond: dock arrivals, boat provisioning guides, anchorage tips, the sailing community culture, and the unique experience of living aboard in the Bahamas. A natural hub for the cruising community on Pinterest.</div>
+            <div class="pin-ideas-label">5 Pin Ideas</div>
+            <ul class="pin-ideas">
+              <li><span class="pin-bullet">1</span> Valentines Marina at golden hour — boats moored, resort lights reflected in the water</li>
+              <li><span class="pin-bullet">2</span> "Sailing to Harbour Island: The Complete Guide" — navigation-focused pin linking to sailors' guide</li>
+              <li><span class="pin-bullet">3</span> Aerial view of the marina and surrounding harbour — wide perspective showing the full anchorage</li>
+              <li><span class="pin-bullet">4</span> A sundowner at the marina bar — rum punch on the rail with boats behind</li>
+              <li><span class="pin-bullet">5</span> "Devils Backbone passage: what to know before you go" — practical safety-focused pin for cruisers</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BOARD 5 -->
+        <div class="board-card">
+          <div class="board-header b5"></div>
+          <div class="board-body">
+            <div class="board-num">Board 05</div>
+            <div class="board-name">Diving Eleuthera</div>
+            <div class="board-desc">The underwater world around Harbour Island and North Eleuthera is one of the Caribbean's great diving secrets. This board covers every dive site, every marine species, every operator and experience available in these waters. From the legendary Current Cut drift dive to beginner-friendly coral gardens, this is the essential Pinterest resource for divers planning a Bahamas trip.</div>
+            <div class="pin-ideas-label">5 Pin Ideas</div>
+            <ul class="pin-ideas">
+              <li><span class="pin-bullet">1</span> Sea turtle gliding above a coral reef — dramatic, beautiful, universally loved underwater image</li>
+              <li><span class="pin-bullet">2</span> "Top 5 Dive Sites near Harbour Island" — text-overlay pin with underwater background</li>
+              <li><span class="pin-bullet">3</span> Diver exploring the Train Wreck — silhouette against the blue water, locomotive visible below</li>
+              <li><span class="pin-bullet">4</span> Reef scene from Current Cut — sharks, rays, and fish visible in one frame if possible</li>
+              <li><span class="pin-bullet">5</span> "Snorkelling vs. Scuba: Best spots for each on Harbour Island" — beginner-friendly comparison pin</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BOARD 6 -->
+        <div class="board-card">
+          <div class="board-header b6"></div>
+          <div class="board-body">
+            <div class="board-num">Board 06</div>
+            <div class="board-name">Bahamas Travel Tips</div>
+            <div class="board-desc">The most practical board in the collection — and likely the highest traffic driver to the blog. Every pinner researching a Bahamas trip needs practical information: how to get there, when to go, what to pack, how much things cost, what to avoid. This board answers every practical question with pins that link to detailed guides on the blog. Updated constantly as information changes.</div>
+            <div class="pin-ideas-label">5 Pin Ideas</div>
+            <ul class="pin-ideas">
+              <li><span class="pin-bullet">1</span> "How to get to Harbour Island step by step" — airport-to-beach logistics pin with clear steps</li>
+              <li><span class="pin-bullet">2</span> "Harbour Island packing list — what not to forget" — flat-lay pin with essential items visible</li>
+              <li><span class="pin-bullet">3</span> "Best time to visit Harbour Island — month by month guide" — seasonal breakdown pin</li>
+              <li><span class="pin-bullet">4</span> "How much does Harbour Island cost?" — budget breakdown pin — practical and frequently searched</li>
+              <li><span class="pin-bullet">5</span> "US dollars, cash vs. card, and tipping in the Bahamas" — money and practicalities guide pin</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BOARD 7 -->
+        <div class="board-card">
+          <div class="board-header b7"></div>
+          <div class="board-body">
+            <div class="board-num">Board 07</div>
+            <div class="board-name">Island Weddings &amp; Honeymoons</div>
+            <div class="board-desc">Harbour Island is one of the Caribbean's most romantic destinations — yet it barely appears in wedding and honeymoon searches. This board is the corrective. Showcasing the pink sand as a wedding backdrop, intimate resort settings including Valentines Resort, sunset ceremonies, and honeymoon experiences that are genuinely special rather than generically luxurious. A high-intent, high-converting audience awaits.</div>
+            <div class="pin-ideas-label">5 Pin Ideas</div>
+            <ul class="pin-ideas">
+              <li><span class="pin-bullet">1</span> Couple walking the pink sand beach at sunset — shot from behind, silhouetted, deeply romantic</li>
+              <li><span class="pin-bullet">2</span> "Harbour Island for your honeymoon: everything you need to know" — comprehensive guide pin</li>
+              <li><span class="pin-bullet">3</span> Romantic table set on the beach at dusk — candles, tropical flowers, turquoise water behind</li>
+              <li><span class="pin-bullet">4</span> Valentines Resort exterior at golden hour — the resort name alone resonates with this audience</li>
+              <li><span class="pin-bullet">5</span> "Why Harbour Island beats every other Caribbean honeymoon destination" — bold opinion pin</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BOARD 8 -->
+        <div class="board-card">
+          <div class="board-header b8"></div>
+          <div class="board-body">
+            <div class="board-num">Board 08</div>
+            <div class="board-name">Bahamas Wildlife &amp; Nature</div>
+            <div class="board-desc">The natural world of the Bahamas and Harbour Island in particular is extraordinary — and a significant draw for eco-travellers, wildlife photographers, and nature lovers who may never have considered the Bahamas as a wildlife destination. This board covers sea turtles, nurse sharks, flamingos, dolphins, ospreys, and the coral reef ecosystem — with each pin linking to relevant guides and responsible wildlife watching advice on the blog.</div>
+            <div class="pin-ideas-label">5 Pin Ideas</div>
+            <ul class="pin-ideas">
+              <li><span class="pin-bullet">1</span> Flamingo flock near North Eleuthera airport — pink birds against a blue Caribbean sky</li>
+              <li><span class="pin-bullet">2</span> "Bahamas wildlife guide: what you'll see and where" — comprehensive nature overview pin</li>
+              <li><span class="pin-bullet">3</span> Nurse shark resting on sand — serene, beautiful, dispelling myths about sharks</li>
+              <li><span class="pin-bullet">4</span> Pelican in flight or plunge-diving at the marina — dramatic action wildlife shot</li>
+              <li><span class="pin-bullet">5</span> "How to watch sea turtles responsibly in the Bahamas" — ethical wildlife travel pin</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- end boards-grid -->
+
+      <div class="copy-note" style="margin-top:1.5rem;">
+        <strong>Pinterest Strategy Notes:</strong> Create each board with a keyword-rich description (Pinterest is a search engine). Name boards using search terms people actually type, not creative names. Pin 5–10 times per day — but space them out using a scheduler like Tailwind. The first 20 pins to each board establish its topic authority with Pinterest's algorithm. Repin curated content alongside your own — a 70/30 ratio (70% your content, 30% curated) works well. Enable Rich Pins by verifying your blog domain with Pinterest — this pulls article titles and descriptions automatically.
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════ SECTION F ═══════════ -->
+    <section class="kit-section" id="section-f">
+      <div class="section-label">Section F</div>
+      <h2 class="section-title">Weekly Content Schedule</h2>
+      <p class="section-desc">A repeatable seven-day posting rhythm that maintains consistent presence without burning out. This schedule balances traffic-driving content (article shares), engagement content (polls and questions), and brand-building posts (lifestyle, inspiration). After launch month, run this weekly schedule on rotation, swapping in new articles and seasonal content as the blog grows.</p>
+
+      <div class="schedule-table-wrap">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Platform(s)</th>
+              <th>Content Type</th>
+              <th>Theme / Topic</th>
+              <th>Best Time</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="day-cell">MON</td>
+              <td><span class="platform-tag fb" style="display:inline-block;margin:1px;">Facebook</span></td>
+              <td>Article Share</td>
+              <td>Drive traffic to the week's featured blog post — logistics, guides, or practical travel content performs best on Monday when people are planning their week.</td>
+              <td>9:00 AM EST</td>
+              <td><span class="note-chip">Traffic driver</span> Write a compelling opening sentence — the first 2 lines show before "See More." Make them click.</td>
+            </tr>
+            <tr>
+              <td class="day-cell">TUE</td>
+              <td><span class="platform-tag ig" style="display:inline-block;margin:1px;">Instagram</span></td>
+              <td>Inspirational / Aspirational Photo</td>
+              <td>A stunning island image with an evocative caption — beach at dawn, underwater shot, sunset marina scene. Minimal text, maximum feeling. This is the "stop the scroll" post.</td>
+              <td>7:00 PM EST</td>
+              <td><span class="note-chip">High reach</span> Strong image quality is essential. Use Set 1, 2, or 3 hashtags based on image subject. Aim for saves and shares.</td>
+            </tr>
+            <tr>
+              <td class="day-cell">WED</td>
+              <td><span class="platform-tag ig" style="display:inline-block;margin:1px;">Instagram</span></td>
+              <td>Reel / Short Video</td>
+              <td>15–30 second island video: a beach walk, a drone clip of the harbour, a time-lapse sunset, or a "day in the life on Harbour Island" montage. Reels reach non-followers — this is your growth engine.</td>
+              <td>6:00 PM EST</td>
+              <td><span class="note-chip">Growth engine</span> <span class="note-chip valentines-note">Every 3rd Wed: Valentines Reel</span> Add text captions to video — 85% of Instagram video is watched without sound.</td>
+            </tr>
+            <tr>
+              <td class="day-cell">THU</td>
+              <td><span class="platform-tag fb" style="display:inline-block;margin:1px;">Facebook</span> <span class="platform-tag ig" style="display:inline-block;margin:1px;">Instagram</span></td>
+              <td>Educational / Tips Content</td>
+              <td>Practical travel tips, packing advice, photography guides, budget breakdowns, or island facts. This is the highest-save content type — educational posts are bookmarked and returned to later, extending content lifespan significantly.</td>
+              <td>12:00 PM EST</td>
+              <td><span class="note-chip">High save rate</span> Use numbered lists and clear formatting. Carousel format (one tip per slide) dramatically increases time-on-post. Use Set 2 hashtags.</td>
+            </tr>
+            <tr>
+              <td class="day-cell">FRI</td>
+              <td><span class="platform-tag ig" style="display:inline-block;margin:1px;">Instagram</span></td>
+              <td>Engagement / Poll / Question</td>
+              <td>"Friday Question" — one genuine question about travel preferences, island experiences, or planning decisions. Examples: "Beach bar or rooftop bar?" / "Sail in or fly in?" / "3 days or 3 weeks?" / "Conch salad or cracked conch?" Designed to generate maximum comments.</td>
+              <td>7:00 PM EST</td>
+              <td><span class="note-chip">Comment driver</span> Add a Story poll at the same time as the feed post — cross-reference the results in next week's content. Respond to every comment within 60 minutes.</td>
+            </tr>
+            <tr>
+              <td class="day-cell">SAT</td>
+              <td><span class="platform-tag ig" style="display:inline-block;margin:1px;">Instagram</span> <span class="platform-tag fb" style="display:inline-block;margin:1px;">Facebook</span></td>
+              <td>Weekend Itinerary / Travel Planning</td>
+              <td>"Weekend planning" content — 3-day itineraries, "what to do in 48 hours on Harbour Island," best sailing routes, seasonal event guides. Saturday morning is peak travel planning browsing time, especially on Facebook. High traffic to the blog from this slot.</td>
+              <td>9:00 AM EST</td>
+              <td><span class="note-chip valentines-note">Every 3rd Sat: Valentines feature</span> Itinerary posts have the highest save rate of any travel content. Link to the full article on the blog. Boost the best-performing one each month for $10–15.</td>
+            </tr>
+            <tr>
+              <td class="day-cell">SUN</td>
+              <td><span class="platform-tag fb" style="display:inline-block;margin:1px;">Facebook</span></td>
+              <td>Community / Culture / Longer-Form</td>
+              <td>Sunday is for depth. Longer Facebook post telling a story about the island, its people, its history, or a specific experience. Community testimonials, local business spotlights, conservation stories, or a "letter from the island" narrative style. This builds the emotional connection that keeps followers for years, not weeks.</td>
+              <td>11:00 AM EST</td>
+              <td><span class="note-chip">Loyalty builder</span> Facebook's algorithm favours longer, well-formatted posts with strong engagement. Sunday readers are relaxed and more likely to read in full. Avoid posting links in the body text — put the link in the first comment to avoid Facebook suppressing reach.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tips Box -->
+      <div class="tips-box">
+        <h3>Platform Strategy Quick Reference</h3>
+        <div class="tips-grid">
+          <div class="tip-item">
+            <strong>Instagram — Growth</strong>
+            Reels reach new audiences. Carousels drive saves. Stories maintain daily connection. Feed posts build the archive. Prioritise Reels in the first 90 days for account growth — the algorithm rewards new Reel creators heavily.
+          </div>
+          <div class="tip-item">
+            <strong>Facebook — Traffic</strong>
+            Facebook drives the most blog traffic of any social platform for travel content. Post links in comments (not body text) to avoid suppression. Join 3–5 Bahamas and Caribbean travel groups and share relevant articles (check group rules first).
+          </div>
+          <div class="tip-item">
+            <strong>Pinterest — Long-Term</strong>
+            Pinterest results compound. A pin published today may drive traffic for 3 years. Prioritise keyword-optimised pin descriptions over beautiful captions. Tall images (2:3 ratio, 1000×1500px) perform best. Post 5 pins per day minimum.
+          </div>
+          <div class="tip-item">
+            <strong>X/Twitter — Conversation</strong>
+            X is best for real-time engagement: when news about the Bahamas breaks, when someone tweets about planning a trip, when a travel journalist mentions Harbour Island. Set up keyword alerts for "Harbour Island" and "Bahamas travel" and join those conversations daily.
+          </div>
+          <div class="tip-item">
+            <strong>Valentines Promotion</strong>
+            Every third post (Days 3, 7, 10, 14, 17, 20, 24, 27, 30) features Valentines Resort &amp; Marina. Always include the booking link in the link-in-bio. Track clicks separately in Linktree. Never sound like an ad — always tie it to a genuine experience or recommendation.
+          </div>
+          <div class="tip-item">
+            <strong>Analytics to Watch</strong>
+            Instagram: saves and profile visits (not just likes). Facebook: link clicks and shares. Pinterest: outbound clicks to your blog. X: profile visits and link clicks. Monthly: compare which content type drives the most blog traffic via Google Analytics UTM parameters.
+          </div>
+          <div class="tip-item">
+            <strong>Posting Consistency</strong>
+            Consistency beats frequency. A reliable 5-post week every week outperforms a 15-post week followed by silence. Use a scheduler (Later, Buffer, or Meta Business Suite for Facebook/Instagram) to batch content creation once a week and schedule everything in advance.
+          </div>
+          <div class="tip-item">
+            <strong>Hashtag Rotation</strong>
+            Rotate between the three hashtag sets in Section C. Never use the same set two posts in a row. For maximum reach, put hashtags in the first comment, not the caption, and use 10–15 highly targeted tags rather than all 30 once your account passes 500 followers.
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- CLOSING NOTES -->
+    <section class="kit-section">
+      <div class="section-label">Final Notes</div>
+      <h2 class="section-title">Using This Kit</h2>
+      <p class="section-desc">This document is your complete social media operating manual for launch month and beyond. Here is how to use it most effectively:</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;margin-top:1rem;">
+
+        <div style="background:#fff;border-radius:10px;padding:1.3rem 1.5rem;border:1px solid #eeeef5;box-shadow:0 2px 10px rgba(2,62,138,0.06);">
+          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--coral);margin-bottom:0.5rem;">Week Zero — Before Launch</div>
+          <ul style="list-style:none;font-size:0.82rem;line-height:1.8;color:#444;">
+            <li>✅ Set up all four accounts using Section A table</li>
+            <li>✅ Set up Linktree or Beacons link-in-bio page</li>
+            <li>✅ Enter Instagram bio using Section B exactly as written</li>
+            <li>✅ Create branded Pinterest board covers for all 8 boards</li>
+            <li>✅ Set up Meta Business Suite to schedule Facebook + Instagram</li>
+            <li>✅ Download and verify Pinterest Rich Pins for your domain</li>
+            <li>✅ Prepare at least 30 high-quality island photographs</li>
+          </ul>
+        </div>
+
+        <div style="background:#fff;border-radius:10px;padding:1.3rem 1.5rem;border:1px solid #eeeef5;box-shadow:0 2px 10px rgba(2,62,138,0.06);">
+          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--ocean);margin-bottom:0.5rem;">During Launch Month</div>
+          <ul style="list-style:none;font-size:0.82rem;line-height:1.8;color:#444;">
+            <li>✅ Post every day using Section D captions in order</li>
+            <li>✅ Paste the indicated hashtag set in the first comment</li>
+            <li>✅ Respond to every comment within 60 minutes of posting</li>
+            <li>✅ Add Story versions of each post with poll or question sticker</li>
+            <li>✅ Track Valentines booking link clicks weekly in Linktree</li>
+            <li>✅ Pin 5 items per day to Pinterest boards using Section E ideas</li>
+            <li>✅ Share Facebook posts to 2–3 relevant travel groups each week</li>
+          </ul>
+        </div>
+
+        <div style="background:#fff;border-radius:10px;padding:1.3rem 1.5rem;border:1px solid #eeeef5;box-shadow:0 2px 10px rgba(2,62,138,0.06);">
+          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.5rem;">After Launch Month</div>
+          <ul style="list-style:none;font-size:0.82rem;line-height:1.8;color:#444;">
+            <li>✅ Switch to the repeating Section F weekly schedule</li>
+            <li>✅ Review Instagram Insights: which posts drove the most profile visits?</li>
+            <li>✅ Review Google Analytics: which social platform drives the most blog traffic?</li>
+            <li>✅ Double down on whatever content type is performing best</li>
+            <li>✅ Update link-in-bio with each new blog article published</li>
+            <li>✅ Quarterly: refresh Instagram bio with seasonal or new content hook</li>
+            <li>✅ Consider a $10–20/month Facebook boost budget for top-performing posts</li>
+          </ul>
+        </div>
+
+        <div style="background:var(--dark);border-radius:10px;padding:1.3rem 1.5rem;color:var(--sand);">
+          <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--coral);margin-bottom:0.5rem;">Valentines Resort Integration</div>
+          <ul style="list-style:none;font-size:0.82rem;line-height:1.8;color:rgba(245,230,200,0.9);">
+            <li>⚓ Feature in every third post — never skip this</li>
+            <li>⚓ Always position as genuine recommendation, not ad</li>
+            <li>⚓ Keep the booking link prominent in Linktree at all times</li>
+            <li>⚓ Request a media pack from Valentines for professional photography</li>
+            <li>⚓ Ask Valentines to share posts that feature them — amplifies reach</li>
+            <li>⚓ Track clicks monthly and share data with Valentines team</li>
+            <li>⚓ Explore a formal affiliate/referral arrangement as traffic grows</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- end content-wrap -->
+
+  <!-- PAGE FOOTER -->
+  <footer id="page-footer">
+    <strong>Harbour Island Insider — Social Media Launch Kit</strong><br>
+    Produced for the Harbour Island Insider independent travel blog · Harbour Island, Bahamas 🇧🇸<br>
+    Featured Commercial Partner: <strong>Valentines Resort &amp; Marina</strong> · valentinesresort.com<br>
+    Brand Colours: Ocean #0077B6 · Dark #023E8A · Coral #E07B54 · Sand #F5E6C8 · Gold #F59E0B<br>
+    <span style="color:rgba(255,255,255,0.35);font-size:0.7rem;display:block;margin-top:0.5rem;">This document is for internal use only. All captions, hashtags, and strategy notes are the intellectual property of Harbour Island Insider.</span>
+  </footer>
+
+</div><!-- end #main -->
+
+<script>
+  // Highlight active sidebar link on scroll
+  const sections = document.querySelectorAll('.kit-section[id], .week-divider[id]');
+  const navLinks = document.querySelectorAll('#sidebar nav a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.2, rootMargin: '0px 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

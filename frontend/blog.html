@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Island Journal — Harbour Island Insider</title>
+  <meta name="description" content="Independent guides, honest reviews, dive reports, marina tips, restaurant picks, and island stories from Harbour Island, Bahamas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar-blog" id="navbar" style="position:fixed; top:0; background:var(--white); border-bottom:1px solid var(--border); box-shadow:var(--shadow-sm);">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="blog-logo">
+        <span class="logo-main">Harbour Island Insider</span>
+        <span class="logo-sub">Independent · Harbour Island, Bahamas</span>
+      </a>
+      <ul class="blog-nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="where-to-stay.html">Where to Stay</a></li>
+        <li><a href="blog.html" class="active">Island Journal</a></li>
+        <li><a href="blog.html?cat=dining">Food & Drink</a></li>
+        <li><a href="blog.html?cat=marina">Marina Life</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#newsletter" class="nav-featured">Newsletter</a></li>
+      </ul>
+      <div class="blog-nav-actions">
+        <a href="where-to-stay.html" class="btn btn-primary btn-sm">Plan Your Trip →</a>
+        <div class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- BLOG HERO -->
+<section class="blog-hero" style="padding-top:130px; background:linear-gradient(135deg,#023E8A,#0077B6);">
+  <div class="container">
+    <span class="eyebrow">Independent Island Journalism</span>
+    <h1>The Island Journal</h1>
+    <p>Honest guides, dive reports, marina tips, restaurant picks, and stories from Harbour Island — written by people who live here and love it.</p>
+    <div class="blog-search-wrap">
+      <input type="text" id="searchInput" placeholder="Search — beaches, diving, marinas, restaurants…" oninput="filterArticles()" />
+      <button class="search-btn" aria-label="Search">🔍</button>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY BAR -->
+<div class="blog-categories-bar">
+  <div class="container">
+    <div class="cat-tab active" onclick="setCategory(this,'all')">All Articles</div>
+    <div class="cat-tab" onclick="setCategory(this,'marina')">⚓ Marina Life</div>
+    <div class="cat-tab" onclick="setCategory(this,'diving')">🤿 Diving</div>
+    <div class="cat-tab" onclick="setCategory(this,'island')">🏖️ Island Guide</div>
+    <div class="cat-tab" onclick="setCategory(this,'food')">🍽️ Food & Drink</div>
+    <div class="cat-tab" onclick="setCategory(this,'travel')">✈️ Travel Tips</div>
+    <div class="cat-tab" onclick="setCategory(this,'marine')">🐠 Marine Life</div>
+    <div class="cat-tab" onclick="setCategory(this,'life')">🌴 Island Life</div>
+  </div>
+</div>
+
+<!-- EDITORIAL NOTE -->
+<div style="background:var(--partner-bg); border-bottom:1px solid #FDE68A; padding:10px 0;">
+  <div class="container" style="font-family:var(--font-ui); font-size:.75rem; color:#78350F; display:flex; align-items:center; gap:8px;">
+    <span>ℹ️</span>
+    <span><strong>Editorial Note:</strong> Articles written by contributors with a direct connection to a property are noted as such. Our editorial content is independent. <a href="about.html" style="color:#92400E; font-weight:600;">Full policy →</a></span>
+  </div>
+</div>
+
+<!-- MAIN LISTING -->
+<section class="blog-listing-section">
+  <div class="container">
+    <div class="blog-listing-grid">
+
+      <main>
+        <!-- FEATURED -->
+        <div class="featured-partner-banner reveal">
+          <span class="fp-icon">⭐</span>
+          <div><strong>Our Top Pick:</strong> Looking for where to stay? <a href="where-to-stay.html">Valentines Resort & Marina</a> is our #1 recommendation — the only full-service marina, PADI dive centre, hotel, and waterfront restaurant on Harbour Island. <a href="where-to-stay.html">See our full guide →</a></div>
+        </div>
+
+        <article class="featured-article reveal" data-category="marina">
+          <div class="featured-article-image" style="background:linear-gradient(135deg,#023E8A,#00B4D8);">⚓</div>
+          <div class="featured-article-body">
+            <span class="featured-tag">Featured · Marina Life</span>
+            <h2><a href="content/articles/ultimate-marina-guide.html" style="color:var(--text);">The Ultimate Cruiser's Guide to Valentines Marina</a></h2>
+            <p>Everything you need before arriving by boat — waypoints, slip sizes, approach depths, amenities, provisioning, and the best anchorages. Written by the Dockmaster with 20 years' experience.</p>
+            <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+              <a href="content/articles/ultimate-marina-guide.html" class="btn btn-primary btn-sm">Read Article →</a>
+              <span style="font-family:var(--font-ui); font-size:.78rem; color:var(--text-muted);">April 8, 2026 · 6 min · By Capt. Dave Rolle</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ARTICLE GRID -->
+        <div id="articlesGrid" style="display:grid; grid-template-columns:1fr 1fr; gap:28px;">
+
+          <article class="blog-card reveal" data-category="island">
+            <div class="blog-card-image pink-bg"><span>🏖️</span><span class="card-category">Island Guide</span></div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span>March 28, 2026</span><span class="dot"></span><span>5 min</span></div>
+              <h3><a href="content/articles/pink-sand-beach-guide.html">Pink Sand Beach: The Complete Visitor's Guide</a></h3>
+              <p>Why is it pink? When to visit? What to bring? Every question answered by a 12-year island resident.</p>
+              <div class="blog-card-footer"><a href="content/articles/pink-sand-beach-guide.html" class="read-more">Read More →</a><span class="read-time">⏱ 5 min</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-delay-1" data-category="diving">
+            <div class="blog-card-image dive-bg"><span>🤿</span><span class="card-category">Diving</span></div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span>March 15, 2026</span><span class="dot"></span><span>7 min</span></div>
+              <h3><a href="content/articles/diving-harbour-island.html">Top 7 Dive Sites Around Harbour Island</a></h3>
+              <p>From coral gardens to Current Cut's legendary drift dive — rated by a PADI Course Director.</p>
+              <div class="blog-card-footer"><a href="content/articles/diving-harbour-island.html" class="read-more">Read More →</a><span class="read-time">⏱ 7 min</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-category="food">
+            <div class="blog-card-image sunset-bg"><span>🍽️</span><span class="card-category">Food & Drink</span></div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span>April 2, 2026</span><span class="dot"></span><span>6 min</span></div>
+              <h3><a href="content/articles/best-restaurants-harbour-island.html">Where to Eat on Harbour Island: Our 2026 Guide</a></h3>
+              <p>From Valentines' waterfront restaurant to local conch shacks — an honest guide to every spot worth visiting.</p>
+              <div class="blog-card-footer"><a href="content/articles/best-restaurants-harbour-island.html" class="read-more">Read More →</a><span class="read-time">⏱ 6 min</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-delay-1" data-category="travel">
+            <div class="blog-card-image island-bg"><span>✈️</span><span class="card-category">Travel Tips</span></div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span>March 22, 2026</span><span class="dot"></span><span>8 min</span></div>
+              <h3><a href="content/articles/getting-to-harbour-island.html">Getting to Harbour Island: Every Route Explained</a></h3>
+              <p>Fly, drive, or sail — step-by-step for every way to reach Harbour Island, including customs tips.</p>
+              <div class="blog-card-footer"><a href="content/articles/getting-to-harbour-island.html" class="read-more">Read More →</a><span class="read-time">⏱ 8 min</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-category="life">
+            <div class="blog-card-image marina-bg"><span>🌴</span><span class="card-category">Island Life</span></div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span>March 10, 2026</span><span class="dot"></span><span>9 min</span></div>
+              <h3><a href="content/articles/things-to-do-harbour-island.html">25 Things to Do on Harbour Island (Beyond the Beach)</a></h3>
+              <p>The complete bucket list — bone fishing, night dives, regattas, historic Dunmore Town, and much more.</p>
+              <div class="blog-card-footer"><a href="content/articles/things-to-do-harbour-island.html" class="read-more">Read More →</a><span class="read-time">⏱ 9 min</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-delay-1" data-category="marine">
+            <div class="blog-card-image marina-bg"><span>🐠</span><span class="card-category">Marine Life</span></div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span>February 20, 2026</span><span class="dot"></span><span>5 min</span></div>
+              <h3><a href="#">Swimming with Seahorses: Harbour Island's Marine Secrets</a></h3>
+              <p>Our dive instructors share the hidden underwater worlds most visitors never discover.</p>
+              <div class="blog-card-footer"><a href="#" class="read-more">Read More →</a><span class="read-time">⏱ 5 min</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-category="marina">
+            <div class="blog-card-image ocean-bg"><span>⛽</span><span class="card-category">Marina Life</span></div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span>January 30, 2026</span><span class="dot"></span><span>5 min</span></div>
+              <h3><a href="#">Fuel, Water & Provisioning at Valentines Marina</a></h3>
+              <p>Diesel prices, water availability, and where to stock up before heading south.</p>
+              <div class="blog-card-footer"><a href="#" class="read-more">Read More →</a><span class="read-time">⏱ 5 min</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-delay-1" data-category="diving">
+            <div class="blog-card-image dive-bg"><span>🦈</span><span class="card-category">Diving</span></div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span>January 18, 2026</span><span class="dot"></span><span>8 min</span></div>
+              <h3><a href="#">Current Cut: Riding the World's Best Drift Dive</a></h3>
+              <p>Timing, safety, what to expect, and why this is one of the great dives on the planet.</p>
+              <div class="blog-card-footer"><a href="#" class="read-more">Read More →</a><span class="read-time">⏱ 8 min</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-category="island">
+            <div class="blog-card-image pink-bg"><span>🎉</span><span class="card-category">Island Guide</span></div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span>January 5, 2026</span><span class="dot"></span><span>4 min</span></div>
+              <h3><a href="#">Harbour Island Events Calendar 2026</a></h3>
+              <p>Regattas, fishing tournaments, New Year's parties, and local cultural celebrations.</p>
+              <div class="blog-card-footer"><a href="#" class="read-more">Read More →</a><span class="read-time">⏱ 4 min</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-delay-1" data-category="food">
+            <div class="blog-card-image sunset-bg"><span>🦞</span><span class="card-category">Food & Drink</span></div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span>December 20, 2025</span><span class="dot"></span><span>5 min</span></div>
+              <h3><a href="#">The Best Cracked Conch in the Bahamas — Our Quest</a></h3>
+              <p>We tried every conch shack on Harbour Island so you don't have to. Spoiler: the winner surprised us.</p>
+              <div class="blog-card-footer"><a href="#" class="read-more">Read More →</a><span class="read-time">⏱ 5 min</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-category="travel">
+            <div class="blog-card-image marina-bg"><span>🛥️</span><span class="card-category">Travel Tips</span></div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span>December 5, 2025</span><span class="dot"></span><span>6 min</span></div>
+              <h3><a href="#">Bahamas Customs & Immigration: A Complete Boater's Guide</a></h3>
+              <p>CFIS forms, fees, what to declare, and how to clear customs at Valentines Marina.</p>
+              <div class="blog-card-footer"><a href="#" class="read-more">Read More →</a><span class="read-time">⏱ 6 min</span></div>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-delay-1" data-category="marine">
+            <div class="blog-card-image island-bg"><span>🐢</span><span class="card-category">Marine Life</span></div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta"><span>November 18, 2025</span><span class="dot"></span><span>5 min</span></div>
+              <h3><a href="#">Sea Turtle Nesting Season at Harbour Island</a></h3>
+              <p>When to look, where to look, and how to observe nesting mothers responsibly.</p>
+              <div class="blog-card-footer"><a href="#" class="read-more">Read More →</a><span class="read-time">⏱ 5 min</span></div>
+            </div>
+          </article>
+
+        </div>
+
+        <div id="noResults" style="display:none; text-align:center; padding:60px 20px;">
+          <div style="font-size:3rem; margin-bottom:16px;">🔍</div>
+          <h3>No articles found</h3>
+          <p style="color:var(--text-muted); font-family:var(--font-ui); margin-top:8px;">Try a different keyword or category.</p>
+        </div>
+
+        <div style="display:flex; justify-content:center; gap:8px; margin-top:48px;" class="reveal">
+          <button class="btn btn-outline btn-sm" disabled>← Previous</button>
+          <button class="btn btn-primary btn-sm" style="pointer-events:none;">1</button>
+          <button class="btn btn-outline btn-sm">2 →</button>
+        </div>
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside class="blog-sidebar">
+
+        <!-- Valentines CTA -->
+        <div class="valentines-rec-card" style="margin-bottom:20px;">
+          <span class="rec-badge">★ Our Top Pick</span>
+          <h4>Valentines Resort & Marina</h4>
+          <p>Our #1 recommendation for marina berths, accommodation, and diving on Harbour Island. The only full-service marina on the island.</p>
+          <ul class="rec-features">
+            <li>50+ slips · Vessels up to 160ft</li>
+            <li>PADI dive centre on property</li>
+            <li>Hotel rooms & marina villas</li>
+            <li>Waterfront restaurant & bar</li>
+          </ul>
+          <a href="where-to-stay.html" class="btn btn-primary btn-sm" style="width:100%; justify-content:center; margin-bottom:8px;">See full guide →</a>
+          <div style="font-family:var(--font-ui); font-size:.7rem; color:rgba(255,255,255,.5); text-align:center;">📡 VHF 16 · 📞 (242) 333-2142</div>
+        </div>
+
+        <!-- Popular Posts -->
+        <div class="sidebar-widget">
+          <h4>Most Read</h4>
+          <ul class="sidebar-posts">
+            <li>
+              <div class="sidebar-post-image ocean-bg">⚓</div>
+              <div><a href="content/articles/ultimate-marina-guide.html" class="sidebar-post-title">Cruiser's Guide to Valentines Marina</a><div class="sidebar-post-date">April 8, 2026</div></div>
+            </li>
+            <li>
+              <div class="sidebar-post-image pink-bg">🏖️</div>
+              <div><a href="content/articles/pink-sand-beach-guide.html" class="sidebar-post-title">Pink Sand Beach: Complete Guide</a><div class="sidebar-post-date">March 28, 2026</div></div>
+            </li>
+            <li>
+              <div class="sidebar-post-image dive-bg">🤿</div>
+              <div><a href="content/articles/diving-harbour-island.html" class="sidebar-post-title">Top 7 Dive Sites</a><div class="sidebar-post-date">March 15, 2026</div></div>
+            </li>
+            <li>
+              <div class="sidebar-post-image island-bg">✈️</div>
+              <div><a href="content/articles/getting-to-harbour-island.html" class="sidebar-post-title">Getting to Harbour Island</a><div class="sidebar-post-date">March 22, 2026</div></div>
+            </li>
+            <li>
+              <div class="sidebar-post-image sunset-bg">🍽️</div>
+              <div><a href="content/articles/best-restaurants-harbour-island.html" class="sidebar-post-title">Best Restaurants 2026</a><div class="sidebar-post-date">April 2, 2026</div></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Topics -->
+        <div class="sidebar-widget">
+          <h4>Browse by Topic</h4>
+          <div class="tag-cloud">
+            <span class="tag-pill" onclick="setCategory(null,'marina')">⚓ Marina</span>
+            <span class="tag-pill" onclick="setCategory(null,'diving')">🤿 Diving</span>
+            <span class="tag-pill" onclick="setCategory(null,'island')">🏖️ Beach</span>
+            <span class="tag-pill" onclick="setCategory(null,'food')">🍽️ Food</span>
+            <span class="tag-pill" onclick="setCategory(null,'marine')">🐠 Marine Life</span>
+            <span class="tag-pill" onclick="setCategory(null,'travel')">✈️ Travel Tips</span>
+            <span class="tag-pill" onclick="setCategory(null,'life')">🌴 Island Life</span>
+            <span class="tag-pill">Fishing</span>
+            <span class="tag-pill">Sailing</span>
+            <span class="tag-pill">Conch</span>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="sidebar-widget" style="background:linear-gradient(135deg,var(--coral),#C45E38); border:none;">
+          <h4 style="color:rgba(255,255,255,.75); border-color:rgba(255,255,255,.2);">The Island Dispatch</h4>
+          <p style="font-family:var(--font-ui); font-size:.85rem; color:rgba(255,255,255,.85); line-height:1.65; margin-bottom:16px;">Monthly conditions reports, dive updates, and honest island tips — for free.</p>
+          <a href="index.html#newsletter" class="btn btn-secondary btn-sm" style="width:100%; justify-content:center;">Subscribe Free →</a>
+        </div>
+
+        <!-- Instagram-style grid -->
+        <div class="sidebar-widget">
+          <h4>From the Island</h4>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:4px; margin-bottom:10px;">
+            <div style="aspect-ratio:1; border-radius:4px; background:linear-gradient(135deg,#0077B6,#00B4D8); display:flex; align-items:center; justify-content:center; font-size:1.4rem; cursor:pointer;">🏖️</div>
+            <div style="aspect-ratio:1; border-radius:4px; background:linear-gradient(135deg,#023E8A,#0096C7); display:flex; align-items:center; justify-content:center; font-size:1.4rem; cursor:pointer;">⛵</div>
+            <div style="aspect-ratio:1; border-radius:4px; background:linear-gradient(135deg,#2D6A4F,#52B788); display:flex; align-items:center; justify-content:center; font-size:1.4rem; cursor:pointer;">🌴</div>
+            <div style="aspect-ratio:1; border-radius:4px; background:linear-gradient(135deg,#E07B54,#F4A261); display:flex; align-items:center; justify-content:center; font-size:1.4rem; cursor:pointer;">🌅</div>
+            <div style="aspect-ratio:1; border-radius:4px; background:linear-gradient(135deg,#C0506A,#E07B8A); display:flex; align-items:center; justify-content:center; font-size:1.4rem; cursor:pointer;">🤿</div>
+            <div style="aspect-ratio:1; border-radius:4px; background:linear-gradient(135deg,#0F4C75,#1B7FC5); display:flex; align-items:center; justify-content:center; font-size:1.4rem; cursor:pointer;">🐠</div>
+          </div>
+          <a href="#" style="display:block; text-align:center; font-family:var(--font-ui); font-size:.78rem; color:var(--ocean); font-weight:600;">Follow @HarbourIslandInsider →</a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="resort-name">Harbour Island Insider</div>
+        <div class="resort-sub" style="color:rgba(255,255,255,.4); margin-bottom:12px;">Independent Travel Blog</div>
+        <p>An independent guide to Harbour Island, Bahamas — honest reviews and real local knowledge.</p>
+        <p style="font-family:var(--font-ui); font-size:.72rem; color:rgba(255,255,255,.35); max-width:280px; margin-top:10px; line-height:1.7;">All recommendations are our own independent editorial assessment. <a href="about.html" style="color:rgba(255,255,255,.4);">Editorial policy →</a></p>
+        <div class="footer-socials" style="margin-top:14px;">
+          <a href="#" class="footer-social-btn">f</a>
+          <a href="#" class="footer-social-btn">📷</a>
+          <a href="#" class="footer-social-btn">▶</a>
+          <a href="#" class="footer-social-btn">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Explore</h5><ul><li><a href="where-to-stay.html">Where to Stay</a></li><li><a href="blog.html">Island Journal</a></li><li><a href="blog.html?cat=dining">Food & Drink</a></li><li><a href="blog.html?cat=diving">Diving</a></li><li><a href="about.html">About Us</a></li></ul></div>
+      <div class="footer-col"><h5>Top Articles</h5><ul><li><a href="content/articles/ultimate-marina-guide.html">Marina Guide</a></li><li><a href="content/articles/pink-sand-beach-guide.html">Beach Guide</a></li><li><a href="content/articles/diving-harbour-island.html">Dive Sites</a></li><li><a href="content/articles/getting-to-harbour-island.html">Getting Here</a></li><li><a href="content/articles/best-restaurants-harbour-island.html">Restaurants</a></li></ul></div>
+      <div class="footer-col"><h5>Our Top Pick</h5><p style="font-family:var(--font-ui); font-size:.82rem; line-height:1.65; color:rgba(255,255,255,.55); margin-bottom:14px;">Valentines Resort & Marina — our #1 recommendation for marina, accommodation & diving.</p><div class="footer-contact-item"><span class="icon">📞</span><span>+1 (242) 333-2142</span></div><div class="footer-contact-item"><span class="icon">📡</span><span>VHF Channel 16</span></div><a href="where-to-stay.html" class="btn btn-primary btn-sm" style="margin-top:12px; width:100%; justify-content:center;">See full guide →</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Harbour Island Insider. Independent travel blog. Not affiliated with any resort or marina.</span>
+      <div style="display:flex; gap:20px;"><a href="#">Privacy</a><a href="about.html">Editorial Policy</a></div>
+      <span>Harbour Island, Bahamas 🇧🇸</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+<script>
+  let activeCategory = 'all';
+  function setCategory(el, cat) {
+    activeCategory = cat;
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    if (el) el.classList.add('active');
+    filterArticles();
+  }
+  function filterArticles() {
+    const query = (document.getElementById('searchInput')?.value || '').toLowerCase();
+    const cards = document.querySelectorAll('#articlesGrid .blog-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const catMatch = activeCategory === 'all' || card.dataset.category === activeCategory;
+      const queryMatch = !query || card.textContent.toLowerCase().includes(query);
+      const show = catMatch && queryMatch;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+  }
+</script>
+</body>
+</html>

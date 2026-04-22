@@ -1,0 +1,573 @@
+================================================================================
+  HARBOUR ISLAND INSIDER — SEO KEYWORD RESEARCH DOCUMENT
+  Last Updated: April 2026 | Prepared for: harbourislandinsider.com
+================================================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 1: PRIMARY TARGET KEYWORDS
+  High-intent searches — these visitors are close to booking or planning a trip
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  KEYWORD                              VOL/MO   DIFF    TARGET PAGE               NOTES
+  ───────────────────────────────────────────────────────────────────────────────
+  harbour island bahamas               8,100    Med     Homepage / Destination     Core money keyword. Write for this
+                                                        Overview                   from day one. Competes with
+                                                                                   bahamas.com and TripAdvisor.
+
+  pink sand beach bahamas              5,400    Med     Pink Sand Beach Guide      Extremely visual keyword — target
+                                                                                   with gallery-heavy post + video.
+
+  valentines resort harbour island     2,900    Easy    Valentines Resort          Low comp, high intent. We should
+                                                        Feature Post               own this SERP.
+
+  harbour island hotels                2,400    Med     Hotels & Accommodation     Comparison post with affiliate
+                                                        Guide                      links. Mention Valentines, Rock
+                                                                                   House, The Landing.
+
+  harbour island things to do          2,200    Easy    Things To Do               Long-form list post (20+ items).
+                                                        Master Guide               Great for featured snippets.
+
+  getting to harbour island bahamas    1,900    Easy    Getting Here Guide         High intent — planner keyword.
+                                                                                   Include ferry, water taxi, flights.
+
+  harbour island restaurants           1,600    Easy    Dining Guide               Local focus. Include Sip Sip,
+                                                                                   Arthur's, Gusty's, Cocoanuts.
+
+  eleuthera diving                     1,500    Easy    Diving & Snorkeling        Cluster with snorkeling content.
+                                                        Guide                      Glass Window Bridge nearby.
+
+  bahamas snorkeling                   4,400    Hard    Snorkeling Spots Post      Broad — use as secondary keyword.
+                                                                                   Focus on Harbour Island specifics.
+
+  bahamas marina docking               880      Easy    Marina & Boating Guide     Underserved niche. Valentines
+                                                                                   Marina angle. Great for sailors.
+
+  harbour island ferry                 1,200    Easy    Getting Here Guide         Strong navigational intent.
+                                                                                   Clear, practical content wins.
+
+  harbour island bahamas weather       720      Easy    When To Visit Guide        Seasonal planning content.
+                                                                                   Include hurricane season advice.
+
+  pink sand beach eleuthera            1,100    Easy    Pink Sand Beach Guide      Variant of core keyword —
+                                                                                   target on same page/cluster.
+
+  harbour island villas rental         590      Easy    Accommodation Guide        High commercial intent. Target
+                                                                                   with villa roundup post.
+
+  harbour island fishing               480      Easy    Fishing Guide              Underserved. Bonefishing, deep
+                                                                                   sea, fly fishing angles.
+
+  bahamas honeymoon destinations       3,600    Hard    Honeymoon Guide            Broader keyword — use Harbour
+                                                                                   Island as the answer.
+
+  harbour island nightlife             390      Easy    Nightlife & Bars Guide     Gusty's bar, weekend beach
+                                                                                   bonfires, local rum shacks.
+
+  dunmore town harbour island          720      Easy    Dunmore Town Guide         Historic town walk post.
+                                                                                   Colourful cottages very pinnable.
+
+  eleuthera bahamas travel guide       1,800    Med     Eleuthera Overview Post    Umbrella post linking to
+                                                                                   Harbour Island as centrepiece.
+
+  bahamas family vacation              5,900    Hard    Family Travel Guide        Use HI as the family-friendly
+                                                                                   Bahamas alternative to Nassau.
+  ───────────────────────────────────────────────────────────────────────────────
+
+  NOTES ON DIFFICULTY SCALE:
+    Easy  = DA 30–40 sites ranking; achievable with 3–5 solid posts + backlinks
+    Med   = DA 50–60 sites ranking; 6–12 months with consistent content + links
+    Hard  = DA 70+ sites ranking; long-term play, target as secondary keywords
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 2: LONG-TAIL ARTICLE KEYWORDS
+  30 targeted phrases for individual blog posts — lower competition, high intent
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  #   KEYWORD                                          VOL/MO   DIFF    ARTICLE IDEA
+  ──────────────────────────────────────────────────────────────────────────────────────
+  01  how to get to harbour island from nassau          480      Easy    Step-by-step travel guide:
+                                                                         Nassau → North Eleuthera ferry
+                                                                         → water taxi. Include costs.
+
+  02  valentines marina harbour island docking fees     170      Easy    Complete boater's guide to
+                                                                         Valentines Marina — slips,
+                                                                         fuel, amenities, rates.
+
+  03  best time to visit harbour island bahamas         390      Easy    Month-by-month breakdown:
+                                                                         weather, crowds, pricing,
+                                                                         events calendar.
+
+  04  pink sand beach harbour island how to get there   210      Easy    Practical visitor guide:
+                                                                         golf carts, water taxis,
+                                                                         best entry points.
+
+  05  harbour island bahamas travel tips                320      Easy    Insider tips list post (25+
+                                                                         tips). Great for social shares.
+
+  06  bonefishing harbour island eleuthera              140      Easy    Complete bonefishing guide:
+                                                                         guides, seasons, gear, rates.
+
+  07  harbour island golf cart rental                   260      Easy    How-to post: where to rent,
+                                                                         prices, rules, best routes.
+
+  08  what to eat in harbour island bahamas             290      Easy    Food guide: conch salad,
+                                                                         johnnycakes, rum punch, fresh
+                                                                         fish. Best restaurants.
+
+  09  eleuthera snorkeling spots map                    190      Easy    Visual guide to top snorkel
+                                                                         spots with GPS coordinates.
+
+  10  valentines resort harbour island review           220      Easy    Honest review: rooms, marina,
+                                                                         pool, dining, service. Great
+                                                                         for affiliate conversions.
+
+  11  harbour island bahamas wedding venue              150      Easy    Wedding planning guide:
+                                                                         venues, planners, permits,
+                                                                         photographers.
+
+  12  is harbour island safe for tourists               280      Easy    Safety guide: crime stats,
+                                                                         neighbourhoods, night safety,
+                                                                         water safety tips.
+
+  13  harbour island vs nassau bahamas                  170      Easy    Comparison post for planners
+                                                                         deciding between the two.
+
+  14  deep sea fishing eleuthera bahamas                160      Easy    Charter fishing guide: target
+                                                                         species, seasons, operators,
+                                                                         prices.
+
+  15  harbour island bahamas with kids                  130      Easy    Family guide: beaches, marine
+                                                                         life, activities, safety.
+
+  16  eleuthera glass window bridge visit               380      Easy    Day-trip guide from Harbour
+                                                                         Island. Combine with Gregory
+                                                                         Town stop.
+
+  17  harbour island itinerary 3 days                   210      Easy    3-day sample itinerary with
+                                                                         times, costs, booking links.
+
+  18  harbour island itinerary 5 days                   140      Easy    Extended itinerary with
+                                                                         day-trips to Eleuthera.
+
+  19  liveaboard bahamas eleuthera diving               90       Easy    Niche post for divers wanting
+                                                                         multi-day dive trips near HI.
+
+  20  conch salad harbour island where to get it        110      Easy    Hyper-local food post — story-
+                                                                         driven, highly shareable.
+
+  21  pink sand beach photography tips bahamas          170      Easy    Photography guide: best light,
+                                                                         compositions, gear, Instagram
+                                                                         spots.
+
+  22  harbour island bahamas real estate                210      Med     Market overview post — attracts
+                                                                         high-value readers, link bait.
+
+  23  sailing to harbour island from florida            130      Easy    Passage planning post for
+                                                                         cruisers: routes, waypoints,
+                                                                         entry ports, tips.
+
+  24  bahamas cruising permit harbour island            190      Easy    Practical guide: FORMS, costs,
+                                                                         where to clear customs at
+                                                                         North Eleuthera.
+
+  25  eleuthera pineapple bahamas history               140      Easy    Cultural/history post about
+                                                                         the pineapple industry — great
+                                                                         for Pinterest storytelling.
+
+  26  harbour island dolphins swimming                  90       Easy    Marine life experience guide.
+                                                                         Ethical wildlife interaction
+                                                                         advice.
+
+  27  sip sip restaurant harbour island                 140      Easy    Restaurant feature: menu,
+                                                                         must-orders, ambiance,
+                                                                         reservations.
+
+  28  gregorytown eleuthera day trip from harbour island 80      Easy    Day-trip guide: surfing at
+                                                                         Surfer's Beach, local shops.
+
+  29  harbour island bahamas instagram spots            180      Easy    Photo location guide — massive
+                                                                         Pinterest/Instagram traffic.
+
+  30  harbour island honeymoon all inclusive            110      Easy    Honeymoon package guide:
+                                                                         Valentines + Rock House +
+                                                                         private villa options.
+  ──────────────────────────────────────────────────────────────────────────────────────
+
+  LONG-TAIL STRATEGY NOTES:
+  - Aim to publish 2 long-tail articles per week for the first 90 days
+  - Cluster related articles (e.g., #3 + #17 + #18 form a "Planning" cluster)
+  - Internal link all cluster posts to a pillar page
+  - Easy keywords can rank within 60–90 days with 1,500+ word posts
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 3: COMPETITOR ANALYSIS
+  Who we're up against and how to beat them
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  COMPETITOR 1: islandsnap.com                                               │
+  │  Type: Independent Bahamas Travel Blog                                      │
+  │  Est. Domain Authority: 28–35                                               │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+  Content Strengths:
+    - Good photo-heavy posts on Nassau and Exumas
+    - Some Eleuthera coverage but thin on Harbour Island specifics
+    - Active on Instagram (~18K followers)
+
+  Keywords They Rank For (That We Should Target):
+    - "eleuthera bahamas travel guide"         (position ~8)
+    - "bahamas off the beaten path"            (position ~5)
+    - "pink sand beach bahamas"                (position ~15)
+    - "bahamas island hopping guide"           (position ~7)
+
+  Our Competitive Advantages Over islandsnap.com:
+    - Hyper-local focus — they are generalist, we are specialist
+    - Valentines Marina relationship gives us insider access/content
+    - We can produce deeper, more authoritative Harbour Island content
+    - Local restaurant + business partnerships they don't have
+    - More detailed "how to get there" content (their content is vague)
+
+  ───────────────────────────────────────────────────────────────────────────────
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  COMPETITOR 2: bahamas.com (Official Tourism Site)                          │
+  │  Type: Government/Tourism Board                                             │
+  │  Est. Domain Authority: 72–78                                               │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+  Content Strengths:
+    - High DA — ranks for almost any broad Bahamas keyword
+    - Official photography is excellent
+    - Comprehensive island listings
+    - Large advertising budget driving traffic
+
+  Keywords They Rank For (That We Should Target):
+    - "harbour island bahamas"                 (position #1–3)
+    - "pink sand beach bahamas"                (position #1–2)
+    - "bahamas islands"                        (position #1)
+    - "bahamas things to do"                   (position #1–4)
+
+  Our Competitive Advantages Over bahamas.com:
+    - Their content is marketing brochure copy — ours is HONEST and personal
+    - We can rank for long-tail keywords they ignore entirely
+    - We can publish negative/honest reviews (they cannot)
+    - Reader trust: independent blog vs. government tourism board
+    - We can target "harbour island vs..." comparison searches
+    - We can serve the cruiser/boater niche they barely touch
+    - Speed of content publication — we can react to news/events quickly
+
+  ───────────────────────────────────────────────────────────────────────────────
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  COMPETITOR 3: lovelyatoll.com                                              │
+  │  Type: Caribbean & Pacific Travel Blog                                      │
+  │  Est. Domain Authority: 32–40                                               │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+  Content Strengths:
+    - Good writing quality, editorial feel
+    - Strong Pinterest presence (~45K monthly views)
+    - Covers diving and marine life well across Caribbean
+    - Some Bahamas content but not Harbour Island focused
+
+  Keywords They Rank For (That We Should Target):
+    - "bahamas snorkeling spots"               (position ~6)
+    - "eleuthera diving"                       (position ~9)
+    - "bahamas honeymoon"                      (position ~11)
+    - "caribbean pink sand beach"              (position ~4)
+
+  Our Competitive Advantages Over lovelyatoll.com:
+    - Single-destination depth vs. their breadth — we will outrank on local terms
+    - We can build local citations and business relationships they cannot
+    - Our content will be more up-to-date (they update infrequently)
+    - Valentines Marina partnership = unique content they can't replicate
+    - We can dominate "harbour island" modifiers across all categories
+
+  ───────────────────────────────────────────────────────────────────────────────
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  COMPETITOR 4: TripAdvisor — Harbour Island Pages                           │
+  │  Type: Review Platform                                                      │
+  │  Est. Domain Authority: 93                                                  │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+  Content Strengths:
+    - Dominates "harbour island restaurants" / "harbour island hotels" SERPs
+    - User-generated reviews provide fresh content signals
+    - High E-E-A-T signals from review volume
+    - Forums cover niche questions in depth
+
+  Keywords They Rank For (That We Should Target):
+    - "harbour island restaurants"             (position #1–2)
+    - "harbour island hotels"                  (position #1–3)
+    - "harbour island things to do"            (position #1–2)
+    - "harbour island reviews"                 (position #1)
+
+  Our Competitive Advantages Over TripAdvisor:
+    - We can embed video, custom maps, and rich media (they cannot)
+    - Our editorial voice builds brand loyalty — TA is anonymous
+    - We own long-tail article keywords TA doesn't target
+    - Better content for planning-phase searches (itineraries, tips)
+    - We can target featured snippets with structured list posts
+    - Affiliate and booking integrations more flexible on our platform
+
+  ───────────────────────────────────────────────────────────────────────────────
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  COMPETITOR 5: Expedia — Harbour Island Hotel & Activity Pages              │
+  │  Type: OTA (Online Travel Agency)                                           │
+  │  Est. Domain Authority: 91                                                  │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+  Content Strengths:
+    - Ranks for transactional hotel and flights keywords
+    - Massive link profile — near-impossible to beat on broad terms
+    - Rich snippets (prices, star ratings) dominate SERPs
+    - Strong brand recognition and repeat visitor traffic
+
+  Keywords They Rank For (That We Should Target):
+    - "harbour island hotels"                  (position #1–4)
+    - "valentines resort harbour island"       (position #3–5)
+    - "harbour island vacation packages"       (position #1–2)
+    - "bahamas resorts"                        (position #1–3)
+
+  Our Competitive Advantages Over Expedia:
+    - We publish content (guides, reviews, tips) — they only list inventory
+    - We can rank for "harbour island [specific question]" queries they skip
+    - Our content is trustworthy: we disclose relationships, not paid ads
+    - Long-tail informational keywords are entirely open for us
+    - We can build an email list — Expedia cannot form that relationship
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 4: LOCAL SEO KEYWORDS
+  Business listing, Google Maps, and "near me" searches relevant to Harbour Island
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  #   LOCAL KEYWORD                                    VOL/MO   NOTES
+  ─────────────────────────────────────────────────────────────────────────────
+  01  restaurants harbour island bahamas                480      High intent — visitors searching
+                                                                 from device on island. Target
+                                                                 with dining guide + Google listing.
+
+  02  marina harbour island bahamas                     210      Boaters searching from GPS/chart
+                                                                 plotters. Valentines is key.
+
+  03  dive shop near harbour island                     90       Very local intent. Support local
+                                                                 dive operators in content.
+
+  04  golf cart rental harbour island                   260      Extremely common on-island search.
+                                                                 Create dedicated post + business
+                                                                 listings for partners.
+
+  05  grocery store harbour island bahamas              70       Ultra-local. Helpful for villa
+                                                                 renters planning meals.
+
+  06  pharmacy harbour island bahamas                   40       Useful info content — builds trust
+                                                                 with visitors doing research.
+
+  07  water taxi harbour island eleuthera               170      Planning + on-island searches.
+                                                                 Include operators, prices, schedules.
+
+  08  ferry north eleuthera harbour island              210      Same as above — different phrasing.
+                                                                 Target both on one post.
+
+  09  atm harbour island bahamas                        50       Practical travel info — great for
+                                                                 "essential tips" posts.
+
+  10  fuel dock harbour island marina                   60       Boater-specific local search.
+                                                                 Valentines Marina docking post.
+
+  11  harbour island bahamas church                     30       Cultural travel content — Dunmore
+                                                                 Town walking tour angle.
+
+  12  snorkel rental harbour island                     80       Activity planning search.
+                                                                 Include gear rental shops.
+
+  13  wifi harbour island bahamas                       90       Practical info for digital nomads
+                                                                 and remote workers. Growing niche.
+
+  14  kayak rental harbour island                       50       Water sports roundup post.
+
+  15  hospital near harbour island bahamas              60       Safety & practical info.
+                                                                 Princess Margaret Hospital
+                                                                 (Nassau) as reference.
+  ─────────────────────────────────────────────────────────────────────────────
+
+  LOCAL SEO ACTION ITEMS:
+  - Claim and optimise a Google Business Profile for harbourislandinsider.com
+  - Build citations on: TripAdvisor, Foursquare, Yelp, Bing Places, Apple Maps
+  - Encourage Valentines Marina to link to our marina guide from their site
+  - Submit to Bahamas tourism directories for local relevance signals
+  - Use schema markup (LocalBusiness, FAQPage) on all location-specific posts
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 5: SEMANTIC / LSI KEYWORDS
+  25 related terms to weave naturally into articles for topical authority
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  These are NOT keywords to rank for individually — they are terms that signal
+  to Google that your content is topically complete and expert.
+
+  #   LSI / SEMANTIC TERM                     CONTEXT TO USE IT IN
+  ──────────────────────────────────────────────────────────────────────────────
+  01  Dunmore Town                             History, walking tour, colonial architecture posts
+  02  Eleuthera ferry                          Getting here guides, island-hopping content
+  03  North Eleuthera Airport (ELH)            Flights section of getting-here post
+  04  Governor's Harbour                       Day-trip content from Harbour Island
+  05  Gregory Town                             Surfing + pineapple day-trip content
+  06  Rock Sound                               Southern Eleuthera day-trip extension
+  07  Bimini Road                              Bahamian mythology / diving lore sidebar
+  08  Exuma Land and Sea Park                  Comparison/alternative island posts
+  09  Andros barrier reef                      Diving comparison content
+  10  conch salad                              Food guides, Bahamian cuisine posts
+  11  johnnycakes                              Breakfast / local food content
+  12  guava duff                               Bahamian desserts post
+  13  Sip Sip restaurant                       Restaurant guide, Harbour Island dining
+  14  Arthur's Bakery                          Breakfast / brunch content
+  15  Gusty's bar                              Nightlife guide, beach bar content
+  16  Cocoanuts restaurant                     Dining guide
+  17  Rock House Hotel                         Accommodation roundup, boutique hotel post
+  18  The Landing                              Accommodation + dining (they have a restaurant)
+  19  obeah                                    Cultural notes, Bahamian folklore content
+  20  Bahamian rake 'n' scrape                 Music / culture / nightlife posts
+  21  Nassau Grouper                           Marine life, diving, fishing content
+  22  sea grape trees                          Beach environment / ecology content
+  23  Bahamian straw market                    Shopping guide, Dunmore Town post
+  24  trade winds                              Weather / best time to visit posts
+  25  Out Islands (Family Islands)             Any content positioning HI as an alternative
+                                              to Nassau / New Providence
+  ──────────────────────────────────────────────────────────────────────────────
+
+  LSI USAGE TIPS:
+  - Aim for 5–8 of these per 1,500-word article naturally within the copy
+  - Do NOT stuff them — use only when contextually relevant
+  - Including them in H2/H3 subheadings where appropriate signals depth
+  - Google's natural language processing rewards contextual richness
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 6: CONTENT GAPS
+  Topics competitors cover that we don't yet — 8 high-priority opportunities
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  GAP #1: CRUISER'S COMPLETE GUIDE TO VALENTINES MARINA
+  ─────────────────────────────────────────────────────
+  The Problem: No blog has a detailed, up-to-date guide for liveaboards and
+               cruisers docking at Valentines. TripAdvisor has thin reviews.
+               Cruising forums have scattered, outdated info.
+  Keyword Target: "valentines marina harbour island docking", "harbour island
+                   bahamas marina", "bahamas marina clearance"
+  Recommended Title: "Valentines Resort & Marina: The Complete Cruiser's Guide
+                      (Docking, Fees, Clearance & What's Nearby)"
+  Estimated Search Vol: 300–500/mo combined
+  Priority: CRITICAL — directly supports our partnership with Valentines
+
+  ───────────────────────────────────────────────────────────────────────────────
+
+  GAP #2: HONEST "IS IT WORTH IT?" HARBOUR ISLAND COST BREAKDOWN
+  ─────────────────────────────────────────────────────────────────
+  The Problem: Harbour Island is expensive. Tourism sites ignore this. Travellers
+               searching "is harbour island worth it" or "harbour island on a
+               budget" find nothing useful.
+  Keyword Target: "harbour island bahamas budget travel", "how expensive is
+                   harbour island bahamas", "harbour island worth it"
+  Recommended Title: "How Expensive Is Harbour Island? A Brutally Honest Cost
+                      Breakdown (2026)"
+  Estimated Search Vol: 400–600/mo combined
+  Priority: HIGH — builds trust and captures planning-phase traffic
+
+  ───────────────────────────────────────────────────────────────────────────────
+
+  GAP #3: MONTH-BY-MONTH FISHING CALENDAR
+  ─────────────────────────────────────────
+  The Problem: Fishing content for Eleuthera/Harbour Island is essentially
+               non-existent beyond basic listicles. No one has built a detailed
+               seasonal calendar showing what's running when.
+  Keyword Target: "harbour island fishing charter", "bonefishing eleuthera
+                   bahamas", "deep sea fishing harbour island"
+  Recommended Title: "Fishing in Harbour Island: Month-by-Month Calendar,
+                      Best Charters & What You'll Catch"
+  Estimated Search Vol: 350/mo combined
+  Priority: HIGH — niche authority builder, very linkable from fishing forums
+
+  ───────────────────────────────────────────────────────────────────────────────
+
+  GAP #4: PINK SAND BEACH SCIENCE EXPLAINER
+  ───────────────────────────────────────────
+  The Problem: Every site says "the pink colour comes from foraminifera" but
+               none explain it well or go deeper. An expert-level explainer
+               with photos and diagrams would dominate this SERP.
+  Keyword Target: "why is harbour island beach pink", "pink sand beach how does
+                   it get its colour", "foraminifera pink sand"
+  Recommended Title: "Why Is Harbour Island's Beach Pink? The Science Explained
+                      (With Photos)"
+  Estimated Search Vol: 280/mo combined
+  Priority: MEDIUM — featured snippet opportunity, excellent for Pinterest
+
+  ───────────────────────────────────────────────────────────────────────────────
+
+  GAP #5: SAILING FROM FLORIDA TO HARBOUR ISLAND PASSAGE GUIDE
+  ──────────────────────────────────────────────────────────────
+  The Problem: Florida-to-Bahamas sailing content exists, but almost nothing
+               covers the specific Florida → North Eleuthera passage with
+               waypoints, fuel stops, and entry procedures.
+  Keyword Target: "sailing florida to eleuthera", "passage to harbour island
+                   bahamas", "florida bahamas cruising guide eleuthera"
+  Recommended Title: "Sailing from Florida to Harbour Island: Passage Plan,
+                      Waypoints & Entry Tips"
+  Estimated Search Vol: 200/mo combined
+  Priority: MEDIUM — high-value audience (boat owners), strong affiliate upside
+
+  ───────────────────────────────────────────────────────────────────────────────
+
+  GAP #6: WEDDING PLANNING GUIDE FOR HARBOUR ISLAND
+  ───────────────────────────────────────────────────
+  The Problem: Harbour Island is a top-tier wedding destination, but no
+               independent blog covers it comprehensively. Bahamas.com has
+               a thin page. No guide covers permits, vendors, and venues.
+  Keyword Target: "harbour island bahamas wedding", "eleuthera wedding venue",
+                   "pink sand beach wedding bahamas"
+  Recommended Title: "Getting Married in Harbour Island: Venues, Permits,
+                      Vendors & Everything You Need to Know"
+  Estimated Search Vol: 300/mo combined
+  Priority: HIGH — high commercial value, premium audience
+
+  ───────────────────────────────────────────────────────────────────────────────
+
+  GAP #7: UNDERWATER PHOTO AND VIDEO GUIDE
+  ──────────────────────────────────────────
+  The Problem: Photography content for Harbour Island is almost entirely
+               above-water (beach photos). No one covers underwater photography
+               at the local dive sites.
+  Keyword Target: "underwater photography harbour island", "eleuthera dive
+                   sites photos", "bahamas snorkeling photography tips"
+  Recommended Title: "Underwater Photography in Harbour Island: Best Dive Sites,
+                      Gear Tips & Shot Ideas"
+  Estimated Search Vol: 150/mo combined
+  Priority: MEDIUM — highly visual, strong Pinterest/Instagram traffic potential
+
+  ───────────────────────────────────────────────────────────────────────────────
+
+  GAP #8: ACCESSIBILITY GUIDE FOR VISITORS WITH DISABILITIES
+  ────────────────────────────────────────────────────────────
+  The Problem: Zero travel blogs cover accessibility in Harbour Island. The
+               golf-cart-only transport and beach terrain raise important
+               questions. This is an underserved, loyal audience.
+  Keyword Target: "harbour island bahamas wheelchair accessible", "accessible
+                   bahamas travel", "disabled travel harbour island"
+  Recommended Title: "Visiting Harbour Island with a Disability: An Honest
+                      Accessibility Guide"
+  Estimated Search Vol: 100/mo combined
+  Priority: MEDIUM — very low competition, builds significant brand goodwill
+
+
+================================================================================
+  END OF DOCUMENT
+  harbourislandinsider.com | SEO Research | Version 1.0 | April 2026
+================================================================================

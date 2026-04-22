@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Templates — Valentines Resort & Marina</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; margin: 0; padding: 20px; color: #1A1A2E; }
+    h1 { font-family: Georgia, serif; color: #023E8A; }
+    .template-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
+    .template-nav button { padding: 8px 18px; border-radius: 50px; border: 2px solid #0077B6; background: #fff; color: #0077B6; font-weight: 600; cursor: pointer; font-size: .85rem; transition: all .2s; }
+    .template-nav button.active, .template-nav button:hover { background: #0077B6; color: #fff; }
+    .email-template { display: none; }
+    .email-template.active { display: block; }
+    .preview-label { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #6B7280; margin-bottom: 10px; }
+    iframe { width: 100%; height: 700px; border: none; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,.12); }
+    .copy-btn { background: #E07B54; color: #fff; border: none; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-size: .82rem; font-weight: 600; margin-top: 12px; }
+  </style>
+</head>
+<body>
+
+<h1>Valentines Resort & Marina — Email Templates</h1>
+<p style="color:#6B7280; margin-bottom:28px;">Five production-ready HTML email templates. Click a template to preview, then copy the source for use in Mailchimp, SMTP, or WordPress wp_mail().</p>
+
+<div class="template-nav">
+  <button class="active" onclick="showTemplate('welcome')">1. Welcome Email</button>
+  <button onclick="showTemplate('booking-confirm')">2. Booking Confirmation</button>
+  <button onclick="showTemplate('newsletter')">3. Monthly Newsletter</button>
+  <button onclick="showTemplate('pre-arrival')">4. Pre-Arrival</button>
+  <button onclick="showTemplate('post-stay')">5. Post-Stay Thank You</button>
+</div>
+
+<!-- ============================================================
+     TEMPLATE 1: WELCOME EMAIL
+     ============================================================ -->
+<div id="tpl-welcome" class="email-template active">
+  <div class="preview-label">Template 1 — Welcome / Newsletter Subscribe Confirmation</div>
+
+  <!-- *** COPY FROM HERE *** -->
+  <div id="src-welcome" style="background:#fff; border-radius:12px; overflow:hidden; max-width:640px; box-shadow:0 4px 20px rgba(0,0,0,.12);">
+
+    <!-- Header -->
+    <div style="background:#023E8A; padding:40px 40px 32px; text-align:center;">
+      <div style="font-family:Georgia,serif; font-size:1.5rem; color:#fff; font-weight:700;">Valentines Resort & Marina</div>
+      <div style="font-family:sans-serif; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:4px;">Harbour Island · The Bahamas</div>
+      <div style="margin-top:24px; font-size:3rem;">🌴</div>
+    </div>
+
+    <!-- Body -->
+    <div style="padding:44px 40px;">
+      <h2 style="font-family:Georgia,serif; color:#023E8A; margin-top:0;">Welcome to the Island Journal!</h2>
+      <p style="line-height:1.75; color:#374151;">Hi <strong>{{FIRST_NAME}}</strong>,</p>
+      <p style="line-height:1.75; color:#374151;">You're now part of a community of <strong>4,200+ ocean lovers</strong> who receive monthly dispatches from one of the world's most beautiful islands. We're glad you're here.</p>
+
+      <!-- Perk boxes -->
+      <div style="background:#F0F7FF; border-radius:10px; padding:24px; margin:24px 0;">
+        <div style="font-family:sans-serif; font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#0077B6; margin-bottom:14px;">What you'll receive each month</div>
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr><td style="padding:5px 0; font-size:.9rem; color:#374151;">🌊 &nbsp;Cruising conditions &amp; waypoint updates</td></tr>
+          <tr><td style="padding:5px 0; font-size:.9rem; color:#374151;">🤿 &nbsp;Dive reports &amp; marine life sightings</td></tr>
+          <tr><td style="padding:5px 0; font-size:.9rem; color:#374151;">🏖️ &nbsp;Island events, festivals &amp; what's new</td></tr>
+          <tr><td style="padding:5px 0; font-size:.9rem; color:#374151;">🏷️ &nbsp;Exclusive subscriber-only rates</td></tr>
+        </table>
+      </div>
+
+      <p style="line-height:1.75; color:#374151;">Your first dispatch is heading your way soon. Until then, explore our island guide:</p>
+
+      <!-- CTA Button -->
+      <div style="text-align:center; margin:32px 0;">
+        <a href="https://valentinesresort.com/journal" style="background:#E07B54; color:#fff; padding:14px 36px; border-radius:50px; text-decoration:none; font-family:sans-serif; font-size:.95rem; font-weight:600; display:inline-block;">
+          Read the Island Journal →
+        </a>
+      </div>
+
+      <p style="line-height:1.75; color:#374151;">Questions? We're always here — call us at <a href="tel:+12423332142" style="color:#0077B6;">+1 (242) 333-2142</a> or email <a href="mailto:info@valentinesresort.com" style="color:#0077B6;">info@valentinesresort.com</a>.</p>
+      <p style="line-height:1.75; color:#374151;">See you on the water! ⚓</p>
+      <p style="line-height:1.75; color:#374151;"><strong>The Valentines Team</strong></p>
+    </div>
+
+    <!-- Footer -->
+    <div style="background:#1A1A2E; padding:24px 40px; text-align:center;">
+      <div style="display:flex; justify-content:center; gap:16px; margin-bottom:14px;">
+        <a href="#" style="color:#fff; font-family:sans-serif; font-size:.8rem; text-decoration:none;">Facebook</a>
+        <a href="#" style="color:#fff; font-family:sans-serif; font-size:.8rem; text-decoration:none;">Instagram</a>
+        <a href="#" style="color:#fff; font-family:sans-serif; font-size:.8rem; text-decoration:none;">YouTube</a>
+      </div>
+      <p style="color:rgba(255,255,255,.4); font-family:sans-serif; font-size:.72rem; margin:0; line-height:1.8;">
+        © 2026 Valentines Resort &amp; Marina · Harbour Island, Bahamas<br>
+        <a href="#" style="color:rgba(255,255,255,.35);">Unsubscribe</a> &nbsp;·&nbsp;
+        <a href="#" style="color:rgba(255,255,255,.35);">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#" style="color:rgba(255,255,255,.35);">valentinesresort.com</a>
+      </p>
+    </div>
+  </div>
+  <!-- *** COPY TO HERE *** -->
+</div>
+
+<!-- ============================================================
+     TEMPLATE 2: BOOKING CONFIRMATION
+     ============================================================ -->
+<div id="tpl-booking-confirm" class="email-template">
+  <div class="preview-label">Template 2 — Booking Enquiry Confirmation</div>
+
+  <div id="src-booking-confirm" style="background:#fff; border-radius:12px; overflow:hidden; max-width:640px; box-shadow:0 4px 20px rgba(0,0,0,.12);">
+
+    <!-- Header -->
+    <div style="background:#023E8A; padding:40px; text-align:center;">
+      <div style="font-family:Georgia,serif; font-size:1.5rem; color:#fff; font-weight:700;">Valentines Resort & Marina</div>
+      <div style="font-family:sans-serif; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-top:4px;">Harbour Island · The Bahamas</div>
+    </div>
+
+    <!-- Confirmation banner -->
+    <div style="background:#E07B54; padding:20px 40px; text-align:center;">
+      <div style="font-family:Georgia,serif; font-size:1.2rem; color:#fff; font-weight:700;">✅ &nbsp;Enquiry Received!</div>
+      <div style="font-family:sans-serif; font-size:.82rem; color:rgba(255,255,255,.85); margin-top:4px;">We'll confirm availability within 2 hours</div>
+    </div>
+
+    <!-- Body -->
+    <div style="padding:40px;">
+      <p style="line-height:1.75; color:#374151;">Hi <strong>{{FIRST_NAME}}</strong>,</p>
+      <p style="line-height:1.75; color:#374151;">Thank you for reaching out to Valentines Resort &amp; Marina. We've received your booking enquiry and our reservations team is checking availability for your requested dates right now.</p>
+
+      <!-- Booking summary box -->
+      <div style="background:#F5E6C8; border-radius:10px; padding:28px; margin:24px 0;">
+        <div style="font-family:sans-serif; font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#C45E38; margin-bottom:16px;">Your Booking Summary</div>
+        <table width="100%" cellpadding="0" cellspacing="6">
+          <tr><td style="font-family:sans-serif; font-size:.85rem; color:#6B7280; width:140px;">Check-In</td><td style="font-family:Georgia,serif; font-weight:700; font-size:.95rem;">{{CHECKIN_DATE}}</td></tr>
+          <tr><td style="font-family:sans-serif; font-size:.85rem; color:#6B7280;">Check-Out</td><td style="font-family:Georgia,serif; font-weight:700; font-size:.95rem;">{{CHECKOUT_DATE}}</td></tr>
+          <tr><td style="font-family:sans-serif; font-size:.85rem; color:#6B7280;">Guests</td><td style="font-family:Georgia,serif; font-weight:700; font-size:.95rem;">{{GUEST_COUNT}}</td></tr>
+          <tr><td style="font-family:sans-serif; font-size:.85rem; color:#6B7280;">Accommodation</td><td style="font-family:Georgia,serif; font-weight:700; font-size:.95rem;">{{ROOM_TYPE}}</td></tr>
+          <tr><td style="font-family:sans-serif; font-size:.85rem; color:#6B7280;">Reference #</td><td style="font-family:sans-serif; font-weight:700; font-size:.85rem; color:#0077B6;">{{REFERENCE_NUMBER}}</td></tr>
+        </table>
+      </div>
+
+      <p style="line-height:1.75; color:#374151;"><strong>What happens next?</strong></p>
+      <ol style="color:#374151; line-height:2; padding-left:20px;">
+        <li>We'll check availability for your exact dates and accommodation type</li>
+        <li>You'll receive a confirmation or alternative options within 2 hours</li>
+        <li>Once confirmed, we'll send a secure payment link for the deposit</li>
+        <li>No charge until you confirm — this is just a hold on availability</li>
+      </ol>
+
+      <div style="background:#F0F7FF; border-left:4px solid #0077B6; padding:16px 20px; border-radius:0 8px 8px 0; margin:24px 0;">
+        <strong>Need to reach us sooner?</strong><br>
+        <span style="font-size:.9rem; color:#374151; font-family:sans-serif;">Call: <a href="tel:+12423332142" style="color:#0077B6;">+1 (242) 333-2142</a> &nbsp;·&nbsp; VHF Channel 16 &nbsp;·&nbsp; <a href="mailto:reservations@valentinesresort.com" style="color:#0077B6;">reservations@valentinesresort.com</a></span>
+      </div>
+
+      <p style="line-height:1.75; color:#374151;">We look forward to welcoming you to Harbour Island! 🌊</p>
+      <p style="line-height:1.75; color:#374151;"><strong>The Valentines Reservations Team</strong></p>
+    </div>
+
+    <!-- Footer -->
+    <div style="background:#1A1A2E; padding:24px 40px; text-align:center;">
+      <p style="color:rgba(255,255,255,.4); font-family:sans-serif; font-size:.72rem; margin:0; line-height:1.8;">
+        © 2026 Valentines Resort &amp; Marina · Harbour Island, Bahamas<br>
+        <a href="#" style="color:rgba(255,255,255,.35);">valentinesresort.com</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TEMPLATE 3: MONTHLY NEWSLETTER
+     ============================================================ -->
+<div id="tpl-newsletter" class="email-template">
+  <div class="preview-label">Template 3 — Monthly Newsletter (April 2026 Edition)</div>
+
+  <div id="src-newsletter" style="background:#fff; border-radius:12px; overflow:hidden; max-width:640px; box-shadow:0 4px 20px rgba(0,0,0,.12);">
+
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#023E8A,#0077B6); padding:40px; text-align:center;">
+      <div style="font-family:sans-serif; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-bottom:8px;">The Island Journal · April 2026</div>
+      <div style="font-family:Georgia,serif; font-size:1.8rem; color:#fff; font-weight:700; line-height:1.2;">Valentines Resort<br>&amp; Marina</div>
+      <div style="font-family:sans-serif; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.55); margin-top:6px;">Harbour Island · Bahamas</div>
+    </div>
+
+    <!-- Intro -->
+    <div style="padding:36px 40px 0;">
+      <p style="font-family:Georgia,serif; font-size:1.1rem; line-height:1.8; color:#374151;">Hi <strong>{{FIRST_NAME}}</strong>,</p>
+      <p style="line-height:1.8; color:#374151;">April on Harbour Island is magic — the water is clear, the trade winds are steady, the Pink Sand Beach is at its most beautiful, and the marina is buzzing with boats arriving from everywhere. Here's what's been happening and what's coming up.</p>
+    </div>
+
+    <!-- Ocean divider -->
+    <div style="margin:24px 40px; border-top:2px solid #E5E7EB;"></div>
+
+    <!-- Article 1 -->
+    <div style="padding:0 40px 28px;">
+      <div style="background:linear-gradient(135deg,#023E8A,#00B4D8); height:160px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:4rem; margin-bottom:20px;">⚓</div>
+      <div style="font-family:sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#E07B54; margin-bottom:8px;">Marina Life</div>
+      <h3 style="font-family:Georgia,serif; font-size:1.2rem; color:#1A1A2E; margin:0 0 10px;">New: Extended Megayacht Dock Now Open</h3>
+      <p style="line-height:1.75; color:#374151; font-size:.92rem;">We've completed Phase 2 of our marina expansion — four new deep-water slips accommodating vessels up to 160 feet with 100A shore power, dedicated water, and private dock concierge. Call ahead to reserve.</p>
+      <a href="https://valentinesresort.com/marina" style="color:#0077B6; font-family:sans-serif; font-size:.85rem; font-weight:600; text-decoration:none;">Read More on the Journal →</a>
+    </div>
+
+    <div style="margin:0 40px; border-top:1px solid #E5E7EB;"></div>
+
+    <!-- Article 2 -->
+    <div style="padding:28px 40px;">
+      <div style="background:linear-gradient(135deg,#0077B6,#48CAE4); height:140px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:4rem; margin-bottom:20px;">🤿</div>
+      <div style="font-family:sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#E07B54; margin-bottom:8px;">Dive Report — April 2026</div>
+      <h3 style="font-family:Georgia,serif; font-size:1.2rem; color:#1A1A2E; margin:0 0 10px;">Hammerheads at Current Cut + Turtle Season Begins</h3>
+      <p style="line-height:1.75; color:#374151; font-size:.92rem;">April marks the start of hammerhead season at Current Cut — we've already had three confirmed sightings this week. Loggerhead turtles are also appearing in the shallows as nesting season approaches. It's an extraordinary time to be underwater here.</p>
+      <a href="https://valentinesresort.com/journal/diving" style="color:#0077B6; font-family:sans-serif; font-size:.85rem; font-weight:600; text-decoration:none;">Full Dive Report →</a>
+    </div>
+
+    <div style="margin:0 40px; border-top:1px solid #E5E7EB;"></div>
+
+    <!-- Exclusive offer box -->
+    <div style="padding:28px 40px;">
+      <div style="background:#E07B54; border-radius:12px; padding:28px; text-align:center;">
+        <div style="font-family:sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.75); margin-bottom:10px;">Subscriber Exclusive · April Only</div>
+        <h3 style="font-family:Georgia,serif; font-size:1.25rem; color:#fff; margin:0 0 10px;">15% Off Marina Slips: April 15–30</h3>
+        <p style="color:rgba(255,255,255,.88); font-size:.9rem; line-height:1.65; margin-bottom:20px;">For Island Journal subscribers only. Book a 7+ night marina stay between April 15–30 and receive 15% off the nightly slip rate. Use code <strong>JOURNAL15</strong> at booking.</p>
+        <a href="https://valentinesresort.com/booking" style="background:#fff; color:#E07B54; padding:12px 28px; border-radius:50px; text-decoration:none; font-family:sans-serif; font-size:.88rem; font-weight:700; display:inline-block;">
+          Claim This Offer →
+        </a>
+        <div style="font-family:sans-serif; font-size:.72rem; color:rgba(255,255,255,.55); margin-top:10px;">Valid April 15–30, 2026. Subscriber code required. Limited slips available.</div>
+      </div>
+    </div>
+
+    <!-- Conditions section -->
+    <div style="padding:0 40px 28px;">
+      <div style="background:#F0F7FF; border-radius:10px; padding:24px;">
+        <div style="font-family:sans-serif; font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#0077B6; margin-bottom:16px;">📡 April Conditions Report</div>
+        <table width="100%" cellspacing="0" cellpadding="0">
+          <tr>
+            <td style="padding:6px 0; font-family:sans-serif; font-size:.85rem; color:#6B7280; width:50%;">Water Temperature</td>
+            <td style="font-family:sans-serif; font-size:.85rem; font-weight:600; color:#1A1A2E;">79°F / 26°C</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 0; font-family:sans-serif; font-size:.85rem; color:#6B7280;">Visibility (Dive)</td>
+            <td style="font-family:sans-serif; font-size:.85rem; font-weight:600; color:#1A1A2E;">80–100 ft</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 0; font-family:sans-serif; font-size:.85rem; color:#6B7280;">Trade Winds</td>
+            <td style="font-family:sans-serif; font-size:.85rem; font-weight:600; color:#1A1A2E;">E–SE 12–18 kts</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 0; font-family:sans-serif; font-size:.85rem; color:#6B7280;">Marina Availability</td>
+            <td style="font-family:sans-serif; font-size:.85rem; font-weight:600; color:#2D6A4F;">✓ Slips Available</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="background:#1A1A2E; padding:28px 40px;">
+      <div style="text-align:center; margin-bottom:16px;">
+        <a href="#" style="color:rgba(255,255,255,.5); font-family:sans-serif; font-size:.78rem; text-decoration:none; margin:0 10px;">Facebook</a>
+        <a href="#" style="color:rgba(255,255,255,.5); font-family:sans-serif; font-size:.78rem; text-decoration:none; margin:0 10px;">Instagram</a>
+        <a href="#" style="color:rgba(255,255,255,.5); font-family:sans-serif; font-size:.78rem; text-decoration:none; margin:0 10px;">YouTube</a>
+      </div>
+      <p style="color:rgba(255,255,255,.4); font-family:sans-serif; font-size:.72rem; margin:0; text-align:center; line-height:1.8;">
+        © 2026 Valentines Resort &amp; Marina · Harbour Island, Bahamas<br>
+        +1 (242) 333-2142 · info@valentinesresort.com<br>
+        <a href="#" style="color:rgba(255,255,255,.3);">Unsubscribe</a> &nbsp;·&nbsp;
+        <a href="#" style="color:rgba(255,255,255,.3);">Manage Preferences</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TEMPLATE 4: PRE-ARRIVAL
+     ============================================================ -->
+<div id="tpl-pre-arrival" class="email-template">
+  <div class="preview-label">Template 4 — Pre-Arrival (Sent 5 Days Before Check-In)</div>
+
+  <div id="src-pre-arrival" style="background:#fff; border-radius:12px; overflow:hidden; max-width:640px; box-shadow:0 4px 20px rgba(0,0,0,.12);">
+
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#2D6A4F,#52B788); padding:40px; text-align:center;">
+      <div style="font-size:3rem; margin-bottom:10px;">🌴</div>
+      <div style="font-family:Georgia,serif; font-size:1.4rem; color:#fff; font-weight:700;">Your Island Adventure Begins Soon!</div>
+      <div style="font-family:sans-serif; font-size:.82rem; color:rgba(255,255,255,.8); margin-top:8px;">5 days until your arrival at Valentines</div>
+    </div>
+
+    <!-- Body -->
+    <div style="padding:40px;">
+      <p style="line-height:1.75; color:#374151;">Hi <strong>{{FIRST_NAME}}</strong>,</p>
+      <p style="line-height:1.75; color:#374151;">You're almost here! We're getting everything ready for your arrival on <strong>{{CHECKIN_DATE}}</strong> and wanted to share a few things to help you make the most of your time with us.</p>
+
+      <!-- Check-in details -->
+      <div style="background:#F5E6C8; border-radius:10px; padding:24px; margin:24px 0;">
+        <strong style="font-family:sans-serif; font-size:.85rem; color:#C45E38;">📋 Your Check-In Details</strong><br><br>
+        <table cellspacing="0" cellpadding="0" width="100%">
+          <tr><td style="font-family:sans-serif; font-size:.83rem; color:#6B7280; padding:4px 0; width:130px;">Check-In</td><td style="font-weight:600;">{{CHECKIN_DATE}} · from 3:00pm</td></tr>
+          <tr><td style="font-family:sans-serif; font-size:.83rem; color:#6B7280; padding:4px 0;">Check-Out</td><td style="font-weight:600;">{{CHECKOUT_DATE}} · by 11:00am</td></tr>
+          <tr><td style="font-family:sans-serif; font-size:.83rem; color:#6B7280; padding:4px 0;">Room / Slip</td><td style="font-weight:600;">{{ACCOMMODATION_TYPE}}</td></tr>
+          <tr><td style="font-family:sans-serif; font-size:.83rem; color:#6B7280; padding:4px 0;">Confirmation #</td><td style="font-weight:600; color:#0077B6;">{{REFERENCE_NUMBER}}</td></tr>
+        </table>
+      </div>
+
+      <!-- Getting here -->
+      <h3 style="font-family:Georgia,serif; color:#023E8A;">Getting to Harbour Island</h3>
+      <p style="line-height:1.75; color:#374151; font-size:.92rem;"><strong>By Air:</strong> Fly into North Eleuthera Airport (ELH) — direct flights from Miami, Nassau, and Fort Lauderdale. A taxi to the ferry dock takes 5 minutes ($5–8), and the ferry to Harbour Island runs every 20 minutes ($5 each way).</p>
+      <p style="line-height:1.75; color:#374151; font-size:.92rem;"><strong>By Boat:</strong> Call us on <strong>VHF Channel 16</strong> or +1 (242) 333-2142 when you're one hour out. Our dock staff will be ready.</p>
+      <p style="line-height:1.75; color:#374151; font-size:.92rem;"><strong>From Nassau:</strong> Fast ferry service runs several times weekly, or Fly from Nassau to ELH on Flamingo Air or Southern Air.</p>
+
+      <!-- Packing reminder -->
+      <div style="background:#F0F7FF; border-radius:10px; padding:20px; margin:20px 0;">
+        <strong style="font-family:sans-serif; font-size:.85rem; color:#023E8A;">🎒 Don't Forget to Pack</strong>
+        <ul style="color:#374151; line-height:2; font-size:.88rem; margin:10px 0 0;">
+          <li>Reef-safe sunscreen (biodegradable — required by Bahamian law)</li>
+          <li>Passport or government ID (required for Bahamas entry)</li>
+          <li>Light layers for evenings (the trade winds can be refreshing)</li>
+          <li>Snorkel mask if you have one (or rent from our dive centre)</li>
+          <li>Cash in small denominations — some local shops are cash-only</li>
+        </ul>
+      </div>
+
+      <p style="line-height:1.75; color:#374151;">Need to arrange anything before you arrive? Airport transfers, provisioning requests, dive bookings, special occasion packages — just reply to this email or call us.</p>
+      <p style="line-height:1.75; color:#374151;">We'll see you very soon! 🌊</p>
+      <p style="line-height:1.75; color:#374151;"><strong>The Valentines Team</strong></p>
+    </div>
+
+    <!-- Footer -->
+    <div style="background:#1A1A2E; padding:24px 40px; text-align:center;">
+      <p style="color:rgba(255,255,255,.4); font-family:sans-serif; font-size:.72rem; margin:0; line-height:1.8;">
+        © 2026 Valentines Resort &amp; Marina · Harbour Island, Bahamas<br>
+        <a href="#" style="color:rgba(255,255,255,.35);">valentinesresort.com</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TEMPLATE 5: POST-STAY THANK YOU
+     ============================================================ -->
+<div id="tpl-post-stay" class="email-template">
+  <div class="preview-label">Template 5 — Post-Stay Thank You + Review Request (Sent 2 Days After Checkout)</div>
+
+  <div id="src-post-stay" style="background:#fff; border-radius:12px; overflow:hidden; max-width:640px; box-shadow:0 4px 20px rgba(0,0,0,.12);">
+
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#E07B54,#F4A261); padding:40px; text-align:center;">
+      <div style="font-size:3rem; margin-bottom:10px;">🌅</div>
+      <div style="font-family:Georgia,serif; font-size:1.4rem; color:#fff; font-weight:700;">It Was a Pleasure, {{FIRST_NAME}}</div>
+      <div style="font-family:sans-serif; font-size:.82rem; color:rgba(255,255,255,.85); margin-top:8px;">Thank you for staying at Valentines</div>
+    </div>
+
+    <!-- Body -->
+    <div style="padding:40px;">
+      <p style="line-height:1.75; color:#374151;">Hi <strong>{{FIRST_NAME}}</strong>,</p>
+      <p style="line-height:1.75; color:#374151;">We hope you made it home safely and that you're already looking back fondly on your time at Harbour Island. It was an absolute pleasure having you with us.</p>
+
+      <!-- Stars / review CTA -->
+      <div style="background:#FFF7ED; border-radius:10px; padding:28px; margin:24px 0; text-align:center;">
+        <div style="font-size:1.6rem; color:#F59E0B; letter-spacing:6px; margin-bottom:10px;">★★★★★</div>
+        <h3 style="font-family:Georgia,serif; color:#1A1A2E; margin:0 0 10px;">How was your stay?</h3>
+        <p style="font-family:sans-serif; font-size:.88rem; color:#6B7280; line-height:1.65; margin-bottom:20px;">Your review helps future guests discover Valentines — and helps us keep getting better. It takes just 60 seconds.</p>
+        <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+          <a href="https://g.page/valentines-resort/review" style="background:#4285F4; color:#fff; padding:10px 22px; border-radius:50px; text-decoration:none; font-family:sans-serif; font-size:.85rem; font-weight:600; display:inline-block;">
+            ⭐ Google Review
+          </a>
+          <a href="https://tripadvisor.com/valentines-resort" style="background:#00AF87; color:#fff; padding:10px 22px; border-radius:50px; text-decoration:none; font-family:sans-serif; font-size:.85rem; font-weight:600; display:inline-block;">
+            🦉 TripAdvisor
+          </a>
+        </div>
+      </div>
+
+      <!-- Come back offer -->
+      <div style="background:#F0F7FF; border-left:4px solid #0077B6; padding:20px 24px; border-radius:0 8px 8px 0; margin:24px 0;">
+        <strong style="font-family:sans-serif; font-size:.88rem; color:#023E8A;">💙 We'd love to see you again</strong>
+        <p style="font-family:sans-serif; font-size:.85rem; color:#374151; line-height:1.65; margin:8px 0 0;">
+          As a returning guest, you'll receive <strong>10% off your next booking</strong>. Use code <strong>COMEBACK10</strong> when you next reserve — valid for 12 months.
+        </p>
+      </div>
+
+      <!-- Stay connected -->
+      <h3 style="font-family:Georgia,serif; color:#023E8A;">Stay Connected to the Island</h3>
+      <p style="line-height:1.75; color:#374151; font-size:.92rem;">We'll keep sending you the Island Journal each month — cruising conditions, dive reports, and what's new on Harbour Island. As a past guest, you'll also get access to exclusive return-visitor rates.</p>
+
+      <div style="text-align:center; margin:28px 0;">
+        <a href="https://valentinesresort.com/journal" style="background:#023E8A; color:#fff; padding:13px 32px; border-radius:50px; text-decoration:none; font-family:sans-serif; font-size:.9rem; font-weight:600; display:inline-block;">
+          Read the Island Journal →
+        </a>
+      </div>
+
+      <p style="line-height:1.75; color:#374151;">Until next time — fair winds and following seas. ⚓</p>
+      <p style="line-height:1.75; color:#374151;"><strong>The Valentines Team</strong></p>
+    </div>
+
+    <!-- Footer -->
+    <div style="background:#1A1A2E; padding:28px 40px;">
+      <div style="text-align:center; margin-bottom:14px;">
+        <a href="#" style="color:rgba(255,255,255,.5); font-family:sans-serif; font-size:.78rem; text-decoration:none; margin:0 10px;">Facebook</a>
+        <a href="#" style="color:rgba(255,255,255,.5); font-family:sans-serif; font-size:.78rem; text-decoration:none; margin:0 10px;">Instagram</a>
+        <a href="#" style="color:rgba(255,255,255,.5); font-family:sans-serif; font-size:.78rem; text-decoration:none; margin:0 10px;">YouTube</a>
+      </div>
+      <p style="color:rgba(255,255,255,.4); font-family:sans-serif; font-size:.72rem; margin:0; text-align:center; line-height:1.8;">
+        © 2026 Valentines Resort &amp; Marina · Harbour Island, Bahamas<br>
+        <a href="#" style="color:rgba(255,255,255,.3);">Unsubscribe</a> &nbsp;·&nbsp;
+        <a href="#" style="color:rgba(255,255,255,.3);">Manage Preferences</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showTemplate(id) {
+    document.querySelectorAll('.email-template').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.template-nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById('tpl-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>

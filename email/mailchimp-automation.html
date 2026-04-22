@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mailchimp Automation Setup — Harbour Island Insider</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; color: #1A1A2E; }
+    .page { max-width: 900px; margin: 0 auto; padding: 32px 20px 80px; }
+    h1 { font-family: Georgia, serif; color: #023E8A; font-size: 2rem; margin-bottom: 8px; }
+    h2 { font-family: Georgia, serif; color: #023E8A; font-size: 1.35rem; margin: 40px 0 14px; padding-bottom: 10px; border-bottom: 2px solid #E5E7EB; }
+    h3 { font-size: 1rem; color: #1A1A2E; margin: 24px 0 8px; font-weight: 700; }
+    p, li { line-height: 1.75; color: #374151; font-size: .92rem; margin-bottom: 10px; }
+    ul, ol { padding-left: 20px; margin-bottom: 16px; }
+    .subtitle { color: #6B7280; margin-bottom: 32px; font-size: .95rem; }
+    .step-badge { display: inline-block; background: #023E8A; color: #fff; font-size: .7rem; font-weight: 700; padding: 3px 10px; border-radius: 50px; margin-right: 8px; letter-spacing: .06em; text-transform: uppercase; }
+    .action-box { background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 10px; padding: 18px 22px; margin: 16px 0; }
+    .action-box strong { color: #92400E; display: block; margin-bottom: 6px; }
+    .done-box { background: #F0FDF4; border: 1px solid #86EFAC; border-radius: 10px; padding: 18px 22px; margin: 16px 0; }
+    .done-box strong { color: #166534; display: block; margin-bottom: 6px; }
+    .code { background: #1A1A2E; color: #A5F3FC; font-family: monospace; font-size: .85rem; padding: 16px 20px; border-radius: 8px; margin: 12px 0; overflow-x: auto; white-space: pre; line-height: 1.6; }
+    .email-preview { background: #fff; border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden; margin: 20px 0; box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+    .email-preview .ep-header { padding: 10px 16px; background: #F9FAFB; border-bottom: 1px solid #E5E7EB; font-size: .75rem; color: #6B7280; display: flex; gap: 20px; }
+    .email-preview .ep-body { padding: 20px; font-size: .88rem; }
+    .sequence-card { background: #fff; border: 1px solid #E5E7EB; border-radius: 12px; padding: 22px; margin-bottom: 16px; display: grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: start; }
+    .seq-num { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #023E8A, #0077B6); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
+    .seq-detail h4 { color: #1A1A2E; font-size: .95rem; margin-bottom: 4px; }
+    .seq-detail .timing { font-size: .75rem; color: #E07B54; font-weight: 600; margin-bottom: 8px; }
+    .seq-detail p { font-size: .83rem; color: #6B7280; margin: 0; }
+    .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0; }
+    .metric { background: #fff; border: 1px solid #E5E7EB; border-radius: 8px; padding: 14px; text-align: center; }
+    .metric .val { font-size: 1.4rem; font-weight: 700; color: #023E8A; display: block; }
+    .metric .lbl { font-size: .72rem; color: #6B7280; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .85rem; }
+    th { background: #023E8A; color: #fff; padding: 10px 14px; text-align: left; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+    td { padding: 10px 14px; border-bottom: 1px solid #E5E7EB; }
+    tr:hover td { background: #F9FAFB; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 50px; font-size: .7rem; font-weight: 600; }
+    .tag-blue { background: rgba(0,119,182,.12); color: #023E8A; }
+    .tag-coral { background: rgba(224,123,84,.12); color: #C45E38; }
+    .tag-green { background: #D1FAE5; color: #065F46; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div style="background:linear-gradient(135deg,#023E8A,#0077B6); border-radius:16px; padding:36px; margin-bottom:40px; color:#fff;">
+    <div style="font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-bottom:8px;">Step 3 — Email Marketing</div>
+    <h1 style="color:#fff; margin-bottom:8px;">Mailchimp Automation Setup</h1>
+    <p style="color:rgba(255,255,255,.75); margin:0;">Complete setup guide for the Island Dispatch newsletter — welcome sequence, automation triggers, segment rules, and 5-email drip campaign for Harbour Island Insider.</p>
+  </div>
+
+  <!-- OVERVIEW -->
+  <h2>Overview & Goals</h2>
+  <div class="metric-grid">
+    <div class="metric"><span class="val">5</span><span class="lbl">Email Sequences</span></div>
+    <div class="metric"><span class="val">3</span><span class="lbl">Automation Flows</span></div>
+    <div class="metric"><span class="val">4,200+</span><span class="lbl">Target Subscribers</span></div>
+    <div class="metric"><span class="val">35%+</span><span class="lbl">Target Open Rate</span></div>
+  </div>
+  <p>The email list is the most valuable long-term asset of Harbour Island Insider. Social platforms change algorithms; email is yours forever. Our goal: build a list of ocean lovers who trust our recommendations — and who book Valentines Resort & Marina through our affiliate link when they're ready to visit.</p>
+
+  <!-- SETUP -->
+  <h2><span class="step-badge">Step 1</span> Create Your Mailchimp Account</h2>
+  <div class="action-box">
+    <strong>👤 Action Required — Takes ~10 minutes</strong>
+    <ol style="margin:0; padding-left:18px;">
+      <li>Go to <strong>mailchimp.com</strong> → "Sign Up Free"</li>
+      <li>Use your blog email: <strong>editor@harbourislandinsider.com</strong> (or your preferred address)</li>
+      <li>Verify your email address</li>
+      <li>Complete setup wizard: choose "Create a campaign" → skip for now</li>
+    </ol>
+  </div>
+
+  <h2><span class="step-badge">Step 2</span> Create Your Audience</h2>
+  <div class="action-box">
+    <strong>👤 Action Required</strong>
+    <ol style="margin:0; padding-left:18px;">
+      <li>Mailchimp Dashboard → <strong>Audience → Manage Audience → Create Audience</strong></li>
+      <li><strong>Audience name:</strong> The Island Dispatch</li>
+      <li><strong>From name:</strong> Harbour Island Insider</li>
+      <li><strong>From email:</strong> editor@harbourislandinsider.com</li>
+      <li><strong>Reminder:</strong> "You signed up for island travel tips and conditions updates at harbourislandinsider.com"</li>
+      <li>Enable GDPR fields (recommended for EU visitors)</li>
+      <li>Save → note your <strong>Audience ID</strong> (Settings → Audience name and defaults)</li>
+    </ol>
+  </div>
+
+  <h3>Merge Tags to Add (Audience → Settings → Audience fields and *|MERGE|* tags)</h3>
+  <table>
+    <thead><tr><th>Field Label</th><th>Tag</th><th>Type</th><th>Required</th></tr></thead>
+    <tbody>
+      <tr><td>First Name</td><td>*|FNAME|*</td><td>Text</td><td>Yes</td></tr>
+      <tr><td>Arrival Type</td><td>*|ARRIVAL|*</td><td>Dropdown: Boat / Plane / Not sure</td><td>No</td></tr>
+      <tr><td>Source Page</td><td>*|SOURCE|*</td><td>Text (hidden, set by form)</td><td>No</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="step-badge">Step 3</span> Get API Key & Configure WordPress Plugin</h2>
+  <div class="action-box">
+    <strong>👤 Action Required</strong>
+    <ol style="margin:0; padding-left:18px;">
+      <li>Mailchimp → Account icon (top right) → Account → <strong>Extras → API Keys</strong></li>
+      <li>Click <strong>"Create A Key"</strong> — name it "Harbour Island Insider WordPress"</li>
+      <li>Copy the key (it looks like: <code>abc123def456-us1</code>)</li>
+      <li>In WordPress: <strong>Settings → Valentines Resort → Mailchimp API Key</strong> → paste key</li>
+      <li>Paste your Audience ID in the List ID field</li>
+      <li>Save settings</li>
+    </ol>
+  </div>
+  <div class="code">// The WordPress plugin automatically handles:
+// 1. Adding new subscribers to your Mailchimp audience
+// 2. Tagging them with 'website-signup' and 'island-journal'
+// 3. Sending the welcome email trigger
+// 4. Storing their arrival_type preference
+
+// API endpoint the plugin calls:
+POST https://{dc}.api.mailchimp.com/3.0/lists/{list_id}/members
+Authorization: Basic {base64(anystring:api_key)}</div>
+
+  <!-- SEGMENTS -->
+  <h2><span class="step-badge">Step 4</span> Create Audience Segments</h2>
+  <p>Segments let you send targeted emails. Create these three in Mailchimp → Audience → Segments → Create Segment:</p>
+  <table>
+    <thead><tr><th>Segment Name</th><th>Condition</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Mariners</strong></td><td>ARRIVAL tag = "Boat"</td><td>Send marina-focused content, Valentines slip promotions</td></tr>
+      <tr><td><strong>Hotel Guests</strong></td><td>ARRIVAL tag = "Plane"</td><td>Send accommodation content, beach guides, dining</td></tr>
+      <tr><td><strong>Hot Leads</strong></td><td>Clicked any Valentines booking link in last 30 days</td><td>Send a targeted Valentines offer</td></tr>
+      <tr><td><strong>Engaged Readers</strong></td><td>Opened last 3 campaigns</td><td>Premium content, early access to articles</td></tr>
+    </tbody>
+  </table>
+
+  <!-- AUTOMATION FLOWS -->
+  <h2><span class="step-badge">Step 5</span> Set Up Automation Flows</h2>
+
+  <h3>Flow 1 — Welcome Sequence (Triggered on Subscribe)</h3>
+  <p>Set up via: <strong>Automations → Classic Automations → Welcome new subscribers</strong></p>
+
+  <div class="sequence-card">
+    <div class="seq-num">1</div>
+    <div class="seq-detail">
+      <h4>Email 1 — "Welcome to the Island Journal! 🌴"</h4>
+      <div class="timing">Sends: Immediately on subscribe</div>
+      <p><strong>Subject:</strong> Welcome aboard, *|FNAME|* — your Harbour Island guide is ready<br>
+      <strong>Preview text:</strong> Pink sand, clear water, honest advice — delivered monthly.<br>
+      <strong>Content:</strong> Welcome, what to expect, link to the 5 most popular articles, Valentines booking card (subtle — "where we recommend staying"). Use Template 1 from email-templates.html.<br>
+      <strong>CTA:</strong> "Read our most popular article →" (link to marina guide or pink sand guide)</p>
+    </div>
+  </div>
+
+  <div class="sequence-card">
+    <div class="seq-num">2</div>
+    <div class="seq-detail">
+      <h4>Email 2 — "The Island Secret Most Visitors Miss"</h4>
+      <div class="timing">Sends: Day 3 after subscribe</div>
+      <p><strong>Subject:</strong> The Harbour Island tip that changes everything, *|FNAME|*<br>
+      <strong>Preview text:</strong> Sunrise on Pink Sand Beach — and why you need to be there.<br>
+      <strong>Content:</strong> Feature the Pink Sand Beach sunrise tip, link to the beach guide article. Mid-email: introduce Valentines as "where we recommend basing yourself — 5-min shuttle to the beach, included." CTA to Valentines booking page.<br>
+      <strong>Goal:</strong> Drive first Valentines booking click.</p>
+    </div>
+  </div>
+
+  <div class="sequence-card">
+    <div class="seq-num">3</div>
+    <div class="seq-detail">
+      <h4>Email 3 — Segmented: Mariners OR Hotel Guests</h4>
+      <div class="timing">Sends: Day 7 after subscribe</div>
+      <p><strong>If Mariner:</strong> Subject: "Your complete marina briefing for Harbour Island" → Send marina guide content + Valentines slip booking CTA<br>
+      <strong>If Hotel/Unsure:</strong> Subject: "Where to stay on Harbour Island — our honest verdict" → Send where-to-stay guide + Valentines room booking CTA<br>
+      <strong>Setup:</strong> Create two versions of Email 3 and use Mailchimp's "Send to segment" option for each.</p>
+    </div>
+  </div>
+
+  <div class="sequence-card">
+    <div class="seq-num">4</div>
+    <div class="seq-detail">
+      <h4>Email 4 — "This is what waiting too long costs you"</h4>
+      <div class="timing">Sends: Day 14 after subscribe (only if no Valentines link clicked yet)</div>
+      <p><strong>Subject:</strong> *|FNAME|*, peak season slips go fast — here's what to know<br>
+      <strong>Preview text:</strong> Harbour Island's marina books out December through April.<br>
+      <strong>Content:</strong> Urgency-driven email about marina/hotel availability in peak season. Not pushy — frame as a helpful heads-up from a friend. Feature the Valentines booking process (no payment to enquire, 2-hour response). Strong CTA.<br>
+      <strong>Condition:</strong> Only send if subscriber has NOT clicked a Valentines link in emails 1–3.</p>
+    </div>
+  </div>
+
+  <div class="sequence-card">
+    <div class="seq-num">5</div>
+    <div class="seq-detail">
+      <h4>Email 5 — "Before you go: the Harbour Island packing list"</h4>
+      <div class="timing">Sends: Day 21 after subscribe</div>
+      <p><strong>Subject:</strong> The packing list every Harbour Island visitor needs (don't forget #3)<br>
+      <strong>Preview text:</strong> Reef-safe sunscreen is Bahamian law. Here's everything else.<br>
+      <strong>Content:</strong> Genuinely useful packing/preparation list. Friendly, editorial tone. Footer: "Still haven't booked? Valentines Marina and Resort has a few April/May slots remaining. → Check availability" Keep it low-key — the relationship is now established.<br>
+      <strong>Goal:</strong> Final gentle nudge, then transition to monthly newsletter cadence.</p>
+    </div>
+  </div>
+
+  <h3>Flow 2 — Monthly Newsletter (Ongoing)</h3>
+  <p>Set up as a regular campaign (not automation). Send on the <strong>first Tuesday of each month</strong>, 9:00am EST. Use Template 3 (Monthly Newsletter) from email-templates.html.</p>
+  <table>
+    <thead><tr><th>Month</th><th>Theme</th><th>Valentines Feature</th><th>Conditions Focus</th></tr></thead>
+    <tbody>
+      <tr><td>May 2026</td><td>Peak Season Wrap-Up</td><td>Summer marina rates</td><td>Water temp, hurricane prep</td></tr>
+      <tr><td>June 2026</td><td>Summer on the Island</td><td>Fishing tournament coverage</td><td>Turtle nesting begins</td></tr>
+      <tr><td>July 2026</td><td>Hurricane Season Prep</td><td>Marina storm planning guide</td><td>Weather patterns, wind</td></tr>
+      <tr><td>August 2026</td><td>Off-Season Secrets</td><td>Off-season accommodation rates</td><td>Visibility, dive conditions</td></tr>
+      <tr><td>September 2026</td><td>Marine Life Special</td><td>Marine life dive experiences</td><td>Whale shark season</td></tr>
+      <tr><td>October 2026</td><td>Season Preview</td><td>Early bird marina bookings</td><td>Trade winds returning</td></tr>
+      <tr><td>November 2026</td><td>Plan Your December Trip</td><td>Holiday packages at Valentines</td><td>Best diving of the year</td></tr>
+      <tr><td>December 2026</td><td>Holiday on the Island</td><td>Christmas/NYE at the marina</td><td>Perfect peak conditions</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Flow 3 — Re-engagement (Inactive Subscribers)</h3>
+  <div class="sequence-card" style="border-color:#FDE68A;">
+    <div class="seq-num" style="background:linear-gradient(135deg,#E07B54,#F4A261);">?</div>
+    <div class="seq-detail">
+      <h4>Win-Back: "Still dreaming of pink sand, *|FNAME|*?"</h4>
+      <div class="timing">Triggers: 90 days since last email open</div>
+      <p><strong>Subject:</strong> We miss you, *|FNAME|* — and Harbour Island does too<br>
+      <strong>Content:</strong> Personal, conversational. "You signed up a while back — still thinking about visiting? We've published 12 new articles since then." Feature the best 3 recent articles. One clear CTA: "Confirm you still want island updates →" (re-subscribe confirmation link).<br>
+      <strong>If no click after 14 more days:</strong> Automatically unsubscribe to keep list healthy.</p>
+    </div>
+  </div>
+
+  <!-- SUBJECT LINE LIBRARY -->
+  <h2><span class="step-badge">Step 6</span> Subject Line Library</h2>
+  <p>High-performing subject lines for travel newsletters. Use and rotate these:</p>
+  <table>
+    <thead><tr><th>Subject Line</th><th>Type</th><th>Best For</th></tr></thead>
+    <tbody>
+      <tr><td>The Harbour Island tip that changes everything, *|FNAME|*</td><td><span class="tag tag-coral">Curiosity</span></td><td>Welcome series</td></tr>
+      <tr><td>What we saw at Current Cut this morning 🦈</td><td><span class="tag tag-blue">Story</span></td><td>Monthly newsletter</td></tr>
+      <tr><td>*|FNAME|*, peak season slips are 70% booked</td><td><span class="tag tag-coral">Urgency</span></td><td>Booking push</td></tr>
+      <tr><td>The restaurant locals don't tell tourists about</td><td><span class="tag tag-coral">Curiosity</span></td><td>Food article promo</td></tr>
+      <tr><td>April on Harbour Island: conditions report 📡</td><td><span class="tag tag-blue">Value</span></td><td>Monthly newsletter</td></tr>
+      <tr><td>Why we always say: arrive by boat if you can</td><td><span class="tag tag-blue">Story</span></td><td>Marina content</td></tr>
+      <tr><td>Pink sand + *|FNAME|* — when?</td><td><span class="tag tag-coral">Personal</span></td><td>Re-engagement</td></tr>
+      <tr><td>The 3 things first-time visitors always regret</td><td><span class="tag tag-coral">Curiosity</span></td><td>Travel tips promo</td></tr>
+      <tr><td>Subscriber exclusive: 15% off Valentines Marina, April only</td><td><span class="tag tag-green">Offer</span></td><td>Partner promotion</td></tr>
+      <tr><td>This week at the marina: [brief update]</td><td><span class="tag tag-blue">Community</span></td><td>Newsletter</td></tr>
+    </tbody>
+  </table>
+
+  <!-- TARGETS -->
+  <h2><span class="step-badge">Step 7</span> Performance Benchmarks & Goals</h2>
+  <table>
+    <thead><tr><th>Metric</th><th>Industry Average</th><th>Our Target</th><th>How to Achieve</th></tr></thead>
+    <tbody>
+      <tr><td>Open Rate</td><td>21%</td><td><strong>35%+</strong></td><td>Personalised subject lines, consistent send day/time, clean list</td></tr>
+      <tr><td>Click Rate</td><td>2.6%</td><td><strong>6%+</strong></td><td>Single clear CTA per email, relevant segment targeting</td></tr>
+      <tr><td>Valentines Click Rate</td><td>—</td><td><strong>3%+</strong></td><td>Contextual placement, urgency in subject lines, offer emails</td></tr>
+      <tr><td>Unsubscribe Rate</td><td>0.26%</td><td><strong>&lt;0.2%</strong></td><td>Only send genuinely useful content, honour preferences</td></tr>
+      <tr><td>List Growth (Month 1)</td><td>—</td><td><strong>200+ subscribers</strong></td><td>Newsletter form live on all pages, social media promotion</td></tr>
+      <tr><td>List Growth (Month 6)</td><td>—</td><td><strong>1,500+</strong></td><td>SEO traffic, social media, word-of-mouth from Valentines guests</td></tr>
+    </tbody>
+  </table>
+
+  <div class="done-box">
+    <strong>✅ Already Built</strong>
+    All 5 email templates (welcome, booking confirmation, monthly newsletter, pre-arrival, post-stay thank-you) are in <code>email/email-templates.html</code>. Copy the HTML source of each into Mailchimp's Campaign Builder when setting up each automation email. Use the Template → Paste in your own HTML option.
+  </div>
+
+  <div style="background:#1A1A2E; border-radius:12px; padding:28px; margin-top:40px; text-align:center;">
+    <div style="font-size:1.5rem; margin-bottom:10px;">📧</div>
+    <h3 style="color:#fff; margin-bottom:8px;">Questions about Mailchimp setup?</h3>
+    <p style="color:rgba(255,255,255,.6); margin:0; font-size:.85rem;">Mailchimp's help centre is excellent: <span style="color:#60A5FA;">mailchimp.com/help</span> — or reach out and we'll walk through it together.</p>
+  </div>
+
+</div>
+</body>
+</html>
