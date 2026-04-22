@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found · Harbour Island Insider</title>
+  <meta name="description" content="We couldn't find that page. Head back to the journal or find somewhere to stay." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#1B4F5C" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(180deg, rgba(27,79,92,.55), rgba(27,79,92,.8)),
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=80') center/cover fixed no-repeat;
+      color: var(--cream);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .four-oh-four {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .four-oh-four .eyebrow {
+      color: var(--gold);
+      justify-content: center;
+    }
+    .four-oh-four .eyebrow::before,
+    .four-oh-four .eyebrow::after { background: var(--gold); }
+    .four-oh-four .number {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 14vw, 9rem);
+      line-height: 1;
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      margin-bottom: 12px;
+      text-shadow: 0 4px 40px rgba(0,0,0,.35);
+    }
+    .four-oh-four h1 {
+      color: var(--cream);
+      font-style: italic;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 24px rgba(0,0,0,.35);
+    }
+    .four-oh-four p {
+      color: rgba(250,246,240,.92);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 1px 14px rgba(0,0,0,.25);
+    }
+    .four-oh-four .btn-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="four-oh-four">
+    <span class="eyebrow">404 · Page Not Found</span>
+    <div class="number">404</div>
+    <h1>Nothing on this tide line.</h1>
+    <p>The page you were looking for has drifted off. Try the journal, find somewhere to stay, or head back to the homepage.</p>
+    <div class="btn-row">
+      <a href="/harbour-island-insider/" class="btn btn-primary">← Home</a>
+      <a href="/harbour-island-insider/blog.html" class="btn btn-secondary">The Journal</a>
+      <a href="/harbour-island-insider/where-to-stay.html" class="btn btn-secondary">Where to Stay</a>
+    </div>
+  </div>
+</body>
+</html>
